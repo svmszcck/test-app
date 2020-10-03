@@ -1,2 +1,2 @@
-export { default as UseCachedResources } from "./useCachedResources";
-export { default as UseColorScheme } from "./useColorScheme";
+export { default as useCachedResources } from "./useCachedResources";
+export { default as useColorScheme } from "./useColorScheme";

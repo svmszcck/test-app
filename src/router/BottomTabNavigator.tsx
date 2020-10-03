@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 
-import Colors from "constants/colors";
-import useColorScheme from "hooks/useColorScheme";
+import { Colors } from "constants";
+import { useColorScheme } from "hooks";
 import { Home, Info } from "screens";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "types";
 
@@ -43,8 +43,6 @@ export default function BottomTabNavigator() {
   );
 }
 
-// You can explore the built-in icon families and icons on the web at:
-// https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
@@ -53,11 +51,14 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
+    <TabOneStack.Navigator
+      headerMode="none"
+      screenOptions={{ headerShown: false }}
+    >
       <TabOneStack.Screen
         name="Home"
         component={Home}
-        options={{ headerTitle: "Tab One Title" }}
+        options={{ headerTitle: "Home" }}
       />
     </TabOneStack.Navigator>
   );
@@ -67,11 +68,14 @@ const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
   return (
-    <TabTwoStack.Navigator>
+    <TabTwoStack.Navigator
+      headerMode="none"
+      screenOptions={{ headerShown: false }}
+    >
       <TabTwoStack.Screen
         name="Info"
         component={Info}
-        options={{ headerTitle: "Tab Two Title" }}
+        options={{ headerTitle: "Info" }}
       />
     </TabTwoStack.Navigator>
   );

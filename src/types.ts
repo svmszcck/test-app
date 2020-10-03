@@ -1,3 +1,5 @@
+// Routing
+
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
@@ -15,3 +17,9 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+// General
+
+export type BackHandlerFunc = () => boolean | null | undefined;
+
+// Redux Types
