@@ -16,7 +16,12 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const posts = useSelector((state) => state.posts);
   const user = useSelector((state) => state.user);
   const { movie, movieLoading } = posts;
-  const { id, title, poster_path: posterPath } = movie;
+  const {
+    id,
+    title,
+    poster_path: posterPath,
+    vote_average: voteAverage,
+  } = movie;
   const { favorites } = user;
   const isFavorite = favorites.find((favorite) => favorite?.id === id);
 
@@ -40,7 +45,9 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   }, [movie.vote_average]);
 
   const doToggleFavorite = () => {
-    dispatch(toggleFavorite({ id, title, img: posterPath }));
+    dispatch(
+      toggleFavorite({ id, title, img: posterPath, score: voteAverage })
+    );
   };
 
   return (

@@ -8,4 +8,7 @@ export default StyleSheet.create({
     marginRight: "auto",
     fontWeight: "bold",
   },
+  item: {
+    marginBottom: 12,
+  },
 });

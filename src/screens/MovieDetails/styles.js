@@ -29,7 +29,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   score: {
-    fontSize: 30,
+    fontSize: 26,
   },
   description: {
     marginTop: 25,

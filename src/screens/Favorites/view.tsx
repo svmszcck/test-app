@@ -1,12 +1,15 @@
 import React, { useMemo } from "react";
 import { View, useColorScheme } from "react-native";
 import { ListItem, Text } from "react-native-elements";
+import { Ionicons } from "@expo/vector-icons";
 
 import { Layout, Section } from "components";
 import Colors from "constants/colors";
+import { IMAGE_URL } from "constants/api";
+import { IMAGE_SMALL } from "constants/ui";
 import styles from "./styles";
 
-const FavoritesView = ({ favorites, removeItem }) => {
+const FavoritesView = ({ navigation, favorites, removeItem }) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
@@ -16,20 +19,28 @@ const FavoritesView = ({ favorites, removeItem }) => {
           Your favorite list is empty :(
         </Text>
       )}
-      {favorites.map(({ id, title, img }) => (
+      {favorites.map(({ id, title, img, score }) => (
         <ListItem
           leftAvatar={{
-            title: "Rwerwer",
+            size: "large",
             source: {
-              uri:
-                "https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+              uri: `${IMAGE_URL(IMAGE_SMALL)}/${img}`,
             },
             rounded: false,
           }}
+          underlayColor={colors.primary}
           title={title}
-          subtitle={"Trtrttr"}
-          chevron
-          onPress={() => removeItem(id)}
+          subtitle={`Score: ${score}`}
+          containerStyle={styles.item}
+          onPress={() => navigation.navigate("MovieDetails", { id })}
+          rightIcon={
+            <Ionicons
+              onPress={() => removeItem(id)}
+              size={30}
+              color={colors.text}
+              name="ios-remove-circle"
+            />
+          }
         />
       ))}
     </Layout>

@@ -31,9 +31,10 @@ const MovieDetailsView = ({
   return (
     <Layout
       isLoading={movieLoading}
+      navigation={navigation}
       hasMenu
       rightIcon={isFavorite ? "ios-heart" : "ios-heart-empty"}
-      rigthAction={toggleFavorite}
+      rightAction={toggleFavorite}
     >
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
@@ -62,7 +63,7 @@ const MovieDetailsView = ({
         </View>
         {genres && (
           <Section text="Genres" style={styles.description}>
-            <ScrollView horizontal>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {genres.map((genre) => (
                 <Tile
                   title={genre.name}

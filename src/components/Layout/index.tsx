@@ -40,11 +40,8 @@ const Layout = ({
               >
                 <Ionicons size={30} color={colors.text} name="ios-arrow-back" />
               </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.favorite}
-                onPress={() => navigation.goBack()}
-              >
-                <Ionicons onPress={rightAction} size={30} name={rightIcon} />
+              <TouchableOpacity style={styles.favorite} onPress={rightAction}>
+                <Ionicons size={30} name={rightIcon} />
               </TouchableOpacity>
             </View>
           )}
@@ -70,7 +67,6 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    alignItems: "center",
     marginBottom: 20,
   },
   favorite: {
