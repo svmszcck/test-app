@@ -2,12 +2,14 @@ import {
   genresService,
   popularMoviesService,
   movieDetailsService,
+  searchMovieService,
 } from "services/post";
 import { updateLoginState } from "utils/ui";
 import {
   GET_GENRES,
   GET_POPULAR_MOVIES,
   GET_MOVIE,
+  GET_SEARCHED_MOVIES,
   RESET_MOVIE,
   RESET_POSTS,
 } from "../constants";
@@ -47,6 +49,20 @@ export const getMovieDetails = (id: number) => async (dispatch: Function) => {
       payload: { movie: data },
     });
     updateLoginState(dispatch, "movieLoading", false);
+  }
+};
+
+export const searchMovie = (query: string, page: number) => async (
+  dispatch: Function
+) => {
+  updateLoginState(dispatch, "isSearching", true);
+  const data = await searchMovieService(query, page);
+  if (data && data.results) {
+    dispatch({
+      type: GET_SEARCHED_MOVIES,
+      payload: { searchedMovies: data.results },
+    });
+    updateLoginState(dispatch, "isSearching", false);
   }
 };
 

@@ -35,7 +35,7 @@ const Layout = ({
           {hasMenu && (
             <View style={styles.header}>
               <TouchableOpacity
-                style={{ width: 60, height: 60 }}
+                style={styles.back}
                 onPress={() => navigation.goBack()}
               >
                 <Ionicons size={30} color={colors.text} name="ios-arrow-back" />
@@ -65,9 +65,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
+  back: {
+    width: 60,
+    height: 60,
+  },
   header: {
     flexDirection: "row",
-    marginBottom: 20,
   },
   favorite: {
     marginLeft: "auto",

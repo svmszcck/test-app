@@ -18,6 +18,10 @@ export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
+export type TabThreeParamList = {
+  TabThreeScreen: undefined;
+};
+
 // General
 
 export type BackHandlerFunc = () => boolean | null | undefined;

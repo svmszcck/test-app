@@ -30,3 +30,14 @@ export const movieDetailsService = async (id: string) => {
   });
   return response?.data;
 };
+
+export const searchMovieService = async (query: string, page: number) => {
+  const response = await axios.get(`${BASE_URL}/search/movie`, {
+    params: {
+      api_key: API_KEY,
+      query,
+      page,
+    },
+  });
+  return response?.data;
+};

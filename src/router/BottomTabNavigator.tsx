@@ -5,8 +5,20 @@ import * as React from "react";
 
 import { Colors } from "constants";
 import { useColorScheme } from "hooks";
-import { Home, Profile, Category, MovieDetails, Favorites } from "screens";
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "types";
+import {
+  Home,
+  Profile,
+  Category,
+  MovieDetails,
+  Favorites,
+  Search,
+} from "screens";
+import {
+  BottomTabParamList,
+  Tab1ParamList,
+  Tab2ParamList,
+  Tab3ParamList,
+} from "types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -19,14 +31,15 @@ export default function BottomTabNavigator() {
       tabBarOptions={{
         activeTintColor: Colors[colorScheme].secondary,
         showLabel: false,
+        keyboardHidesTabBar: true,
         style: {
           backgroundColor: "white",
         },
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Tab1"
+        component={Tab1Navigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-home" color={color} />
@@ -34,8 +47,17 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Tab2"
+        component={Tab2Navigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="md-search" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Tab3"
+        component={Tab3Navigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="md-person" color={color} />
@@ -50,51 +72,68 @@ function TabBarIcon(props: { name: string; color: string }) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const Tab1Stack = createStackNavigator<Tab1ParamList>();
 
-function TabOneNavigator() {
+function Tab1Navigator() {
   return (
-    <TabOneStack.Navigator
+    <Tab1Stack.Navigator
       headerMode="none"
       screenOptions={{ headerShown: false, animationEnabled: false }}
     >
-      <TabOneStack.Screen
+      <Tab1Stack.Screen
         name="Home"
         component={Home}
         options={{ headerTitle: "Home" }}
       />
-      <TabOneStack.Screen
+      <Tab1Stack.Screen
         name="Category"
         component={Category}
         options={{ headerTitle: "Category" }}
       />
-      <TabOneStack.Screen
+      <Tab1Stack.Screen
         name="MovieDetails"
         component={MovieDetails}
         options={{ headerTitle: "MovieDetails" }}
       />
-      <TabOneStack.Screen
+      <Tab1Stack.Screen
         name="Favorites"
         component={Favorites}
         options={{ headerTitle: "Favorites" }}
       />
-    </TabOneStack.Navigator>
+    </Tab1Stack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const Tab2Stack = createStackNavigator<Tab2ParamList>();
 
-function TabTwoNavigator() {
+function Tab2Navigator() {
   return (
-    <TabTwoStack.Navigator
+    <Tab2Stack.Navigator
       headerMode="none"
       screenOptions={{ headerShown: false }}
     >
-      <TabTwoStack.Screen
+      <Tab2Stack.Screen
+        name="Search"
+        component={Search}
+        options={{ headerTitle: "Search" }}
+      />
+    </Tab2Stack.Navigator>
+  );
+}
+
+const Tab3Stack = createStackNavigator<Tab3ParamList>();
+
+function Tab3Navigator() {
+  return (
+    <Tab3Stack.Navigator
+      headerMode="none"
+      screenOptions={{ headerShown: false }}
+    >
+      <Tab3Stack.Screen
         name="Profile"
         component={Profile}
         options={{ headerTitle: "Profile" }}
       />
-    </TabTwoStack.Navigator>
+    </Tab3Stack.Navigator>
   );
 }
