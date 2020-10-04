@@ -82,6 +82,7 @@ const WelcomeView = ({
           title="Save Profile Info"
           onPress={saveUser}
           buttonStyle={{ backgroundColor: colors.secondary }}
+          titleStyle={styles.buttonText}
         />
       </ScrollView>
     </Layout>

@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   RefreshControl,
   TouchableOpacity,
+  Image,
   useColorScheme,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,9 +19,12 @@ import { Layout, Section } from "components";
 import Colors from "constants/colors";
 import Device from "constants/layout";
 import { IMAGE_URL } from "constants/api";
-import { IMAGE_SMALL } from "constants/ui";
+import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "constants/ui";
+import { trimText } from "utils/ui";
 import { Genre } from "types";
 import styles from "./styles";
+
+import tada from "assets/images/tada.png";
 
 const posterWidth = Device.window.width / 2.5;
 const posterHeight = posterWidth / 1.5;
@@ -37,6 +41,8 @@ const HomeView = ({
   popularMoviesLoading,
   isRefreshing,
   refresh,
+  name,
+  showMessage,
 }: HomeViewProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
@@ -44,11 +50,19 @@ const HomeView = ({
   return (
     <Layout>
       <View style={styles.header}>
-        <View>
+        <TouchableOpacity
+          style={{ flexDirection: "row", alignItems: "center" }}
+          onPress={() => (name ? showMessage : null)}
+        >
+          <Image
+            source={tada}
+            style={{ width: 25, height: 25, marginRight: 12 }}
+          />
           <Text style={[styles.user, { color: colors.textBold }]}>
-            Hello Cenk, welcome :)
+            Hello {name ? name : "Unknown Soldier"}, welcome :)
           </Text>
-        </View>
+        </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.favorite}
           onPress={() => navigation.goBack()}
@@ -74,7 +88,7 @@ const HomeView = ({
               <View style={styles.poster}>
                 <Tile
                   imageSrc={{
-                    uri: `${IMAGE_URL(IMAGE_SMALL)}/${movie.poster_path}`,
+                    uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${movie.poster_path}`,
                   }}
                   featured
                   activeOpacity={0.8}
@@ -87,7 +101,9 @@ const HomeView = ({
                   containerStyle={styles.posterContainer}
                 />
                 <Text style={[styles.posterTitle, { color: colors.text }]}>
-                  {movie.title}
+                  {movie.title.length >= POSTER_TEXT_LIMIT
+                    ? trimText(movie.title, POSTER_TEXT_LIMIT)
+                    : movie.title}
                 </Text>
               </View>
             ))}
@@ -151,6 +167,8 @@ type HomeViewProps = {
   genres: Array<Genre>;
   popularMovies: any;
   navigation: any;
+  categories: boolean;
+  setCategories: Function;
 };
 
 export default HomeView;

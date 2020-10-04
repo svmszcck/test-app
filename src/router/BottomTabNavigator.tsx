@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { Colors } from "constants";
 import { useColorScheme } from "hooks";
-import { Home, Info, Category, MovieDetails } from "screens";
+import { Home, Profile, Category, MovieDetails, Favorites } from "screens";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -73,6 +73,11 @@ function TabOneNavigator() {
         component={MovieDetails}
         options={{ headerTitle: "MovieDetails" }}
       />
+      <TabOneStack.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{ headerTitle: "Favorites" }}
+      />
     </TabOneStack.Navigator>
   );
 }
@@ -86,9 +91,9 @@ function TabTwoNavigator() {
       screenOptions={{ headerShown: false }}
     >
       <TabTwoStack.Screen
-        name="Info"
-        component={Info}
-        options={{ headerTitle: "Info" }}
+        name="Profile"
+        component={Profile}
+        options={{ headerTitle: "Profile" }}
       />
     </TabTwoStack.Navigator>
   );

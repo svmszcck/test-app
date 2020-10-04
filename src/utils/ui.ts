@@ -10,3 +10,8 @@ export const updateLoginState = (
     payload: { [key]: isLoading },
   });
 };
+
+export const trimText = (text: string, limit: number) => {
+  const result = text.substring(0, limit - 3);
+  return `${result}...`;
+};

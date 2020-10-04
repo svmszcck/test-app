@@ -1,15 +1,29 @@
 import React, { useMemo } from "react";
-import { View, StyleSheet, useColorScheme } from "react-native";
+import {
+  View,
+  ActivityIndicator,
+  StyleSheet,
+  useColorScheme,
+} from "react-native";
 import { Text } from "react-native-elements";
 
 import Colors from "constants/colors";
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, isLoading = false }: LayoutProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
-      {children}
+      {isLoading ? (
+        <ActivityIndicator
+          animating
+          size="large"
+          color={colors.text}
+          style={styles.loading}
+        />
+      ) : (
+        children
+      )}
     </View>
   );
 };
@@ -20,10 +34,18 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 0,
   },
+  loading: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
 });
 
 type LayoutProps = {
   children: React.ReactNode;
+  isLoading: boolean;
 };
 
 export default Layout;

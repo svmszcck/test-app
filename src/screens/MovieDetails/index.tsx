@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -11,6 +11,7 @@ import MovieDetailsView from "./view";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
+  const [rating, showRating] = useState(false);
   const posts = useSelector((state) => state.posts);
   const { movie, movieLoading } = posts;
 
@@ -25,6 +26,14 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (movie.vote_average) {
+      setTimeout(() => {
+        showRating(true);
+      }, 500);
+    }
+  }, [movie.vote_average]);
+
   const toggleFavorite = () => {};
 
   return (
@@ -33,6 +42,7 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       toggleFavorite={toggleFavorite}
       movie={movie}
       movieLoading={movieLoading}
+      rating={rating}
     />
   );
 };

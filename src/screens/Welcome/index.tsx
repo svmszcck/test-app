@@ -4,6 +4,7 @@ import { View, ScrollView, Keyboard, useColorScheme } from "react-native";
 
 import { updateUserInfo } from "store/actions/auth";
 import { checkPermission, pickImage } from "utils/image";
+import { storeData } from "utils/device";
 import WelcomeView from "./view";
 
 const Welcome = ({ navigation }) => {
@@ -30,7 +31,8 @@ const Welcome = ({ navigation }) => {
 
   const saveUser = () => {
     dispatch(updateUserInfo({ data: { name } }));
-    // navigation.navigate("Root");
+    storeData("name", name);
+    navigation.navigate("Root");
   };
 
   return (

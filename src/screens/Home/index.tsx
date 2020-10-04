@@ -11,6 +11,7 @@ const Home = ({ navigation }) => {
   const [page, setPage] = useState<number>(1);
   const [isRefreshing, showRefresh] = useState<boolean>(false);
   const posts = useSelector((state) => state.posts);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const {
     genres,
@@ -19,6 +20,7 @@ const Home = ({ navigation }) => {
     moviesLoading,
     popularMoviesLoading,
   } = posts;
+  const name = auth?.data?.name;
 
   useEffect(() => {
     dispatch(getGenres());
@@ -51,6 +53,16 @@ const Home = ({ navigation }) => {
     return true;
   };
 
+  const showMessage = () => {
+    Alert.alert("Hey hey", `Hey ${name}. You are awesome :P`, [
+      {
+        text: "Nope",
+        onPress: () => null,
+      },
+      { text: "Yes I am", onPress: () => {} },
+    ]);
+  };
+
   useBackHandler(handleBackButton);
 
   return (
@@ -66,6 +78,8 @@ const Home = ({ navigation }) => {
       popularMoviesLoading={popularMoviesLoading}
       isRefreshing={isRefreshing}
       refresh={refreshPage}
+      name={name}
+      showMessage={showMessage}
     />
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 
-const Info = () => {
+const Profile = () => {
   return <View></View>;
 };
 
-export default Info;
+export default Profile;

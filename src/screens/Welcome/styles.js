@@ -31,4 +31,7 @@ export default StyleSheet.create({
   skipText: {
     fontSize: 16,
   },
+  buttonText: {
+    marginRight: 5,
+  },
 });
