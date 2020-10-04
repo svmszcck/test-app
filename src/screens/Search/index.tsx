@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { searchMovie } from "store/actions/posts";
+import { searchMovie, resetSearchedMovies } from "store/actions/posts";
 import SearchView from "./view";
 
 const Search = ({ navigation }) => {
@@ -13,10 +13,11 @@ const Search = ({ navigation }) => {
   const posts = useSelector((state) => state.posts);
   const { searchedMovies, isSearching } = posts;
 
-  const search = () => {
-    if (value) dispatch(searchMovie(value, page));
+  const search = (isLoadMore: boolean = false) => {
+    if (!isLoadMore) dispatch(resetSearchedMovies());
+    if (value) dispatch(searchMovie(value, isLoadMore ? page : 1));
     setSearched(true);
-    setPage(page + 1);
+    setPage(isLoadMore ? page + 1 : 1);
   };
 
   console.log("searchedMovies: ", posts.searchedMovies);

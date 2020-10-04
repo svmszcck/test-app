@@ -113,7 +113,7 @@ function Tab2Navigator() {
   return (
     <Tab2Stack.Navigator
       headerMode="none"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, animationEnabled: false }}
     >
       <Tab2Stack.Screen
         name="Search"
@@ -135,7 +135,7 @@ function Tab3Navigator() {
   return (
     <Tab3Stack.Navigator
       headerMode="none"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, animationEnabled: false }}
     >
       <Tab3Stack.Screen
         name="Profile"

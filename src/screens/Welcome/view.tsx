@@ -57,7 +57,7 @@ const WelcomeView = ({
               uri: "https://api.adorable.io/avatars/400/abott@adorable.io.png",
             }}
             onPress={selectUserImg}
-          ></Avatar>
+          />
           <Text style={[styles.warning, { color: colors.text }]}>
             Click on the image to add your profile pic
           </Text>

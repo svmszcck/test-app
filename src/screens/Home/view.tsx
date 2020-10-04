@@ -153,7 +153,12 @@ const HomeView = ({
                   marginTop: -5,
                 }}
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate("Category", { id: item.id })}
+                onPress={() =>
+                  navigation.navigate("Category", {
+                    id: item.id,
+                    name: item.name,
+                  })
+                }
               />
             )}
           />

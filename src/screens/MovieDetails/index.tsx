@@ -12,7 +12,6 @@ import MovieDetailsView from "./view";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
-  const [rating, showRating] = useState(false);
   const posts = useSelector((state) => state.posts);
   const user = useSelector((state) => state.user);
   const { movie, movieLoading } = posts;
@@ -36,14 +35,6 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (movie.vote_average) {
-      setTimeout(() => {
-        showRating(true);
-      }, 500);
-    }
-  }, [movie.vote_average]);
-
   const doToggleFavorite = () => {
     dispatch(
       toggleFavorite({
@@ -61,7 +52,6 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       toggleFavorite={doToggleFavorite}
       movie={movie}
       movieLoading={movieLoading}
-      rating={rating}
       isFavorite={isFavorite}
       // isFavorite={false}
     />

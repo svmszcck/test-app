@@ -1,6 +1,6 @@
 import { LOGIN, GET_FAVORITES } from "../constants";
 
-const initialState = { data: {}, favorites: [] };
+const initialState = { data: { name: "", avatar: null }, favorites: [] };
 
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {

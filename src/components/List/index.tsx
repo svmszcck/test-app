@@ -13,6 +13,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "constants/colors";
 import { IMAGE_URL } from "constants/api";
 import { IMAGE_SMALL } from "constants/ui";
+import { DELAY_TIME } from "constants/general";
+import { delayTask } from "utils/ui";
 
 const List = ({
   navigation,
@@ -21,6 +23,7 @@ const List = ({
   icon,
   rightAction,
   hasLoadMore = false,
+  isLoading = false,
   loadMore,
   warning,
 }: ListProps) => {
@@ -28,7 +31,7 @@ const List = ({
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
     <View>
-      {elements.length === 0 && (
+      {!isLoading && elements.length === 0 && (
         <Text style={[styles.warning, { color: colors.textBold }]}>
           {warning}
         </Text>
@@ -54,7 +57,7 @@ const List = ({
               }}
               underlayColor={colors.primary}
               title={title}
-              subtitle={`Score: ${voteAverage}`}
+              subtitle={`Score: ${voteAverage ? voteAverage : "-"}`}
               containerStyle={styles.item}
               onPress={() => navigation.navigate("MovieDetails", { id })}
               rightIcon={
@@ -70,18 +73,26 @@ const List = ({
             />
           )
         )}
-        {hasLoadMore && elements.length > 0 && (
-          <View style={styles.bottomSection}>
+        <View style={styles.bottomSection}>
+          {hasLoadMore && !isLoading && elements.length > 0 && (
             <Button
               buttonStyle={[
                 styles.loadMore,
                 { backgroundColor: colors.secondary },
               ]}
               title="Load More"
-              onPress={loadMore}
+              onPress={() => delayTask(loadMore, DELAY_TIME)}
             />
-          </View>
-        )}
+          )}
+          {isLoading && (
+            <ActivityIndicator
+              animating
+              size="large"
+              color={colors.text}
+              style={styles.loading}
+            />
+          )}
+        </View>
       </ScrollView>
     </View>
   );
@@ -108,6 +119,9 @@ const styles = StyleSheet.create({
   },
   item: {
     marginBottom: 12,
+  },
+  loading: {
+    marginTop: 20,
   },
 });
 

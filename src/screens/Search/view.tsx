@@ -24,11 +24,11 @@ const SearchView = ({
   const colors = useMemo(() => Colors[colorScheme], []);
 
   return (
-    <Layout navigation={navigation} hasMenu isLoading={loading}>
+    <Layout navigation={navigation}>
       <SearchBar
         platform="ios"
         placeholder="Write a movie name..."
-        onSubmitEditing={search}
+        onSubmitEditing={() => search(false)}
         onChangeText={setValue}
         value={value}
         containerStyle={{ backgroundColor: colors.primary }}
@@ -41,7 +41,8 @@ const SearchView = ({
             elements={movies}
             navigation={navigation}
             hasLoadMore
-            loadMore={search}
+            loadMore={() => search(true)}
+            isLoading={loading}
           />
         </Section>
       ) : (

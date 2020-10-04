@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import { View, Image, TouchableOpacity, useColorScheme } from "react-native";
-import { Text, Tile, Rating } from "react-native-elements";
+import { Text, Tile } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
+import Rating from "react-native-star-rating";
 
 import { Layout, Section } from "components";
 import Colors from "constants/colors";
@@ -15,7 +16,6 @@ const MovieDetailsView = ({
   toggleFavorite,
   movie,
   movieLoading,
-  rating,
   isFavorite,
 }: MovieDetailsProps) => {
   const colorScheme = useColorScheme();
@@ -48,17 +48,13 @@ const MovieDetailsView = ({
             {title}
           </Text>
           <Text style={[styles.score, { color: colors.text }]}>
-            {voteAverage}
+            {voteAverage ? voteAverage : "-"}
           </Text>
           <Rating
-            readonly
-            showRating={false}
-            ratingBackgroundColor={colors.text}
-            type="custom"
-            tintColor={colors.primary}
-            imageSize={25}
-            style={{ opacity: rating ? 1 : 0 }}
-            startingValue={voteAverage ? voteAverage / 2 : null}
+            disabled
+            maxStars={5}
+            rating={voteAverage ? voteAverage / 2 : 0}
+            fullStarColor={"#EC4B4B"}
           />
         </View>
         {genres && (
@@ -82,9 +78,17 @@ const MovieDetailsView = ({
                     marginTop: -5,
                   }}
                   activeOpacity={0.8}
-                  onPress={() => navigation.navigate("Category")}
+                  onPress={() =>
+                    navigation.navigate("Category", {
+                      id: genre.id,
+                      name: genre.name,
+                    })
+                  }
                 />
               ))}
+              {genres.length === 0 && (
+                <Text>This movie doesn't have genre.</Text>
+              )}
             </ScrollView>
           </Section>
         )}

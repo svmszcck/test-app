@@ -13,6 +13,7 @@ import {
   GET_SEARCHED_MOVIES,
   GET_MOVIES_BY_GENRE,
   RESET_MOVIE,
+  RESET_SEARCHED_MOVIES,
   RESET_POSTS,
 } from "../constants";
 
@@ -85,6 +86,12 @@ export const getMovieByGenre = (genre: Number, page: number) => async (
 export const resetMovie = () => async (dispatch: Function) => {
   dispatch({
     type: RESET_MOVIE,
+  });
+};
+
+export const resetSearchedMovies = () => async (dispatch: Function) => {
+  dispatch({
+    type: RESET_SEARCHED_MOVIES,
   });
 };
 
