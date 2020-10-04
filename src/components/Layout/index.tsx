@@ -3,13 +3,22 @@ import {
   View,
   ActivityIndicator,
   StyleSheet,
+  TouchableOpacity,
   useColorScheme,
 } from "react-native";
 import { Text } from "react-native-elements";
+import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "constants/colors";
 
-const Layout = ({ children, isLoading = false }: LayoutProps) => {
+const Layout = ({
+  children,
+  isLoading = false,
+  hasMenu = false,
+  rightIcon,
+  rightAction,
+  navigation,
+}: LayoutProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
@@ -22,7 +31,25 @@ const Layout = ({ children, isLoading = false }: LayoutProps) => {
           style={styles.loading}
         />
       ) : (
-        children
+        <>
+          {hasMenu && (
+            <View style={styles.header}>
+              <TouchableOpacity
+                style={{ width: 60, height: 60 }}
+                onPress={() => navigation.goBack()}
+              >
+                <Ionicons size={30} color={colors.text} name="ios-arrow-back" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.favorite}
+                onPress={() => navigation.goBack()}
+              >
+                <Ionicons onPress={rightAction} size={30} name={rightIcon} />
+              </TouchableOpacity>
+            </View>
+          )}
+          {children}
+        </>
       )}
     </View>
   );
@@ -40,6 +67,15 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  favorite: {
+    marginLeft: "auto",
+    width: 30,
   },
 });
 

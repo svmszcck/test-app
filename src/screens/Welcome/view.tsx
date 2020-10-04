@@ -19,7 +19,7 @@ const WelcomeView = ({
   selectUserImg,
   setName,
   saveUser,
-  auth,
+  user,
   name,
 }) => {
   const colorScheme = useColorScheme();
@@ -28,6 +28,7 @@ const WelcomeView = ({
   return (
     <Layout>
       <ScrollView
+        keyboardShouldPersistTaps="always"
         contentContainerStyle={[
           styles.container,
           { backgroundColor: colors.primary },
@@ -74,7 +75,7 @@ const WelcomeView = ({
           containerStyle={styles.inputContainer}
           style={{ color: colors.text }}
           labelStyle={{ color: colors.textBold }}
-          value={name || auth?.data?.name}
+          value={name || user?.data?.name}
         />
 
         <Button

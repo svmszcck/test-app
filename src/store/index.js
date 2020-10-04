@@ -8,7 +8,7 @@ import rootReducer from "./reducers";
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  blacklist: ["posts"],
+  blacklist: ["user", "posts"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

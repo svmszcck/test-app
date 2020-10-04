@@ -16,6 +16,7 @@ const MovieDetailsView = ({
   movie,
   movieLoading,
   rating,
+  isFavorite,
 }: MovieDetailsProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
@@ -28,21 +29,12 @@ const MovieDetailsView = ({
   } = movie;
 
   return (
-    <Layout isLoading={movieLoading}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={{ width: 60, height: 60 }}
-          onPress={() => navigation.goBack()}
-        >
-          <Ionicons size={30} color={colors.text} name="ios-arrow-back" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.favorite}
-          onPress={() => navigation.goBack()}
-        >
-          <Ionicons onPress={toggleFavorite} size={30} name="ios-heart" />
-        </TouchableOpacity>
-      </View>
+    <Layout
+      isLoading={movieLoading}
+      hasMenu
+      rightIcon={isFavorite ? "ios-heart" : "ios-heart-empty"}
+      rigthAction={toggleFavorite}
+    >
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <Image

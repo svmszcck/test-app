@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { View, ScrollView, Keyboard, useColorScheme } from "react-native";
 
-import { updateUserInfo } from "store/actions/auth";
+import { updateUserInfo } from "store/actions/user";
 import { checkPermission, pickImage } from "utils/image";
 import { storeData } from "utils/device";
 import WelcomeView from "./view";
@@ -12,7 +12,7 @@ const Welcome = ({ navigation }) => {
   const [name, setName] = useState<string>();
   const colorScheme = useColorScheme();
   const dispatch = useDispatch();
-  const auth = useSelector((state: any) => state.auth);
+  const user = useSelector((state: any) => state.user);
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -39,7 +39,7 @@ const Welcome = ({ navigation }) => {
     <WelcomeView
       navigation={navigation}
       keyboardDidShow={keyboardDidShow}
-      auth={auth}
+      user={user}
       name={name}
       setName={setName}
       selectUserImg={selectUserImg}

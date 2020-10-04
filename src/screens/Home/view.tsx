@@ -52,7 +52,7 @@ const HomeView = ({
       <View style={styles.header}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
-          onPress={() => (name ? showMessage : null)}
+          onPress={() => (name ? showMessage() : null)}
         >
           <Image
             source={tada}

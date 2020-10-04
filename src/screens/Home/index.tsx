@@ -11,7 +11,7 @@ const Home = ({ navigation }) => {
   const [page, setPage] = useState<number>(1);
   const [isRefreshing, showRefresh] = useState<boolean>(false);
   const posts = useSelector((state) => state.posts);
-  const auth = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const {
     genres,
@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
     moviesLoading,
     popularMoviesLoading,
   } = posts;
-  const name = auth?.data?.name;
+  const name = user?.data?.name;
 
   useEffect(() => {
     dispatch(getGenres());

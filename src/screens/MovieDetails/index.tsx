@@ -7,15 +7,20 @@ import {
   getMovieDetails,
   resetMovie,
 } from "store/actions/posts";
+import { toggleFavorite } from "store/actions/user";
 import MovieDetailsView from "./view";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
   const [rating, showRating] = useState(false);
   const posts = useSelector((state) => state.posts);
+  const user = useSelector((state) => state.user);
   const { movie, movieLoading } = posts;
+  const { id, title, poster_path: posterPath } = movie;
+  const { favorites } = user;
+  const isFavorite = favorites.find((favorite) => favorite?.id === id);
 
-  console.log(movie);
+  console.log("user: ", user);
 
   useEffect(() => {
     const id = route?.params?.id;
@@ -34,15 +39,19 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     }
   }, [movie.vote_average]);
 
-  const toggleFavorite = () => {};
+  const doToggleFavorite = () => {
+    dispatch(toggleFavorite({ id, title, img: posterPath }));
+  };
 
   return (
     <MovieDetailsView
       navigation={navigation}
-      toggleFavorite={toggleFavorite}
+      toggleFavorite={doToggleFavorite}
       movie={movie}
       movieLoading={movieLoading}
       rating={rating}
+      isFavorite={isFavorite}
+      // isFavorite={false}
     />
   );
 };
