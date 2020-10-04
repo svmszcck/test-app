@@ -1,8 +1,28 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Category = () => {
-  return <View></View>;
+import { getMovieByGenre } from "store/actions/posts";
+import CategoryView from "./view";
+
+const Category = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts);
+  const { moviesByGenre, moviesByGenreLoading } = posts;
+
+  console.log("moviesByGenre: ", moviesByGenre);
+
+  useEffect(() => {
+    const id = route?.params?.id;
+    if (id) dispatch(getMovieByGenre(id, 1));
+  }, []);
+
+  return (
+    <CategoryView
+      navigation={navigation}
+      movies={moviesByGenre}
+      loading={moviesByGenreLoading}
+    />
+  );
 };
 
 export default Category;

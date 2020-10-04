@@ -11,13 +11,4 @@ export default StyleSheet.create({
   item: {
     marginBottom: 12,
   },
-  warning: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  searchVector: {
-    marginTop: 100,
-    width: 300,
-    height: 250,
-  },
 });

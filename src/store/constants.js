@@ -5,6 +5,7 @@ export const GET_GENRES = "GET_GENRES";
 export const GET_MOVIE = "GET_MOVIE";
 export const GET_FAVORITES = "GET_FAVORITES";
 export const GET_SEARCHED_MOVIES = "GET_SEARCHED_MOVIES";
+export const GET_MOVIES_BY_GENRE = "GET_MOVIES_BY_GENRE";
 export const RESET_MOVIE = "RESET_MOVIE";
 export const RESET_POSTS = "RESET_POSTS";
 export const SET_LOADING_STATE = "SET_LOADING_STATE";

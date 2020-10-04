@@ -8,11 +8,15 @@ import SearchView from "./view";
 const Search = ({ navigation }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState<string>();
+  const [page, setPage] = useState<number>(1);
+  const [searched, setSearched] = useState<boolean>(false);
   const posts = useSelector((state) => state.posts);
-  const { searchedMovies } = posts;
+  const { searchedMovies, isSearching } = posts;
 
   const search = () => {
-    dispatch(searchMovie(value, 1));
+    if (value) dispatch(searchMovie(value, page));
+    setSearched(true);
+    setPage(page + 1);
   };
 
   console.log("searchedMovies: ", posts.searchedMovies);
@@ -24,6 +28,8 @@ const Search = ({ navigation }) => {
       search={search}
       value={value}
       setValue={setValue}
+      loading={isSearching}
+      searched={searched}
     />
   );
 };

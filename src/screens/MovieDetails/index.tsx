@@ -46,7 +46,12 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
 
   const doToggleFavorite = () => {
     dispatch(
-      toggleFavorite({ id, title, img: posterPath, score: voteAverage })
+      toggleFavorite({
+        id,
+        title,
+        poster_path: posterPath,
+        vote_average: voteAverage,
+      })
     );
   };
 

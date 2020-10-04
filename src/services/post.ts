@@ -41,3 +41,14 @@ export const searchMovieService = async (query: string, page: number) => {
   });
   return response?.data;
 };
+
+export const moviesByGenreService = async (genre: Number, page: number) => {
+  const response = await axios.get(`${BASE_URL}/discover/movie`, {
+    params: {
+      api_key: API_KEY,
+      with_genres: genre,
+      page,
+    },
+  });
+  return response?.data;
+};

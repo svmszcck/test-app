@@ -4,6 +4,7 @@ import {
   GET_GENRES,
   GET_POPULAR_MOVIES,
   GET_SEARCHED_MOVIES,
+  GET_MOVIES_BY_GENRE,
   SET_LOADING_STATE,
   RESET_MOVIE,
   RESET_POSTS,
@@ -15,9 +16,11 @@ const initialState = {
   popularMovies: [],
   movie: {},
   searchedMovies: [],
+  moviesByGenre: [],
   genresLoading: false,
   moviesLoading: false,
   popularMoviesLoading: false,
+  moviesByGenreLoading: false,
   movieLoading: false,
   isSearching: false,
 };
@@ -31,6 +34,8 @@ const postsReducer = (state = initialState, { type, payload }) => {
     case GET_MOVIE:
       return { ...state, ...payload };
     case GET_SEARCHED_MOVIES:
+      return { ...state, ...payload };
+    case GET_MOVIES_BY_GENRE:
       return { ...state, ...payload };
     case GET_POPULAR_MOVIES:
       return {

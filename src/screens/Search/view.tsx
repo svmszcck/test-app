@@ -1,59 +1,54 @@
 import React, { useMemo } from "react";
-import { View, ScrollView, useColorScheme } from "react-native";
+import { View, Image, useColorScheme } from "react-native";
 import { ListItem, Text, SearchBar } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Layout, Section } from "components";
+import { Layout, Section, List } from "components";
 import Colors from "constants/colors";
 import { IMAGE_URL } from "constants/api";
 import { IMAGE_SMALL } from "constants/ui";
 import styles from "./styles";
 
-const SearchView = ({ navigation, movies, value, search, setValue }) => {
+import searchVector from "assets/images/search.png";
+
+const SearchView = ({
+  navigation,
+  movies,
+  value,
+  search,
+  setValue,
+  loading,
+  searched,
+}) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
 
   return (
-    <Layout navigation={navigation} hasMenu rightAction={() => {}}>
+    <Layout navigation={navigation} hasMenu isLoading={loading}>
       <SearchBar
         platform="ios"
-        placeholder="Type Here..."
+        placeholder="Write a movie name..."
         onSubmitEditing={search}
         onChangeText={setValue}
         value={value}
         containerStyle={{ backgroundColor: colors.primary }}
         inputContainerStyle={{ backgroundColor: "white" }}
       />
-      {movies.length === 0 && (
-        <Text style={[styles.warning, { color: colors.textBold }]}>
-          There isn't any search result :(
-        </Text>
+      {searched ? (
+        <Section text="Search Results">
+          <List
+            warning="There isn't any search result to show :("
+            elements={movies}
+            navigation={navigation}
+            hasLoadMore
+            loadMore={search}
+          />
+        </Section>
+      ) : (
+        <View style={styles.warning}>
+          <Image source={searchVector} style={styles.searchVector} />
+        </View>
       )}
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {movies.map(
-          ({
-            id,
-            title,
-            poster_path: posterPath,
-            vote_average: voteAverage,
-          }) => (
-            <ListItem
-              leftAvatar={{
-                size: "large",
-                source: {
-                  uri: `${IMAGE_URL(IMAGE_SMALL)}/${posterPath}`,
-                },
-                rounded: false,
-              }}
-              underlayColor={colors.primary}
-              title={title}
-              subtitle={`Score: ${voteAverage}`}
-              containerStyle={styles.item}
-              onPress={() => navigation.navigate("MovieDetails", { id })}
-            />
-          )
-        )}
-      </ScrollView>
     </Layout>
   );
 };

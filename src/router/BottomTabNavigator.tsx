@@ -78,7 +78,10 @@ function Tab1Navigator() {
   return (
     <Tab1Stack.Navigator
       headerMode="none"
-      screenOptions={{ headerShown: false, animationEnabled: false }}
+      screenOptions={{
+        headerShown: false,
+        animationEnabled: false,
+      }}
     >
       <Tab1Stack.Screen
         name="Home"
@@ -116,6 +119,11 @@ function Tab2Navigator() {
         name="Search"
         component={Search}
         options={{ headerTitle: "Search" }}
+      />
+      <Tab2Stack.Screen
+        name="MovieDetails"
+        component={MovieDetails}
+        options={{ headerTitle: "MovieDetails" }}
       />
     </Tab2Stack.Navigator>
   );
