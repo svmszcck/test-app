@@ -69,8 +69,8 @@ const HomeView = ({
         >
           <Ionicons
             onPress={() => navigation.navigate("Favorites")}
-            size={30}
-            name="ios-heart"
+            size={35}
+            name="md-list-box"
             color={colors.textBold}
           />
         </TouchableOpacity>

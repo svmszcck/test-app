@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { View, ScrollView, useColorScheme } from "react-native";
 import { ListItem, Text } from "react-native-elements";
+import { isEmpty } from "lodash";
 
 import { Layout, Section, List } from "components";
 import Colors from "constants/colors";
@@ -13,14 +14,14 @@ const CategoryView = ({ navigation, movies, loading, loadMore, name }) => {
   const colors = useMemo(() => Colors[colorScheme], []);
 
   return (
-    <Layout navigation={navigation} hasMenu>
+    <Layout navigation={navigation} hasMenu isLoading={isEmpty(movies)}>
       <Section text={name}>
         <List
           elements={movies}
           navigation={navigation}
-          isLoading={loading}
           hasLoadMore
           loadMore={loadMore}
+          isLoading={loading}
         />
       </Section>
     </Layout>

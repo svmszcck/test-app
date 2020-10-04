@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { View, Image, TouchableOpacity, useColorScheme } from "react-native";
+import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
 import Rating from "react-native-star-rating";
@@ -30,7 +31,7 @@ const MovieDetailsView = ({
 
   return (
     <Layout
-      isLoading={movieLoading}
+      isLoading={isEmpty(movie)}
       navigation={navigation}
       hasMenu
       rightIcon={isFavorite ? "ios-heart" : "ios-heart-empty"}
