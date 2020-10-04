@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { Colors } from "constants";
 import { useColorScheme } from "hooks";
-import { Home, Info } from "screens";
+import { Home, Info, Category, MovieDetails } from "screens";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -17,8 +17,11 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabOne"
       tabBarOptions={{
-        activeTintColor: Colors[colorScheme].tint,
+        activeTintColor: Colors[colorScheme].secondary,
         showLabel: false,
+        style: {
+          backgroundColor: "white",
+        },
       }}
     >
       <BottomTab.Screen
@@ -35,7 +38,7 @@ export default function BottomTabNavigator() {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-heart" color={color} />
+            <TabBarIcon name="md-person" color={color} />
           ),
         }}
       />
@@ -53,12 +56,22 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator
       headerMode="none"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, animationEnabled: false }}
     >
       <TabOneStack.Screen
         name="Home"
         component={Home}
         options={{ headerTitle: "Home" }}
+      />
+      <TabOneStack.Screen
+        name="Category"
+        component={Category}
+        options={{ headerTitle: "Category" }}
+      />
+      <TabOneStack.Screen
+        name="MovieDetails"
+        component={MovieDetails}
+        options={{ headerTitle: "MovieDetails" }}
       />
     </TabOneStack.Navigator>
   );

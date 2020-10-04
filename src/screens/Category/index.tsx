@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 
-const Box = () => {
+const Category = () => {
   return <View></View>;
 };
 
-export default Box;
+export default Category;

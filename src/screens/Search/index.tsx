@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 
-const Text = () => {
+const Search = () => {
   return <View></View>;
 };
 
-export default Text;
+export default Search;

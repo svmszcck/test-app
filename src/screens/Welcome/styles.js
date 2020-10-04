@@ -21,8 +21,14 @@ export default StyleSheet.create({
   },
   skip: {
     position: "absolute",
-    right: 30,
-    top: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    right: 10,
+    top: 0,
+    width: 70,
+    height: 40,
+  },
+  skipText: {
     fontSize: 16,
   },
 });

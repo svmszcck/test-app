@@ -4,10 +4,12 @@ import { LogBox, View } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import "react-native-gesture-handler";
 
 import { useCachedResources, useColorScheme } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
+import { isApple } from "utils/device";
 
 LogBox.ignoreAllLogs(true);
 
@@ -24,8 +26,11 @@ export default function App() {
       <SafeAreaProvider>
         <Provider store={store}>
           <PersistGate loading={<View />} persistor={persistor}>
+            {isApple && (
+              <View style={{ height: 20, backgroundColor: "#C1DAD7" }}></View>
+            )}
             <Navigation colorScheme={colorScheme} />
-            <StatusBar />
+            {/* <StatusBar /> */}
           </PersistGate>
         </Provider>
       </SafeAreaProvider>

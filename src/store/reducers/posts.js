@@ -1,6 +1,23 @@
-import { GET_MOVIES, SET_LOADING_STATE } from "../constants";
+import {
+  GET_MOVIES,
+  GET_MOVIE,
+  GET_GENRES,
+  GET_POPULAR_MOVIES,
+  SET_LOADING_STATE,
+  RESET_MOVIE,
+  RESET_POSTS,
+} from "../constants";
 
-const initialState = { data: { genres: [], movies: [] }, loading: false };
+const initialState = {
+  genres: [],
+  movies: [],
+  popularMovies: [],
+  movie: {},
+  genresLoading: false,
+  moviesLoading: false,
+  popularMoviesLoading: false,
+  movieLoading: false,
+};
 
 const postsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -8,8 +25,19 @@ const postsReducer = (state = initialState, { type, payload }) => {
       return { ...state, ...payload };
     case GET_GENRES:
       return { ...state, ...payload };
+    case GET_MOVIE:
+      return { ...state, ...payload };
+    case GET_POPULAR_MOVIES:
+      return {
+        ...state,
+        popularMovies: [...state.popularMovies, ...payload.popularMovies],
+      };
     case SET_LOADING_STATE:
       return { ...state, ...payload };
+    case RESET_MOVIE:
+      return { ...state, movie: {} };
+    case RESET_POSTS:
+      return initialState;
     default:
       return state;
   }

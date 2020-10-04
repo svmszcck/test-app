@@ -22,4 +22,9 @@ export type TabTwoParamList = {
 
 export type BackHandlerFunc = () => boolean | null | undefined;
 
-// Redux Types
+// API
+
+export type Genre {
+  id: number;
+  name: string;
+}
