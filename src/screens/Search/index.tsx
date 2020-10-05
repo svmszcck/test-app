@@ -20,8 +20,6 @@ const Search = ({ navigation }) => {
     setPage(isLoadMore ? page + 1 : 1);
   };
 
-  console.log("searchedMovies: ", posts.searchedMovies);
-
   return (
     <SearchView
       navigation={navigation}

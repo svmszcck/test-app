@@ -50,5 +50,6 @@ export const moviesByGenreService = async (genre: Number, page: number) => {
       page,
     },
   });
+  console.log("apiden gelen: ", response.data.results.length);
   return response?.data;
 };

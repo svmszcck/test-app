@@ -5,9 +5,10 @@ import {
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
+  FlatList,
   useColorScheme,
 } from "react-native";
-import { Button, Text, ListItem } from "react-native-elements";
+import { Avatar, Button, Text, ListItem } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "constants/colors";
@@ -29,6 +30,9 @@ const List = ({
 }: ListProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
+
+  console.log("length: ", elements.length);
+
   return (
     <View>
       {!isLoading && elements.length === 0 && (
@@ -40,39 +44,46 @@ const List = ({
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.container}
       >
-        {elements.map(
-          ({
-            id,
-            title,
-            poster_path: posterPath,
-            vote_average: voteAverage,
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={elements}
+          renderItem={({
+            item: {
+              id,
+              title,
+              poster_path: posterPath,
+              vote_average: voteAverage,
+            },
           }) => (
             <ListItem
-              leftAvatar={{
-                size: "large",
-                source: {
-                  uri: `${IMAGE_URL(IMAGE_SMALL)}/${posterPath}`,
-                },
-                rounded: false,
-              }}
-              underlayColor={colors.primary}
-              title={title}
-              subtitle={`Score: ${voteAverage ? voteAverage : "-"}`}
-              containerStyle={styles.item}
+              style={styles.item}
               onPress={() => navigation.navigate("MovieDetails", { id })}
-              rightIcon={
-                hasAction ? (
-                  <Ionicons
-                    onPress={() => rightAction(id)}
-                    size={30}
-                    color={colors.text}
-                    name={icon}
-                  />
-                ) : undefined
-              }
-            />
-          )
-        )}
+            >
+              <Avatar
+                size="large"
+                source={{
+                  uri: `${IMAGE_URL(IMAGE_SMALL)}/${posterPath}`,
+                }}
+              />
+              <ListItem.Content>
+                <ListItem.Title>{title}</ListItem.Title>
+                <ListItem.Subtitle style={{ color: colors.text }}>{`Score: ${
+                  voteAverage ? voteAverage : "-"
+                }`}</ListItem.Subtitle>
+              </ListItem.Content>
+              {hasAction ? (
+                <Ionicons
+                  onPress={() => rightAction(id)}
+                  size={30}
+                  color={colors.text}
+                  name={icon}
+                />
+              ) : (
+                <ListItem.Chevron />
+              )}
+            </ListItem>
+          )}
+        />
         <View style={styles.bottomSection}>
           {hasLoadMore && !isLoading && elements.length > 0 && (
             <Button

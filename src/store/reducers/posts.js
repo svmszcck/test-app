@@ -40,6 +40,10 @@ const postsReducer = (state = initialState, { type, payload }) => {
         searchedMovies: [...state.searchedMovies, ...payload.searchedMovies],
       };
     case GET_MOVIES_BY_GENRE:
+      const wer = {
+        ...state,
+        moviesByGenre: [...state.moviesByGenre, ...payload.moviesByGenre],
+      };
       return {
         ...state,
         moviesByGenre: [...state.moviesByGenre, ...payload.moviesByGenre],

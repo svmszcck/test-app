@@ -15,7 +15,7 @@ import { FlatGrid } from "react-native-super-grid";
 
 import useBackHandler from "hooks/useBackHandler";
 import { getGenres } from "store/actions/posts";
-import { Layout, Section } from "components";
+import { Layout, Section, Carousel } from "components";
 import Colors from "constants/colors";
 import Device from "constants/layout";
 import { IMAGE_URL } from "constants/api";
@@ -83,43 +83,11 @@ const HomeView = ({
         }
       >
         <Section text="Popular Movies">
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {popularMovies.map((movie) => (
-              <View style={styles.poster}>
-                <Tile
-                  imageSrc={{
-                    uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${movie.poster_path}`,
-                  }}
-                  featured
-                  activeOpacity={0.8}
-                  height={posterHeight}
-                  width={posterWidth}
-                  onPress={() =>
-                    navigation.navigate("MovieDetails", { id: movie.id })
-                  }
-                  imageContainerStyle={styles.posterImage}
-                  containerStyle={styles.posterContainer}
-                />
-                <Text style={[styles.posterTitle, { color: colors.text }]}>
-                  {movie.title.length >= POSTER_TEXT_LIMIT
-                    ? trimText(movie.title, POSTER_TEXT_LIMIT)
-                    : movie.title}
-                </Text>
-              </View>
-            ))}
-            <View style={styles.posterLoadMore}>
-              {popularMoviesLoading ? (
-                <ActivityIndicator animating size="large" color={colors.text} />
-              ) : (
-                <Text
-                  style={[styles.posterLoadMoreTxt, { color: colors.textBold }]}
-                  onPress={loadPopularMovies}
-                >
-                  Load More
-                </Text>
-              )}
-            </View>
-          </ScrollView>
+          <Carousel
+            isLoading={popularMoviesLoading}
+            loadMore={loadPopularMovies}
+            elements={popularMovies}
+          />
         </Section>
         <Section text="Movie Categories">
           {/*
