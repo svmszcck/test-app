@@ -87,6 +87,7 @@ const HomeView = ({
             isLoading={popularMoviesLoading}
             loadMore={loadPopularMovies}
             elements={popularMovies}
+            navigation={navigation}
           />
         </Section>
         <Section text="Movie Categories">

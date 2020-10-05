@@ -4,7 +4,6 @@ import { LogBox, View } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import "react-native-gesture-handler";
 
 import { useCachedResources, useColorScheme } from "hooks";
 import Navigation from "router";

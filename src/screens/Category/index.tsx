@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getMovieByGenre } from "store/actions/posts";
+import { getMovieByGenre, resetMoviesByGenre } from "store/actions/posts";
 import CategoryView from "./view";
 
 const Category = ({ navigation, route }) => {
@@ -16,6 +16,9 @@ const Category = ({ navigation, route }) => {
 
   useEffect(() => {
     if (id) dispatch(getMovieByGenre(id, page));
+    return () => {
+      dispatch(resetMoviesByGenre());
+    };
   }, []);
 
   const loadMore = () => {

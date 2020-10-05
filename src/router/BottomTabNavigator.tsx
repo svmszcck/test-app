@@ -20,6 +20,13 @@ import {
   Tab3ParamList,
 } from "types";
 
+const animationConfig = {
+  animation: "timing",
+  config: {
+    duration: 0,
+  },
+};
+
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
@@ -141,6 +148,11 @@ function Tab3Navigator() {
         name="Profile"
         component={Profile}
         options={{ headerTitle: "Profile" }}
+      />
+      <Tab1Stack.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{ headerTitle: "Favorites" }}
       />
     </Tab3Stack.Navigator>
   );

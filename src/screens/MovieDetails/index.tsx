@@ -30,7 +30,6 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     const id = route?.params?.id;
     if (id) dispatch(getMovieDetails(id));
     return () => {
-      console.log("cleaned up");
       dispatch(resetMovie());
     };
   }, []);

@@ -8,6 +8,7 @@ import {
   SET_LOADING_STATE,
   RESET_MOVIE,
   RESET_SEARCHED_MOVIES,
+  RESET_MOVIES_BY_GENRE,
   RESET_POSTS,
 } from "../constants";
 
@@ -59,6 +60,8 @@ const postsReducer = (state = initialState, { type, payload }) => {
       return { ...state, movie: {} };
     case RESET_SEARCHED_MOVIES:
       return { ...state, searchedMovies: [] };
+    case RESET_MOVIES_BY_GENRE:
+      return { ...state, moviesByGenre: [] };
     case RESET_POSTS:
       return initialState;
     default:

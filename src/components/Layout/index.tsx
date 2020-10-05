@@ -39,6 +39,9 @@ const Layout = ({
                 onPress={() => navigation.goBack()}
               >
                 <Ionicons size={30} color={colors.text} name="ios-arrow-back" />
+                <Text style={[styles.backTxt, { color: colors.text }]}>
+                  Back
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.favorite} onPress={rightAction}>
                 <Ionicons size={30} name={rightIcon} />
@@ -66,8 +69,14 @@ const styles = StyleSheet.create({
     right: 0,
   },
   back: {
+    flexDirection: "row",
+    alignItems: "center",
     width: 60,
     height: 60,
+  },
+  backTxt: {
+    marginLeft: 10,
+    fontSize: 18,
   },
   header: {
     flexDirection: "row",
