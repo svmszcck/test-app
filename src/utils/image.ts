@@ -9,7 +9,7 @@ export const checkPermission = async () => {
   return true;
 };
 
-export const pickImage = async (setImage: Function) => {
+export const pickImage = async () => {
   let result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.All,
     allowsEditing: true,
@@ -17,7 +17,5 @@ export const pickImage = async (setImage: Function) => {
     quality: 1,
   });
 
-  if (!result.cancelled) {
-    setImage(result.uri);
-  }
+  if (!result.cancelled) return result.uri;
 };

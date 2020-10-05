@@ -1,8 +1,9 @@
 import { Action, FavoriteMovie, UserState } from "types";
-import { LOGIN, GET_FAVORITES } from "../constants";
+import { LOGIN, GET_FAVORITES, RESET_USER } from "../constants";
 
 const initialState: UserState = {
-  data: { name: null, avatar: null },
+  name: null,
+  avatar: null,
   favorites: [],
 };
 
@@ -23,6 +24,8 @@ const userReducer = (state = initialState, { type, payload }: Action) => {
         );
       else result = [...favorites, payload];
       return { ...state, favorites: result };
+    case RESET_USER:
+      return initialState;
     default:
       return state;
   }

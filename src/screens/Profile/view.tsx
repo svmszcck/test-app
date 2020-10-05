@@ -17,7 +17,9 @@ const ProfileView = ({ navigation, name, avatar, logout }) => {
           size={80}
           containerStyle={styles.avatar}
           source={{
-            uri: "https://api.adorable.io/avatars/400/abott@adorable.io.png",
+            uri:
+              avatar ||
+              "https://api.adorable.io/avatars/400/abott@adorable.io.png",
           }}
         />
         <Text style={[styles.title, { color: colors.textBold }]}>{name}</Text>

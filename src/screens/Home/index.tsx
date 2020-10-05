@@ -21,7 +21,7 @@ const Home = ({ navigation }: HomeProps) => {
     moviesLoading,
     popularMoviesLoading,
   } = posts;
-  const name = user?.data?.name;
+  const { name } = user;
 
   useEffect(() => {
     dispatch(getGenres());

@@ -61,7 +61,8 @@ export type Store = {
 };
 
 export type UserState = {
-  data: { name: string | null; avatar: string | null };
+  name: string | null;
+  avatar: string | null;
   favorites: Array<FavoriteMovie>;
 };
 

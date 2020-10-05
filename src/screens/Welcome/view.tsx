@@ -21,6 +21,7 @@ const WelcomeView = ({
   saveUser,
   user,
   name,
+  avatar,
 }) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
@@ -54,7 +55,9 @@ const WelcomeView = ({
             rounded
             size={100}
             source={{
-              uri: "https://api.adorable.io/avatars/400/abott@adorable.io.png",
+              uri:
+                avatar ||
+                "https://api.adorable.io/avatars/400/abott@adorable.io.png",
             }}
             onPress={selectUserImg}
           />
@@ -75,7 +78,7 @@ const WelcomeView = ({
           containerStyle={styles.inputContainer}
           style={{ color: colors.text }}
           labelStyle={{ color: colors.textBold }}
-          value={name || user?.data?.name}
+          value={name || user.name}
         />
 
         <Button
