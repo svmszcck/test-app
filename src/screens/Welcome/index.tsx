@@ -4,13 +4,14 @@ import { Keyboard } from "react-native";
 
 import { updateUserInfo } from "store/actions/user";
 import { checkPermission, pickImage } from "utils/image";
+import { UserState } from "types";
 import WelcomeView from "./view";
 
 const Welcome = ({ navigation }: WelcomeProps) => {
   const [keyboardDidShow, setKeyboardDidShow] = useState<boolean>(false);
   const [name, setName] = useState<string>();
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.user);
+  const user = useSelector((state: UserState) => state.user);
   const { avatar } = user;
 
   useEffect(() => {

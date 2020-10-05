@@ -11,7 +11,10 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { Layout } from "components";
 import Colors from "constants/colors";
+import { UserState } from "types";
 import styles from "./styles";
+
+import placeholder from "assets/images/placeholder.png";
 
 const WelcomeView = ({
   navigation,
@@ -22,7 +25,7 @@ const WelcomeView = ({
   user,
   name,
   avatar,
-}) => {
+}: WelcomeViewProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
 
@@ -55,9 +58,7 @@ const WelcomeView = ({
             rounded
             size={100}
             source={{
-              uri:
-                avatar ||
-                "https://api.adorable.io/avatars/400/abott@adorable.io.png",
+              uri: avatar || placeholder,
             }}
             onPress={selectUserImg}
           />
@@ -91,6 +92,17 @@ const WelcomeView = ({
       </ScrollView>
     </Layout>
   );
+};
+
+type WelcomeViewProps = {
+  navigation: any;
+  keyboardDidShow: boolean;
+  selectUserImg: () => void;
+  setName: Function;
+  saveUser: () => void;;
+  user: UserState;
+  name: string;
+  avatar: string;
 };
 
 export default WelcomeView;

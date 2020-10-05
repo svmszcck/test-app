@@ -5,14 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import useBackHandler from "hooks/useBackHandler";
 import { getGenres, getPopularMovies, resetPosts } from "store/actions/posts";
 import { handleBackButton, showSurprise } from "utils/ui";
+import { PostsState, UserState } from "types";
 import HomeView from "./view";
 
 const Home = ({ navigation }: HomeProps) => {
   const [categories, setCategories] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [isRefreshing, showRefresh] = useState<boolean>(false);
-  const posts = useSelector((state) => state.posts);
-  const user = useSelector((state) => state.user);
+  const posts = useSelector((state: PostsState) => state.posts);
+  const user = useSelector((state: UserState) => state.user);
   const dispatch = useDispatch();
   const {
     genres,

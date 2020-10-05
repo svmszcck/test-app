@@ -1,12 +1,24 @@
 import React, { useMemo } from "react";
-import { View, ScrollView, useColorScheme } from "react-native";
+import {
+  View,
+  ScrollView,
+  useColorScheme,
+  GestureResponderEvent,
+} from "react-native";
 import { Avatar, Button, colors, Input, Text } from "react-native-elements";
 
 import { Layout, Section } from "components";
 import Colors from "constants/colors";
 import styles from "./styles";
 
-const ProfileView = ({ navigation, name, avatar, logout }) => {
+import placeholder from "assets/images/placeholder.png";
+
+const ProfileView = ({
+  navigation,
+  name,
+  avatar,
+  logout,
+}: ProfileViewProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
@@ -17,9 +29,7 @@ const ProfileView = ({ navigation, name, avatar, logout }) => {
           size={80}
           containerStyle={styles.avatar}
           source={{
-            uri:
-              avatar ||
-              "https://api.adorable.io/avatars/400/abott@adorable.io.png",
+            uri: avatar || placeholder,
           }}
         />
         <Text style={[styles.title, { color: colors.textBold }]}>{name}</Text>
@@ -55,6 +65,13 @@ const ProfileView = ({ navigation, name, avatar, logout }) => {
       </ScrollView>
     </Layout>
   );
+};
+
+type ProfileViewProps = {
+  navigation: any;
+  name: string;
+  avatar: string;
+  logout: (event: GestureResponderEvent) => void;
 };
 
 export default ProfileView;
