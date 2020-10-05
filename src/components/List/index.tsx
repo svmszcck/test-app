@@ -9,6 +9,7 @@ import {
   useColorScheme,
 } from "react-native";
 import { Avatar, Button, Text, ListItem } from "react-native-elements";
+import { isEmpty } from "lodash";
 import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "constants/colors";
@@ -31,11 +32,9 @@ const List = ({
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
 
-  console.log("length: ", elements.length);
-
   return (
     <View>
-      {!isLoading && elements.length === 0 && warning && (
+      {!isLoading && isEmpty(elements) && warning && (
         <Text style={[styles.warning, { color: colors.textBold }]}>
           {warning}
         </Text>
@@ -85,7 +84,7 @@ const List = ({
           )}
         />
         <View style={styles.bottomSection}>
-          {hasLoadMore && !isLoading && elements.length > 0 && (
+          {hasLoadMore && !isLoading && !isEmpty(elements) && (
             <Button
               buttonStyle={[
                 styles.loadMore,

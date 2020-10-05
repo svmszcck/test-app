@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { View, Image, useColorScheme } from "react-native";
 import { Text } from "react-native-elements";
-import { Ionicons } from "@expo/vector-icons";
+import { isEmpty } from "lodash";
 
 import { Layout, List, Section } from "components";
 import styles from "./styles";
@@ -22,7 +22,7 @@ const FavoritesView = ({
       hasMenu
       rightAction={() => navigation.goBack()}
     >
-      {favorites.length === 0 ? (
+      {isEmpty(favorites) ? (
         <View style={styles.warning}>
           <Image source={sad} style={styles.sadVector} />
           <Text style={[styles.warningTxt, { color: colors.textBold }]}>
