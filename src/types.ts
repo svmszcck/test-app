@@ -55,6 +55,11 @@ export type Action = {
   payload: any;
 };
 
+export type Store = {
+  user: UserState;
+  posts: PostsState;
+};
+
 export type UserState = {
   data: { name: string | null; avatar: string | null };
   favorites: Array<FavoriteMovie>;

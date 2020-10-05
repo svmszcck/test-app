@@ -2,12 +2,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getMovieByGenre, resetMoviesByGenre } from "store/actions/posts";
+import { Store } from "types";
 import CategoryView from "./view";
 
-const Category = ({ navigation, route }) => {
+const Category = ({ navigation, route }: CategoryProps) => {
   const dispatch = useDispatch();
   const [page, setPage] = useState<number>(1);
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state: Store) => state.posts);
   const { moviesByGenre, moviesByGenreLoading } = posts;
 
   const id = useMemo(() => route?.params?.id, [route]);
@@ -35,6 +36,13 @@ const Category = ({ navigation, route }) => {
       name={name}
     />
   );
+};
+
+type CategoryProps = {
+  navigation: any;
+  route: {
+    params: any;
+  };
 };
 
 export default Category;

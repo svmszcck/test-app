@@ -7,9 +7,16 @@ import { Layout, Section, List } from "components";
 import Colors from "constants/colors";
 import { IMAGE_URL } from "constants/api";
 import { IMAGE_SMALL } from "constants/ui";
+import { Movie } from "types";
 import styles from "./styles";
 
-const CategoryView = ({ navigation, movies, loading, loadMore, name }) => {
+const CategoryView = ({
+  navigation,
+  movies,
+  loading,
+  loadMore,
+  name,
+}: CategoryViewProps) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
 
@@ -26,6 +33,14 @@ const CategoryView = ({ navigation, movies, loading, loadMore, name }) => {
       </Section>
     </Layout>
   );
+};
+
+type CategoryViewProps = {
+  navigation: any;
+  movies: Array<Movie>;
+  loading: boolean;
+  loadMore: Function;
+  name: string;
 };
 
 export default CategoryView;
