@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { View, Image, TouchableOpacity, useColorScheme } from "react-native";
+import { View, Image, ScrollView, useColorScheme } from "react-native";
 import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,8 +9,8 @@ import { Layout, Section } from "components";
 import Colors from "constants/colors";
 import { IMAGE_URL } from "constants/api";
 import { IMAGE_MEDIUM } from "constants/ui";
+import { Movie, Genre } from "types";
 import styles from "./styles";
-import { ScrollView } from "react-native-gesture-handler";
 
 const MovieDetailsView = ({
   navigation,
@@ -61,7 +61,7 @@ const MovieDetailsView = ({
         {genres && (
           <Section text="Genres" style={styles.description}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {genres.map((genre) => (
+              {genres.map((genre: Genre) => (
                 <Tile
                   title={genre.name}
                   containerStyle={{
@@ -104,7 +104,9 @@ const MovieDetailsView = ({
 type MovieDetailsProps = {
   navigation: any;
   toggleFavorite: Function;
-  movie: Object;
+  movie: Movie;
+  movieLoading: boolean;
+  isFavorite: boolean;
 };
 
 export default MovieDetailsView;

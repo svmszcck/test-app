@@ -20,13 +20,6 @@ import {
   Tab3ParamList,
 } from "types";
 
-const animationConfig = {
-  animation: "timing",
-  config: {
-    duration: 0,
-  },
-};
-
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {

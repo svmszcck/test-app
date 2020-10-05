@@ -8,6 +8,7 @@ import {
   resetMovie,
 } from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
+import { Movie } from "types";
 import MovieDetailsView from "./view";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
@@ -20,9 +21,9 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     title,
     poster_path: posterPath,
     vote_average: voteAverage,
-  } = movie;
+  }: Movie = movie;
   const { favorites } = user;
-  const isFavorite = favorites.find((favorite) => favorite?.id === id);
+  const isFavorite = favorites.find((favorite: any) => favorite?.id === id);
 
   console.log("user: ", user);
 

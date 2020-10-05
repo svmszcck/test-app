@@ -35,7 +35,7 @@ const List = ({
 
   return (
     <View>
-      {!isLoading && elements.length === 0 && (
+      {!isLoading && elements.length === 0 && warning && (
         <Text style={[styles.warning, { color: colors.textBold }]}>
           {warning}
         </Text>

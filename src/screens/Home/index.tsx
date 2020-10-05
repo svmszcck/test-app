@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useBackHandler from "hooks/useBackHandler";
 import { getGenres, getPopularMovies, resetPosts } from "store/actions/posts";
+import { handleBackButton, showSurprise } from "utils/ui";
 import HomeView from "./view";
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation }: HomeProps) => {
   const [categories, setCategories] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [isRefreshing, showRefresh] = useState<boolean>(false);
@@ -41,29 +42,10 @@ const Home = ({ navigation }) => {
     showRefresh(false);
   };
 
-  const handleBackButton = () => {
-    Alert.alert("Hold on!", "Are you sure you want to exit?", [
-      {
-        text: "Cancel",
-        onPress: () => null,
-        style: "cancel",
-      },
-      { text: "Yes", onPress: () => BackHandler.exitApp() },
-    ]);
+  useBackHandler(() => {
+    handleBackButton();
     return true;
-  };
-
-  const showMessage = () => {
-    Alert.alert("Hey hey", `Hey ${name}. You are awesome :P`, [
-      {
-        text: "Nope",
-        onPress: () => null,
-      },
-      { text: "Yes I am", onPress: () => {} },
-    ]);
-  };
-
-  useBackHandler(handleBackButton);
+  });
 
   return (
     <HomeView
@@ -72,16 +54,20 @@ const Home = ({ navigation }) => {
       navigation={navigation}
       categories={categories}
       setCategories={setCategories}
-      loadPopularMovies={loadPopularMovies}
+      loadMore={loadPopularMovies}
       genresLoading={genresLoading}
       moviesLoading={moviesLoading}
       popularMoviesLoading={popularMoviesLoading}
       isRefreshing={isRefreshing}
       refresh={refreshPage}
       name={name}
-      showMessage={showMessage}
+      showMessage={() => showSurprise(name)}
     />
   );
+};
+
+type HomeProps = {
+  navigation: any;
 };
 
 export default Home;

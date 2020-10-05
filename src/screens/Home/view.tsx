@@ -1,26 +1,19 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   View,
   ScrollView,
-  ActivityIndicator,
   RefreshControl,
   TouchableOpacity,
   Image,
   useColorScheme,
 } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, Tile } from "react-native-elements";
 import { FlatGrid } from "react-native-super-grid";
 
-import useBackHandler from "hooks/useBackHandler";
-import { getGenres } from "store/actions/posts";
 import { Layout, Section, Carousel } from "components";
 import Colors from "constants/colors";
 import Device from "constants/layout";
-import { IMAGE_URL } from "constants/api";
-import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "constants/ui";
-import { trimText } from "utils/ui";
 import { Genre } from "types";
 import styles from "./styles";
 
@@ -35,7 +28,7 @@ const HomeView = ({
   navigation,
   categories,
   setCategories,
-  loadPopularMovies,
+  loadMore,
   genresLoading,
   moviesLoading,
   popularMoviesLoading,
@@ -85,7 +78,7 @@ const HomeView = ({
         <Section text="Popular Movies">
           <Carousel
             isLoading={popularMoviesLoading}
-            loadMore={loadPopularMovies}
+            loadMore={loadMore}
             elements={popularMovies}
             navigation={navigation}
           />
@@ -143,6 +136,14 @@ type HomeViewProps = {
   navigation: any;
   categories: boolean;
   setCategories: Function;
+  loadMore: Function;
+  genresLoading: boolean;
+  moviesLoading: boolean;
+  popularMoviesLoading: boolean;
+  isRefreshing: boolean;
+  refresh: () => void;
+  name: string | undefined;
+  showMessage: Function;
 };
 
 export default HomeView;

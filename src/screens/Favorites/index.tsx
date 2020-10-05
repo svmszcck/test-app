@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "store/actions/user";
 import FavoritesView from "./view";
 
-const Favorites = ({ navigation }) => {
+const Favorites = ({ navigation }: FavoritesProps) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { favorites } = user;
@@ -32,6 +32,10 @@ const Favorites = ({ navigation }) => {
       navigation={navigation}
     />
   );
+};
+
+type FavoritesProps = {
+  navigation: any;
 };
 
 export default Favorites;

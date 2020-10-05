@@ -1,3 +1,4 @@
+import { Action, PostsState } from "types";
 import {
   GET_MOVIES,
   GET_MOVIE,
@@ -12,7 +13,7 @@ import {
   RESET_POSTS,
 } from "../constants";
 
-const initialState = {
+const initialState: PostsState = {
   genres: [],
   movies: [],
   popularMovies: [],
@@ -27,7 +28,7 @@ const initialState = {
   isSearching: false,
 };
 
-const postsReducer = (state = initialState, { type, payload }) => {
+const postsReducer = (state = initialState, { type, payload }: Action) => {
   switch (type) {
     case GET_MOVIES:
       return { ...state, ...payload };
