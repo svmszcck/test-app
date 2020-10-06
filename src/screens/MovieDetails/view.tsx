@@ -1,14 +1,14 @@
-import React, { useMemo } from "react";
-import { View, Image, ScrollView, useColorScheme } from "react-native";
+import React from "react";
+import { View, Image, ScrollView } from "react-native";
 import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
 import Rating from "react-native-star-rating";
 
 import { Layout, Section } from "components";
-import Colors from "constants/colors";
 import { IMAGE_URL } from "constants/api";
 import { IMAGE_MEDIUM } from "constants/ui";
 import { Movie, Genre } from "types";
+import { useColor } from "hooks";
 import styles from "./styles";
 
 const MovieDetailsView = ({
@@ -17,8 +17,7 @@ const MovieDetailsView = ({
   movie,
   isFavorite,
 }: MovieDetailsProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   const {
     title,
     overview,

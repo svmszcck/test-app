@@ -1,14 +1,9 @@
-import React, { useMemo } from "react";
-import {
-  View,
-  ScrollView,
-  useColorScheme,
-  GestureResponderEvent,
-} from "react-native";
-import { Avatar, Button, colors, Input, Text } from "react-native-elements";
+import React from "react";
+import { View, ScrollView, GestureResponderEvent } from "react-native";
+import { Avatar, Button, Text } from "react-native-elements";
 
 import { Layout, Section } from "components";
-import Colors from "constants/colors";
+import { useColor } from "hooks";
 import styles from "./styles";
 
 import placeholder from "assets/images/placeholder.png";
@@ -19,8 +14,7 @@ const ProfileView = ({
   avatar,
   logout,
 }: ProfileViewProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   return (
     <Layout>
       <View style={styles.topSection}>

@@ -2,7 +2,6 @@ import React from "react";
 import { isEmpty } from "lodash";
 
 import { Layout, Section, List } from "components";
-import { useColor } from "hooks";
 import { Movie } from "types";
 
 const CategoryView = ({
@@ -12,8 +11,6 @@ const CategoryView = ({
   loadMore,
   name,
 }: CategoryViewProps) => {
-  const colors = useColor();
-
   return (
     <Layout navigation={navigation} hasMenu isLoading={isEmpty(movies)}>
       <Section text={name}>

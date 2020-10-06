@@ -4,29 +4,32 @@ import Colors from "constants/colors";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   inputContainer: { width: "80%", marginBottom: 30 },
   info: {
-    position: "absolute",
-    top: 100,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: 60,
+    marginTop: 50,
+  },
+  content: {
+    alignItems: "center",
+    justifyContent: "center",
   },
   avatar: {
     alignItems: "center",
     marginBottom: 30,
+    marginTop: 30,
   },
   warning: {
     marginTop: 20,
   },
   skip: {
-    position: "absolute",
+    marginTop: 20,
+    marginLeft: "auto",
+    marginRight: 20,
     justifyContent: "center",
     alignItems: "center",
-    right: 10,
-    top: 0,
-    width: 70,
-    height: 40,
   },
   skipText: {
     fontSize: 16,

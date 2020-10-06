@@ -4,7 +4,7 @@ import Colors from "constants/colors";
 
 const useColor = () => {
   const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useMemo(() => Colors[colorScheme], [Colors, colorScheme]);
   return colors;
 };
 

@@ -1,12 +1,10 @@
-import React, { useMemo } from "react";
-import { View, Image, useColorScheme } from "react-native";
-import { ListItem, Text, SearchBar } from "react-native-elements";
-import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { View, Image } from "react-native";
+import { SearchBar } from "react-native-elements";
 
 import { Layout, Section, List } from "components";
-import Colors from "constants/colors";
-import { IMAGE_URL } from "constants/api";
-import { IMAGE_SMALL } from "constants/ui";
+import { Movie } from "types";
+import { useColor } from "hooks";
 import styles from "./styles";
 
 import searchVector from "assets/images/search.png";
@@ -19,9 +17,8 @@ const SearchView = ({
   setValue,
   loading,
   searched,
-}) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+}: SearchViewProps) => {
+  const colors = useColor();
 
   return (
     <Layout navigation={navigation}>
@@ -52,6 +49,16 @@ const SearchView = ({
       )}
     </Layout>
   );
+};
+
+type SearchViewProps = {
+  navigation: any;
+  movies: Array<Movie>;
+  value: string | undefined;
+  search: Function;
+  setValue: (text: string) => void;
+  loading: boolean;
+  searched: boolean;
 };
 
 export default SearchView;

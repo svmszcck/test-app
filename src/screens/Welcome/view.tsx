@@ -1,15 +1,11 @@
-import React, { useMemo } from "react";
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  useColorScheme,
-} from "react-native";
+import React from "react";
+import { View, ScrollView, TouchableOpacity } from "react-native";
 import { Avatar, Button, Input, Text } from "react-native-elements";
 
 import { Layout } from "components";
-import Colors from "constants/colors";
+import { useColor } from "hooks";
 import { UserState } from "types";
+
 import styles from "./styles";
 
 import placeholder from "assets/images/placeholder.png";
@@ -24,8 +20,7 @@ const WelcomeView = ({
   name,
   avatar,
 }: WelcomeViewProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
 
   return (
     <Layout>
@@ -39,7 +34,7 @@ const WelcomeView = ({
         {!keyboardDidShow && (
           <>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Root")}
+              onPress={() => navigation.navigate("Root", { screen: "Home" })}
               style={styles.skip}
             >
               <Text style={[styles.skipText, { color: colors.text }]}>
@@ -51,46 +46,53 @@ const WelcomeView = ({
             </Text>
           </>
         )}
-        <View style={styles.avatar}>
-          <Avatar
-            rounded
-            size={100}
-            source={
-              avatar
-                ? {
-                    uri: avatar,
-                  }
-                : placeholder
-            }
-            onPress={selectUserImg}
+        <View style={styles.content}>
+          {!keyboardDidShow && (
+            <View style={styles.avatar}>
+              <Avatar
+                rounded
+                size={100}
+                source={
+                  avatar
+                    ? {
+                        uri: avatar,
+                      }
+                    : placeholder
+                }
+                onPress={selectUserImg}
+              />
+              <Text style={[styles.warning, { color: colors.text }]}>
+                Click on the image to add your profile pic
+              </Text>
+            </View>
+          )}
+
+          <Input
+            placeholder="Write your name..."
+            leftIcon={{
+              type: "ionicon",
+              name: "ios-person",
+              color: colors.text,
+            }}
+            label="Who are you?"
+            onChangeText={(value: string) => setName(value)}
+            containerStyle={[
+              styles.inputContainer,
+              { marginTop: keyboardDidShow ? 50 : 0 },
+            ]}
+            style={{ color: colors.text }}
+            labelStyle={{ color: colors.textBold }}
+            value={name || user.name}
           />
-          <Text style={[styles.warning, { color: colors.text }]}>
-            Click on the image to add your profile pic
-          </Text>
+
+          <Button
+            icon={{ name: "check-circle", color: "#fff" }}
+            title="Save Profile Info"
+            onPress={saveUser}
+            buttonStyle={{ backgroundColor: colors.secondary }}
+            titleStyle={styles.buttonText}
+          />
         </View>
-
-        <Input
-          placeholder="Write your name..."
-          leftIcon={{
-            type: "ionicon",
-            name: "ios-person",
-            color: Colors[colorScheme].text,
-          }}
-          label="Who are you?"
-          onChangeText={(value: string) => setName(value)}
-          containerStyle={styles.inputContainer}
-          style={{ color: colors.text }}
-          labelStyle={{ color: colors.textBold }}
-          value={name || user.name}
-        />
-
-        <Button
-          icon={{ name: "check-circle", color: "#fff" }}
-          title="Save Profile Info"
-          onPress={saveUser}
-          buttonStyle={{ backgroundColor: colors.secondary }}
-          titleStyle={styles.buttonText}
-        />
       </ScrollView>
     </Layout>
   );

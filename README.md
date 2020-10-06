@@ -55,6 +55,10 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - I have separated the business logic from the UI part(Business logic is in the container files, UI related things are in the view files.)
 
+- I have implemented custom hooks. You can check the "src/hooks" folder :)
+
+- Since "KeyboardAvoidingView" component of React Native is a little bit buggy, I have implemented my own keyboard handler. Therefore input field is visible on small screens.
+
 **Cons:**
 
 - Not E2E testing as there wasn't enough time to work on that.

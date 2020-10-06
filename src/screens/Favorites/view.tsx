@@ -1,12 +1,12 @@
-import React, { useMemo } from "react";
-import { View, Image, useColorScheme } from "react-native";
+import React from "react";
+import { View, Image } from "react-native";
 import { Text } from "react-native-elements";
 import { isEmpty } from "lodash";
 
 import { Layout, List, Section } from "components";
+import { useColor } from "hooks";
 import styles from "./styles";
 
-import Colors from "constants/colors";
 import sad from "assets/images/sad.png";
 
 const FavoritesView = ({
@@ -14,8 +14,7 @@ const FavoritesView = ({
   favorites,
   removeItem,
 }: FavoritesViewProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   return (
     <Layout
       navigation={navigation}

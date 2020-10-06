@@ -1,17 +1,22 @@
-import { useCallback } from "react";
-import { BackHandler } from "react-native";
+import { useEffect } from "react";
+import { Keyboard, KeyboardEventListener } from "react-native";
 
-import BackHandlerFunc from "types";
+import { isApple } from "utils/device";
 
-const useBackHandler = (handleBackButton: BackHandlerFunc) => {
+const useKeyboardHandler = (
+  showAction: KeyboardEventListener,
+  hideAction: KeyboardEventListener
+) => {
   useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
-    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
-    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
-    return () => {
-      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
-    };
+    Keyboard.addListener(
+      isApple ? "keyboardWillShow" : "keyboardDidShow",
+      showAction
+    );
+    Keyboard.addListener(
+      isApple ? "keyboardWillHide" : "keyboardDidHide",
+      hideAction
+    );
   }, []);
 };
 
-export default useBackHandler;
+export default useKeyboardHandler;

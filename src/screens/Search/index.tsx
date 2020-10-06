@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { searchMovie, resetSearchedMovies } from "store/actions/posts";
+import { Store } from "types";
 import SearchView from "./view";
 
-const Search = ({ navigation }) => {
+const Search = ({ navigation }: SearchProps) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState<string>();
   const [page, setPage] = useState<number>(1);
   const [searched, setSearched] = useState<boolean>(false);
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state: Store) => state.posts);
   const { searchedMovies, isSearching } = posts;
 
   const search = (isLoadMore: boolean = false) => {
@@ -31,6 +31,10 @@ const Search = ({ navigation }) => {
       searched={searched}
     />
   );
+};
+
+type SearchProps = {
+  navigation: any;
 };
 
 export default Search;
