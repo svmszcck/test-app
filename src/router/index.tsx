@@ -9,7 +9,7 @@ import * as React from "react";
 import { ColorSchemeName } from "react-native";
 
 import { NotFound, Welcome } from "screens";
-import { RootStackParamList, UserState } from "types";
+import { RootStackParamList, Store } from "types";
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -31,7 +31,7 @@ export default function Navigation({
 const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-  const user = useSelector((state: UserState) => state.user);
+  const user = useSelector((state: Store) => state.user);
   const { name } = user;
 
   return (

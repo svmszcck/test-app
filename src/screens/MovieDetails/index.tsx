@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  getGenres,
-  getPopularMovies,
-  getMovieDetails,
-  resetMovie,
-} from "store/actions/posts";
+import { getMovieDetails, resetMovie } from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
-import { Movie } from "types";
+import { Movie, Store } from "types";
 import MovieDetailsView from "./view";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
-  const user = useSelector((state) => state.user);
+  const posts = useSelector((state: Store) => state.posts);
+  const user = useSelector((state: Store) => state.user);
   const { movie, movieLoading } = posts;
   const {
     id,
@@ -24,8 +19,6 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   }: Movie = movie;
   const { favorites } = user;
   const isFavorite = favorites.find((favorite: any) => favorite?.id === id);
-
-  console.log("user: ", user);
 
   useEffect(() => {
     const id = route?.params?.id;
@@ -53,13 +46,15 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       movie={movie}
       movieLoading={movieLoading}
       isFavorite={isFavorite}
-      // isFavorite={false}
     />
   );
 };
 
 type MovieDetailsProps = {
   navigation: any;
+  route: {
+    params: any;
+  };
 };
 
 export default MovieDetails;

@@ -1,14 +1,13 @@
-import "react-native";
+import { TouchableOpacity } from "react-native";
 import React from "react";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
 import { Avatar } from "react-native-elements";
-import Adapter from "enzyme-adapter-react-16";
-import Enzyme, { mount } from "enzyme";
+import { mount } from "enzyme";
 
 import { Welcome } from "screens";
 import WelcomeView from "screens/Welcome/view";
-import { store, navigation } from "mocks";
+import { store, navigation, MockedNavigator } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -21,7 +20,7 @@ describe("Testing Welcome Screen", () => {
 
   const container = (
     <Provider store={store}>
-      <Welcome />
+      <MockedNavigator component={Welcome} />
     </Provider>
   );
 
@@ -55,5 +54,9 @@ describe("Testing Welcome Screen", () => {
 
   it("ertert", () => {
     const wrapper = mount(container);
+
+    const skipButton = wrapper.find(TouchableOpacity);
+
+    console.log(skipButton.debug());
   });
 });

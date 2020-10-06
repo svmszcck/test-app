@@ -15,7 +15,6 @@ const MovieDetailsView = ({
   navigation,
   toggleFavorite,
   movie,
-  movieLoading,
   isFavorite,
 }: MovieDetailsProps) => {
   const colorScheme = useColorScheme();
@@ -86,7 +85,9 @@ const MovieDetailsView = ({
                   }
                 />
               ))}
-              {isEmpty(genres) && <Text>This movie doesn't have genre.</Text>}
+              {isEmpty(genres) && (
+                <Text>This movie doesn't have any genre.</Text>
+              )}
             </ScrollView>
           </Section>
         )}

@@ -47,7 +47,7 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 **Pros:**
 
-- I tried to use clean code & sexy UI as much as possible.
+- I tried to use clean code & sexy UI as much as possible. Without a good design a product won't be able to succeed ;)
 
 - I have tested the app on both Android and iOS. I have used platform specific code in some sections.
 
