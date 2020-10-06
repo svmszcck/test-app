@@ -14,6 +14,9 @@ const ProfileView = ({
   name,
   avatar,
   logout,
+  searchCount,
+  favoritesCount,
+  selectUserImg,
 }: ProfileViewProps) => {
   const colors = useColor();
   return (
@@ -23,6 +26,7 @@ const ProfileView = ({
           rounded
           size={80}
           containerStyle={styles.avatar}
+          onPress={selectUserImg}
           source={
             avatar
               ? {
@@ -36,11 +40,14 @@ const ProfileView = ({
       <ScrollView>
         <Section text="Statistics">
           <Text style={styles.statItem}>
-            You have searched <Text style={styles.searchCount}>10</Text> times
+            You have searched
+            <Text style={styles.searchCount}> {searchCount}</Text>
+            {searchCount > 1 ? " times" : " time"}.
           </Text>
           <Text style={styles.statItem}>
-            You have added <Text style={styles.searchCount}>10</Text> movies to
-            the favorite list
+            You have added{" "}
+            <Text style={styles.searchCount}>{favoritesCount}</Text>
+            {favoritesCount > 1 ? " movies" : " movie"} to the favorite list.
           </Text>
         </Section>
         <Section text="Actions">
@@ -71,6 +78,9 @@ type ProfileViewProps = {
   name: string;
   avatar: string;
   logout: (event: GestureResponderEvent) => void;
+  searchCount: number;
+  favoritesCount: number;
+  selectUserImg: () => void;
 };
 
 export default ProfileView;

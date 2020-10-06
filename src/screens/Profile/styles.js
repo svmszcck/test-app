@@ -10,7 +10,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   avatar: {
-    marginBottom: 20,
+    marginBottom: 10,
   },
   statItem: {
     marginBottom: 10,

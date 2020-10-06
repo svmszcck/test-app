@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { searchMovie, resetSearchedMovies } from "store/actions/posts";
+import { updateSearchCount } from "store/actions/user";
 import { Store } from "types";
 import SearchView from "./view";
 
@@ -15,9 +16,12 @@ const Search = ({ navigation }: SearchProps) => {
 
   const search = (isLoadMore: boolean = false) => {
     if (!isLoadMore) dispatch(resetSearchedMovies());
-    if (value) dispatch(searchMovie(value, isLoadMore ? page : 1));
-    setSearched(true);
-    setPage(isLoadMore ? page + 1 : 1);
+    if (value) {
+      dispatch(searchMovie(value, isLoadMore ? page : 1));
+      setSearched(true);
+      setPage(isLoadMore ? page + 1 : 1);
+      if (!isLoadMore) dispatch(updateSearchCount());
+    }
   };
 
   return (

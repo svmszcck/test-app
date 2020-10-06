@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Alert, Keyboard } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Keyboard } from "react-native";
 
 import { updateUserInfo } from "store/actions/user";
 import { checkPermission, pickImage } from "utils/image";
@@ -30,8 +30,13 @@ const Welcome = ({ navigation }: WelcomeProps) => {
   };
 
   const saveUser = () => {
-    dispatch(updateUserInfo({ name }));
-    navigation.navigate(Routes.ROOT);
+    if (name) {
+      Keyboard.dismiss();
+      dispatch(updateUserInfo({ name }));
+      navigation.navigate(Routes.ROOT);
+    } else {
+      Alert.alert("Error!", "Please write your name");
+    }
   };
 
   return (

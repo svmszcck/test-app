@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Alert, BackHandler, Keyboard } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import useBackHandler from "hooks/useBackHandler";

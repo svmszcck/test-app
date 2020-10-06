@@ -65,6 +65,8 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - I tried to use as much resuable components as possible. You can check the reusable components in "src/components" folder.
 
+- I have used ES6+ syntax(For example I have preferred async & await instead of promises).
+
 **Cons:**
 
 - Not E2E testing as there wasn't enough time to work on that.

@@ -25,7 +25,7 @@ const WelcomeView = ({
   return (
     <Layout>
       <ScrollView
-        keyboardShouldPersistTaps="always"
+        keyboardShouldPersistTaps="handled"
         contentContainerStyle={[
           styles.container,
           { backgroundColor: colors.primary },

@@ -1,10 +1,16 @@
 import { Action, FavoriteMovie, UserState } from "types";
-import { LOGIN, GET_FAVORITES, RESET_USER } from "../constants";
+import {
+  LOGIN,
+  GET_FAVORITES,
+  GET_SEARCH_COUNT,
+  RESET_USER,
+} from "../constants";
 
 const initialState: UserState = {
   name: null,
   avatar: null,
   favorites: [],
+  searchCount: 0,
 };
 
 const userReducer = (state = initialState, { type, payload }: Action) => {
@@ -24,6 +30,8 @@ const userReducer = (state = initialState, { type, payload }: Action) => {
         );
       else result = [...favorites, payload];
       return { ...state, favorites: result };
+    case GET_SEARCH_COUNT:
+      return { ...state, searchCount: state.searchCount + 1 };
     case RESET_USER:
       return initialState;
     default:
