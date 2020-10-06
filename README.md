@@ -49,6 +49,8 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - I tried to use clean code & sexy UI as much as possible.
 
+- I have tested the app on both Android and iOS. I have used platform specific code in some sections.
+
 - Redux as the state manager.
 
 - I have separated the business logic from the UI part(Business logic is in the container files, UI related things are in the view files.)
