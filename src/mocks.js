@@ -10,11 +10,13 @@ const mockStore = configureMockStore([thunk]);
 const Stack = createStackNavigator();
 jest.spyOn(Alert, "alert");
 
-export const store = mockStore({
+export const state = {
   user: {
     name: "Onur",
     avatar: null,
-    favorites: [],
+    favorites: [
+      { id: 13123, title: "Blabla", poster_path: "ewrwer", vote_average: 3.2 },
+    ],
   },
   posts: {
     movie: {
@@ -23,6 +25,7 @@ export const store = mockStore({
       poster_path: "ekjrhtkjert",
       vote_average: 5.6,
     },
+    movies: [],
     genres: [
       {
         id: 1,
@@ -37,8 +40,19 @@ export const store = mockStore({
         name: "Thriller",
       },
     ],
+    popularMovies: [],
+    searchedMovies: [],
+    moviesByGenre: [],
+    genresLoading: false,
+    moviesLoading: false,
+    popularMoviesLoading: false,
+    moviesByGenreLoading: false,
+    movieLoading: false,
+    isSearching: false,
   },
-});
+};
+
+export const store = mockStore(() => state);
 
 export const MockedNavigator = ({ component: Component, params = {} }) => {
   return (

@@ -1,12 +1,12 @@
 import React from "react";
-import { Alert, TouchableOpacity } from "react-native";
+import { Alert, RefreshControl, TouchableOpacity } from "react-native";
 import { Provider } from "react-redux";
 import { Tile } from "react-native-elements";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
 import { Home } from "screens";
-import { store, navigation, MockedNavigator } from "mocks";
+import { store, navigation, MockedNavigator, useDispatchSpy } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -32,7 +32,8 @@ describe("Testing Home Screen", () => {
 
     expect(Alert.alert).toHaveBeenCalled();
   });
-  it("ertert", () => {
+
+  it("show popular movie", () => {
     const wrapper = mount(container);
 
     const tile = wrapper.find(Tile).at(0);
@@ -42,5 +43,12 @@ describe("Testing Home Screen", () => {
     expect(tile.exists()).toBeTruthy();
 
     expect(navigation.navigate).toHaveBeenCalled();
+  });
+  it("refresh the page", () => {
+    const wrapper = mount(container);
+    const refresh = wrapper.find(RefreshControl);
+    refresh.props().onRefresh();
+
+    expect(useDispatchSpy).toHaveBeenCalledWith();
   });
 });
