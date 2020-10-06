@@ -78,7 +78,7 @@ const WelcomeView = ({
             color: Colors[colorScheme].text,
           }}
           label="Who are you?"
-          onChangeText={(value) => setName(value)}
+          onChangeText={(value: string) => setName(value)}
           containerStyle={styles.inputContainer}
           style={{ color: colors.text }}
           labelStyle={{ color: colors.textBold }}
@@ -104,7 +104,7 @@ type WelcomeViewProps = {
   setName: Function;
   saveUser: () => void;
   user: UserState;
-  name: string;
+  name: string | undefined;
   avatar: string;
 };
 

@@ -142,7 +142,7 @@ type HomeViewProps = {
   popularMoviesLoading: boolean;
   isRefreshing: boolean;
   refresh: () => void;
-  name: string | undefined;
+  name: string | null;
   showMessage: Function;
 };
 

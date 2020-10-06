@@ -55,7 +55,5 @@ describe("Testing Welcome Screen", () => {
 
   it("ertert", () => {
     const wrapper = mount(container);
-
-    console.log(wrapper.debug());
   });
 });
