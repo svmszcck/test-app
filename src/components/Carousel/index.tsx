@@ -11,8 +11,8 @@ import { Text, Tile } from "react-native-elements";
 
 import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
-import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "constants/ui";
-import Colors from "constants/colors";
+import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "app_constants/ui";
+import Colors from "app_constants/colors";
 import { trimText } from "utils/ui";
 import { Movie } from "types";
 

@@ -6,7 +6,7 @@ import { Avatar, Button } from "react-native-elements";
 import { mount } from "enzyme";
 
 import { Welcome } from "screens";
-import { store, navigation, useDispatchSpy } from "mocks";
+import { store, MockedNavigator, useDispatchSpy } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -19,18 +19,12 @@ describe("Testing Welcome Screen", () => {
 
   const container = (
     <Provider store={store}>
-      <Welcome navigation={navigation} />
+      <MockedNavigator component={Welcome} />
     </Provider>
   );
 
   it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <Provider store={store}>
-          <Welcome />
-        </Provider>
-      )
-      .toJSON();
+    const tree = renderer.create(container).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

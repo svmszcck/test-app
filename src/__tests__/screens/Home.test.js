@@ -6,7 +6,7 @@ import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
 import { Home } from "screens";
-import { store, MockedNavigator } from "mocks";
+import { store, navigation, MockedNavigator } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -37,6 +37,10 @@ describe("Testing Home Screen", () => {
 
     const tile = wrapper.find(Tile).at(0);
 
+    tile.props().onPress();
+
     expect(tile.exists()).toBeTruthy();
+
+    expect(navigation.navigate).toHaveBeenCalled();
   });
 });

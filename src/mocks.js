@@ -40,15 +40,13 @@ export const store = mockStore({
   },
 });
 
-export const MockedNavigator = ({ component, params = {} }) => {
+export const MockedNavigator = ({ component: Component, params = {} }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="MockedScreen"
-          component={component}
-          initialParams={params}
-        />
+        <Stack.Screen name="MockedScreen" initialParams={params}>
+          {(props) => <Component {...props} navigation={navigation} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
