@@ -2,7 +2,7 @@ import React, { useMemo, ReactNode } from "react";
 import { View, StyleSheet, useColorScheme } from "react-native";
 import { Text } from "react-native-elements";
 
-import Colors from "constants/colors";
+import Colors from "app_constants/colors";
 
 const Section = ({ text, children, style }: SectionProps) => {
   const colorScheme = useColorScheme();

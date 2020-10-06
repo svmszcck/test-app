@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, TouchableOpacity } from "react-native";
 import { Provider } from "react-redux";
+import { Tile } from "react-native-elements";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
@@ -30,5 +31,12 @@ describe("Testing Home Screen", () => {
     welcomeText.props().onPress();
 
     expect(Alert.alert).toHaveBeenCalled();
+  });
+  it("ertert", () => {
+    const wrapper = mount(container);
+
+    const tile = wrapper.find(Tile).at(0);
+
+    expect(tile.exists()).toBeTruthy();
   });
 });

@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 
-import { Colors } from "constants";
+import { Colors, Routes } from "app_constants";
 import {
   Home,
   Profile,
@@ -84,24 +84,24 @@ function Tab1Navigator() {
       }}
     >
       <Tab1Stack.Screen
-        name="Home"
+        name={Routes.HOME}
         component={Home}
-        options={{ headerTitle: "Home" }}
+        options={{ headerTitle: Routes.HOME }}
       />
       <Tab1Stack.Screen
-        name="Category"
+        name={Routes.CATEGORY}
         component={Category}
-        options={{ headerTitle: "Category" }}
+        options={{ headerTitle: Routes.CATEGORY }}
       />
       <Tab1Stack.Screen
-        name="MovieDetails"
+        name={Routes.MOVIE_DETAILS}
         component={MovieDetails}
-        options={{ headerTitle: "MovieDetails" }}
+        options={{ headerTitle: Routes.MOVIE_DETAILS }}
       />
       <Tab1Stack.Screen
-        name="Favorites"
+        name={Routes.FAVORITES}
         component={Favorites}
-        options={{ headerTitle: "Favorites" }}
+        options={{ headerTitle: Routes.FAVORITES }}
       />
     </Tab1Stack.Navigator>
   );
@@ -116,14 +116,14 @@ function Tab2Navigator() {
       screenOptions={{ headerShown: false, animationEnabled: false }}
     >
       <Tab2Stack.Screen
-        name="Search"
+        name={Routes.SEARCH}
         component={Search}
-        options={{ headerTitle: "Search" }}
+        options={{ headerTitle: Routes.SEARCH }}
       />
       <Tab2Stack.Screen
-        name="MovieDetails"
+        name={Routes.MOVIE_DETAILS}
         component={MovieDetails}
-        options={{ headerTitle: "MovieDetails" }}
+        options={{ headerTitle: Routes.MOVIE_DETAILS }}
       />
     </Tab2Stack.Navigator>
   );
@@ -138,14 +138,14 @@ function Tab3Navigator() {
       screenOptions={{ headerShown: false, animationEnabled: false }}
     >
       <Tab3Stack.Screen
-        name="Profile"
+        name={Routes.PROFILE}
         component={Profile}
-        options={{ headerTitle: "Profile" }}
+        options={{ headerTitle: Routes.PROFILE }}
       />
       <Tab1Stack.Screen
-        name="Favorites"
+        name={Routes.FAVORITES}
         component={Favorites}
-        options={{ headerTitle: "Favorites" }}
+        options={{ headerTitle: Routes.FAVORITES }}
       />
     </Tab3Stack.Navigator>
   );

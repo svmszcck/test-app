@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { BASE_URL } from "constants/api";
+import { BASE_URL } from "app_constants/api";
 import { API_KEY } from "app_config";
 
 export const genresService = async () => {

@@ -11,15 +11,11 @@ import { Text, Tile } from "react-native-elements";
 import { FlatGrid } from "react-native-super-grid";
 
 import { Layout, Section, Carousel } from "components";
-import Device from "constants/layout";
 import { Genre } from "types";
 import { useColor } from "hooks";
 import styles from "./styles";
 
 import tada from "assets/images/tada.png";
-
-const posterWidth = Device.window.width / 2.5;
-const posterHeight = posterWidth / 1.5;
 
 const HomeView = ({
   genres,

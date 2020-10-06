@@ -23,6 +23,20 @@ export const store = mockStore({
       poster_path: "ekjrhtkjert",
       vote_average: 5.6,
     },
+    genres: [
+      {
+        id: 1,
+        name: "Action",
+      },
+      {
+        id: 2,
+        name: "Horror",
+      },
+      {
+        id: 3,
+        name: "Thriller",
+      },
+    ],
   },
 });
 
