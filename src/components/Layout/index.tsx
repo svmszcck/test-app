@@ -71,8 +71,6 @@ const styles = StyleSheet.create({
   back: {
     flexDirection: "row",
     alignItems: "center",
-    width: 60,
-    height: 60,
   },
   backTxt: {
     marginLeft: 10,
@@ -80,6 +78,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
+    marginBottom: 20,
   },
   favorite: {
     marginLeft: "auto",

@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
   useColorScheme,
 } from "react-native";
-import { Avatar, Button, colors, Input, Text } from "react-native-elements";
-import { Ionicons } from "@expo/vector-icons";
+import { Avatar, Button, Input, Text } from "react-native-elements";
 
 import { Layout } from "components";
 import Colors from "constants/colors";
@@ -57,9 +56,13 @@ const WelcomeView = ({
           <Avatar
             rounded
             size={100}
-            source={{
-              uri: avatar || placeholder,
-            }}
+            source={
+              avatar
+                ? {
+                    uri: avatar,
+                  }
+                : placeholder
+            }
             onPress={selectUserImg}
           />
           <Text style={[styles.warning, { color: colors.text }]}>
@@ -99,7 +102,7 @@ type WelcomeViewProps = {
   keyboardDidShow: boolean;
   selectUserImg: () => void;
   setName: Function;
-  saveUser: () => void;;
+  saveUser: () => void;
   user: UserState;
   name: string;
   avatar: string;

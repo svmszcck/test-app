@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { View, Image, ScrollView, useColorScheme } from "react-native";
 import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
-import { isEmpty } from "lodash";
 import Rating from "react-native-star-rating";
 
 import { Layout, Section } from "components";

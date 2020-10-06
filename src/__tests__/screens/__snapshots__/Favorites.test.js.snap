@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "padding": 20,
+        "paddingBottom": 0,
+      },
+      Object {
+        "backgroundColor": "#E4F5F3",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "#5C7B8A",
+            "fontSize": 18,
+            "marginLeft": 10,
+          }
+        }
+      >
+        Back
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginLeft": "auto",
+          "opacity": 1,
+          "width": 30,
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "height": 220,
+          "marginTop": 100,
+          "resizeMode": "contain",
+          "width": 260,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#0B354F",
+          "fontWeight": "bold",
+          "marginLeft": "auto",
+          "marginRight": "auto",
+          "marginTop": 30,
+        }
+      }
+    >
+      Favorite list is empty :(
+    </Text>
+  </View>
+</View>
+`;

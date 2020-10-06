@@ -28,9 +28,13 @@ const ProfileView = ({
           rounded
           size={80}
           containerStyle={styles.avatar}
-          source={{
-            uri: avatar || placeholder,
-          }}
+          source={
+            avatar
+              ? {
+                  uri: avatar,
+                }
+              : placeholder
+          }
         />
         <Text style={[styles.title, { color: colors.textBold }]}>{name}</Text>
       </View>

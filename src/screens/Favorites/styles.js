@@ -17,8 +17,8 @@ export default StyleSheet.create({
   },
   sadVector: {
     marginTop: 100,
-    width: 350,
-    height: 300,
+    width: 260,
+    height: 220,
     resizeMode: "contain",
   },
 });

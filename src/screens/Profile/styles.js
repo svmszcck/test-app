@@ -4,7 +4,7 @@ import Colors from "constants/colors";
 export default StyleSheet.create({
   topSection: {
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 20,
   },
   title: {
     fontSize: 18,
