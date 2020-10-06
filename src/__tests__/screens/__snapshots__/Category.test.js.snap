@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Testing Category Screen renders correctly 1`] = `
 <View
   style={
     Array [
@@ -15,20 +15,519 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <ActivityIndicator
-    animating={true}
-    color="#5C7B8A"
-    hidesWhenStopped={true}
-    size="large"
+  <View
     style={
       Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "flexDirection": "row",
+        "marginBottom": 20,
       }
     }
-  />
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "#5C7B8A",
+            "fontSize": 18,
+            "marginLeft": 10,
+          }
+        }
+      >
+        Back
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginLeft": "auto",
+          "opacity": 1,
+          "width": 30,
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginBottom": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#0B354F",
+          "fontSize": 25,
+          "marginBottom": 10,
+        }
+      }
+    >
+      
+    </Text>
+    <View>
+      <RCTScrollView
+        contentContainerStyle={
+          Object {
+            "paddingBottom": 40,
+          }
+        }
+        showsVerticalScrollIndicator={false}
+      >
+        <View>
+          <RCTScrollView
+            data={
+              Array [
+                Object {
+                  "id": 12,
+                  "poster_path": "rtyrty",
+                  "title": "Hehehe",
+                  "vote_average": 7.6,
+                },
+              ]
+            }
+            disableVirtualization={false}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            onContentSizeChange={[Function]}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onMomentumScrollEnd={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            removeClippedSubviews={false}
+            renderItem={[Function]}
+            scrollEventThrottle={50}
+            stickyHeaderIndices={Array []}
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View>
+              <View
+                onLayout={[Function]}
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "marginBottom": 12,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#ffffff",
+                        "borderColor": "#bcbbc1",
+                        "flexDirection": "row",
+                        "padding": 14,
+                      }
+                    }
+                    testID="padView"
+                  >
+                    <View
+                      style={
+                        Object {
+                          "backgroundColor": "transparent",
+                          "height": 75,
+                          "width": 75,
+                        }
+                      }
+                      theme={
+                        Object {
+                          "colors": Object {
+                            "black": "#242424",
+                            "disabled": "hsl(208, 8%, 90%)",
+                            "divider": "#bcbbc1",
+                            "error": "#ff190c",
+                            "grey0": "#393e42",
+                            "grey1": "#43484d",
+                            "grey2": "#5e6977",
+                            "grey3": "#86939e",
+                            "grey4": "#bdc6cf",
+                            "grey5": "#e1e8ee",
+                            "greyOutline": "#bbb",
+                            "platform": Object {
+                              "android": Object {
+                                "error": "#f44336",
+                                "grey": "rgba(0, 0, 0, 0.54)",
+                                "primary": "#2196f3",
+                                "secondary": "#9C27B0",
+                                "success": "#4caf50",
+                                "warning": "#ffeb3b",
+                              },
+                              "ios": Object {
+                                "error": "#ff3b30",
+                                "grey": "#7d7d7d",
+                                "primary": "#007aff",
+                                "searchBg": "#dcdce1",
+                                "secondary": "#5856d6",
+                                "success": "#4cd964",
+                                "warning": "#ffcc00",
+                              },
+                            },
+                            "primary": "#2089dc",
+                            "searchBg": "#303337",
+                            "secondary": "#ca71eb",
+                            "success": "#52c41a",
+                            "warning": "#faad14",
+                            "white": "#ffffff",
+                          },
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityIgnoresInvertColors={true}
+                        style={
+                          Object {
+                            "backgroundColor": "transparent",
+                            "flex": 1,
+                            "overflow": "hidden",
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <Image
+                          onLoad={[Function]}
+                          source={
+                            Object {
+                              "uri": "http://image.tmdb.org/t/p/w200/rtyrty",
+                            }
+                          }
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "flex": 1,
+                              "height": null,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                              "width": null,
+                            }
+                          }
+                          testID="RNE__Image"
+                          theme={
+                            Object {
+                              "colors": Object {
+                                "black": "#242424",
+                                "disabled": "hsl(208, 8%, 90%)",
+                                "divider": "#bcbbc1",
+                                "error": "#ff190c",
+                                "grey0": "#393e42",
+                                "grey1": "#43484d",
+                                "grey2": "#5e6977",
+                                "grey3": "#86939e",
+                                "grey4": "#bdc6cf",
+                                "grey5": "#e1e8ee",
+                                "greyOutline": "#bbb",
+                                "platform": Object {
+                                  "android": Object {
+                                    "error": "#f44336",
+                                    "grey": "rgba(0, 0, 0, 0.54)",
+                                    "primary": "#2196f3",
+                                    "secondary": "#9C27B0",
+                                    "success": "#4caf50",
+                                    "warning": "#ffeb3b",
+                                  },
+                                  "ios": Object {
+                                    "error": "#ff3b30",
+                                    "grey": "#7d7d7d",
+                                    "primary": "#007aff",
+                                    "searchBg": "#dcdce1",
+                                    "secondary": "#5856d6",
+                                    "success": "#4cd964",
+                                    "warning": "#ffcc00",
+                                  },
+                                },
+                                "primary": "#2089dc",
+                                "searchBg": "#303337",
+                                "secondary": "#ca71eb",
+                                "success": "#52c41a",
+                                "warning": "#faad14",
+                                "white": "#ffffff",
+                              },
+                            }
+                          }
+                          transition={true}
+                        />
+                        <View
+                          accessibilityElementsHidden={true}
+                          importantForAccessibility="no-hide-descendants"
+                          pointerEvents="none"
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "left": 0,
+                              "opacity": 1,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "#bdbdbd",
+                                "flex": 1,
+                                "height": null,
+                                "justifyContent": "center",
+                                "width": null,
+                              }
+                            }
+                            testID="RNE__Image__placeholder"
+                          />
+                        </View>
+                        <View
+                          style={
+                            Object {
+                              "flex": 1,
+                              "height": null,
+                              "width": null,
+                            }
+                          }
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "paddingLeft": 16,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "flex-start",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        }
+                      }
+                      theme={
+                        Object {
+                          "colors": Object {
+                            "black": "#242424",
+                            "disabled": "hsl(208, 8%, 90%)",
+                            "divider": "#bcbbc1",
+                            "error": "#ff190c",
+                            "grey0": "#393e42",
+                            "grey1": "#43484d",
+                            "grey2": "#5e6977",
+                            "grey3": "#86939e",
+                            "grey4": "#bdc6cf",
+                            "grey5": "#e1e8ee",
+                            "greyOutline": "#bbb",
+                            "platform": Object {
+                              "android": Object {
+                                "error": "#f44336",
+                                "grey": "rgba(0, 0, 0, 0.54)",
+                                "primary": "#2196f3",
+                                "secondary": "#9C27B0",
+                                "success": "#4caf50",
+                                "warning": "#ffeb3b",
+                              },
+                              "ios": Object {
+                                "error": "#ff3b30",
+                                "grey": "#7d7d7d",
+                                "primary": "#007aff",
+                                "searchBg": "#dcdce1",
+                                "secondary": "#5856d6",
+                                "success": "#4cd964",
+                                "warning": "#ffcc00",
+                              },
+                            },
+                            "primary": "#2089dc",
+                            "searchBg": "#303337",
+                            "secondary": "#ca71eb",
+                            "success": "#52c41a",
+                            "warning": "#faad14",
+                            "white": "#ffffff",
+                          },
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "backgroundColor": "transparent",
+                            "color": "#242424",
+                            "fontSize": 17,
+                          }
+                        }
+                        testID="listItemTitle"
+                      >
+                        Hehehe
+                      </Text>
+                      <Text
+                        style={
+                          Object {
+                            "backgroundColor": "transparent",
+                            "color": "#5C7B8A",
+                            "fontSize": 15,
+                          }
+                        }
+                        testID="listItemTitle"
+                      >
+                        Score: 7.6
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "paddingLeft": 16,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "overflow": "hidden",
+                        }
+                      }
+                    >
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "transparent",
+                              "justifyContent": "center",
+                            }
+                          }
+                        >
+                          <Text />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 80,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "borderRadius": 3,
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <View
+                accessibilityRole="button"
+                accessibilityState={
+                  Object {
+                    "busy": false,
+                    "disabled": false,
+                  }
+                }
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#2CA17C",
+                      "borderColor": "#2089dc",
+                      "borderRadius": 3,
+                      "borderWidth": 0,
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "margin": 20,
+                      "padding": 8,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "white",
+                        "fontSize": 18,
+                        "paddingBottom": 1,
+                        "paddingTop": 2,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Load More
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
 </View>
 `;

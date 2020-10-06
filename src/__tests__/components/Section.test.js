@@ -8,13 +8,15 @@ import { store } from "mocks";
 
 jest.useFakeTimers();
 
-it("renders correctly", () => {
-  const tree = renderer
-    .create(
-      <Provider store={store}>
-        <Section />
-      </Provider>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+describe("Testing Section Component", () => {
+  it("renders correctly", () => {
+    const tree = renderer
+      .create(
+        <Provider store={store}>
+          <Section />
+        </Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

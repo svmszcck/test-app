@@ -42,7 +42,9 @@ export const state = {
     ],
     popularMovies: [],
     searchedMovies: [],
-    moviesByGenre: [],
+    moviesByGenre: [
+      { id: 12, title: "Hehehe", poster_path: "rtyrty", vote_average: 7.6 },
+    ],
     genresLoading: false,
     moviesLoading: false,
     popularMoviesLoading: false,
