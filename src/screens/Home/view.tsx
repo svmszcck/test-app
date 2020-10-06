@@ -80,13 +80,6 @@ const HomeView = ({
           />
         </Section>
         <Section text="Movie Categories">
-          {/*
-          {genresLoading && (
-            <View style={{ flex: 1, justifyContent: "flex-start" }}>
-              <ActivityIndicator animating size="large" color="#0000ff" />
-            </View>
-          )}
-          */}
           <FlatGrid
             itemDimension={140}
             data={genres}
@@ -98,18 +91,11 @@ const HomeView = ({
               <Tile
                 title={item.name}
                 containerStyle={{
+                  ...styles.genreContainer,
                   backgroundColor: colors.secondary,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 8,
-                  width: "100%",
                 }}
                 height={40}
-                titleStyle={{
-                  fontSize: 15,
-                  color: "white",
-                  marginTop: -5,
-                }}
+                titleStyle={{ ...styles.genreTitle, color: colors.white }}
                 activeOpacity={0.8}
                 onPress={() =>
                   navigation.navigate("Category", {

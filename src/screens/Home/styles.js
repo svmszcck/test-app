@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import Colors from "constants/colors";
 
 export default StyleSheet.create({
   container: {
@@ -20,5 +19,15 @@ export default StyleSheet.create({
   label: {
     marginBottom: 5,
     fontSize: 25,
+  },
+  genreContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    width: "100%",
+  },
+  genreTitle: {
+    fontSize: 15,
+    marginTop: -5,
   },
 });
