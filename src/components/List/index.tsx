@@ -17,6 +17,7 @@ import { IMAGE_URL } from "app_constants/api";
 import { IMAGE_SMALL } from "app_constants/ui";
 import { DELAY_TIME } from "app_constants/general";
 import { delayTask } from "utils/ui";
+import { Movie } from "types";
 
 const List = ({
   navigation,
@@ -136,8 +137,15 @@ const styles = StyleSheet.create({
 });
 
 type ListProps = {
-  children: React.ReactNode;
+  navigation: any;
+  elements: Array<Movie>;
+  hasAction: boolean;
+  icon: string;
+  rightAction: Function;
+  hasLoadMore: boolean;
   isLoading: boolean;
+  loadMore: Function;
+  warning: string;
 };
 
 export default List;

@@ -59,6 +59,10 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - Since "KeyboardAvoidingView" component of React Native is a little bit buggy, I have implemented my own keyboard handler. Therefore input field is visible on small screens.
 
+- I have put the styles in separate files for the screen components. However normal shared components have single files(styles are in the components files). This is called "Single File Components" as in Vue.
+
+- For testing I have used some snaphots using react-test-renderer and Enzyme for the real Unit Testing.
+
 **Cons:**
 
 - Not E2E testing as there wasn't enough time to work on that.

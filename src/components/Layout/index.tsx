@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, ReactNode } from "react";
 import {
   View,
   ActivityIndicator,
@@ -87,8 +87,12 @@ const styles = StyleSheet.create({
 });
 
 type LayoutProps = {
-  children: React.ReactNode;
+  navigation: any;
+  children: ReactNode;
   isLoading: boolean;
+  hasMenu: boolean;
+  rightIcon: string;
+  rightAction: Function;
 };
 
 export default Layout;

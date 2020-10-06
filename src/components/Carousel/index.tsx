@@ -4,15 +4,17 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+  GestureResponderEvent,
   useColorScheme,
 } from "react-native";
 import { Text, Tile } from "react-native-elements";
 
 import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
-import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "app_constants/ui";
-import Colors from "app_constants/colors";
+import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "constants/ui";
+import Colors from "constants/colors";
 import { trimText } from "utils/ui";
+import { Movie } from "types";
 
 const posterWidth = Device.window.width / 2.5;
 const posterHeight = posterWidth / 1.5;
@@ -22,7 +24,7 @@ const Carousel = ({
   navigation,
   isLoading = false,
   loadMore,
-}) => {
+}: CarouselType) => {
   const colorScheme = useColorScheme();
   const colors = useMemo(() => Colors[colorScheme], []);
   return (
@@ -103,5 +105,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
+type CarouselType = {
+  elements: Array<Movie>;
+  navigation: any;
+  isLoading: boolean;
+  loadMore: (event: GestureResponderEvent) => void;
+};
 
 export default Carousel;
