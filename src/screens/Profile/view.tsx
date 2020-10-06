@@ -4,6 +4,7 @@ import { Avatar, Button, Text } from "react-native-elements";
 
 import { Layout, Section } from "components";
 import { useColor } from "hooks";
+import Routes from "app_constants/routes";
 import styles from "./styles";
 
 import placeholder from "assets/images/placeholder.png";
@@ -46,7 +47,7 @@ const ProfileView = ({
           <View style={styles.actions}>
             <Button
               title="My Favorites"
-              onPress={() => navigation.navigate("Favorites")}
+              onPress={() => navigation.navigate(Routes.FAVORITES)}
               buttonStyle={{ backgroundColor: colors.secondary }}
               titleStyle={styles.buttonText}
               containerStyle={styles.action}

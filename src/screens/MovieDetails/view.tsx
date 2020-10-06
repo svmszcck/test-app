@@ -7,6 +7,7 @@ import Rating from "react-native-star-rating";
 import { Layout, Section } from "components";
 import { IMAGE_URL } from "app_constants/api";
 import { IMAGE_MEDIUM } from "app_constants/ui";
+import Routes from "app_constants/routes";
 import { Movie, Genre } from "types";
 import { useColor } from "hooks";
 import styles from "./styles";
@@ -77,7 +78,7 @@ const MovieDetailsView = ({
                   }}
                   activeOpacity={0.8}
                   onPress={() =>
-                    navigation.navigate("Category", {
+                    navigation.navigate(Routes.CATEGORY, {
                       id: genre.id,
                       name: genre.name,
                     })

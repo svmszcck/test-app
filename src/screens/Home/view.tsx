@@ -13,6 +13,7 @@ import { FlatGrid } from "react-native-super-grid";
 import { Layout, Section, Carousel } from "components";
 import { Genre } from "types";
 import { useColor } from "hooks";
+import Routes from "app_constants/routes";
 import styles from "./styles";
 
 import tada from "assets/images/tada.png";
@@ -53,7 +54,7 @@ const HomeView = ({
           onPress={() => navigation.goBack()}
         >
           <Ionicons
-            onPress={() => navigation.navigate("Favorites")}
+            onPress={() => navigation.navigate(Routes.FAVORITES)}
             size={35}
             name="md-list-box"
             color={colors.textBold}
@@ -94,7 +95,7 @@ const HomeView = ({
                 titleStyle={{ ...styles.genreTitle, color: colors.white }}
                 activeOpacity={0.8}
                 onPress={() =>
-                  navigation.navigate("Category", {
+                  navigation.navigate(Routes.CATEGORY, {
                     id: item.id,
                     name: item.name,
                   })

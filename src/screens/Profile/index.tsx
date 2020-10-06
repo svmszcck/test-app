@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "store/actions/user";
 import { Store } from "types";
+import Routes from "app_constants/routes";
 import ProfileView from "./view";
 
 const Profile = ({ navigation }: ProfileProps) => {
@@ -13,7 +14,7 @@ const Profile = ({ navigation }: ProfileProps) => {
 
   const doLogout = () => {
     dispatch(logout());
-    navigation.navigate("Welcome");
+    navigation.navigate(Routes.WELCOME);
   };
 
   return (

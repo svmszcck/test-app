@@ -61,7 +61,7 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - I have put the styles in separate files for the screen components. However normal shared components have single files(styles are in the components files). This is called "Single File Components" as in Vue.
 
-- For testing I have used some snaphots using react-test-renderer and Enzyme for the real Unit Testing.
+- For testing I have used some snaphots using react-test-renderer and Enzyme for the real Unit Testing. Normally I use TDD but as I didn't have much time I had to integrate the tests in the end.
 
 **Cons:**
 

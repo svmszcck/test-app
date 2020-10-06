@@ -4,6 +4,7 @@ import { Keyboard } from "react-native";
 
 import { updateUserInfo } from "store/actions/user";
 import { checkPermission, pickImage } from "utils/image";
+import Routes from "app_constants/routes";
 import { Store } from "types";
 import { useKeyboardHandler } from "hooks";
 import WelcomeView from "./view";
@@ -30,7 +31,7 @@ const Welcome = ({ navigation }: WelcomeProps) => {
 
   const saveUser = () => {
     dispatch(updateUserInfo({ name }));
-    navigation.navigate("Root");
+    navigation.navigate(Routes.ROOT);
   };
 
   return (

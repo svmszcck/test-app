@@ -13,6 +13,7 @@ import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
 import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "app_constants/ui";
 import Colors from "app_constants/colors";
+import Routes from "app_constants/routes";
 import { trimText } from "utils/ui";
 import { Movie } from "types";
 
@@ -45,7 +46,7 @@ const Carousel = ({
             activeOpacity={0.8}
             height={posterHeight}
             width={posterWidth}
-            onPress={() => navigation.navigate("MovieDetails", { id })}
+            onPress={() => navigation.navigate(Routes.MOVIE_DETAILS, { id })}
             imageContainerStyle={styles.posterImage}
             containerStyle={styles.posterContainer}
           />

@@ -5,7 +5,7 @@ import { Avatar, Button, Input, Text } from "react-native-elements";
 import { Layout } from "components";
 import { useColor } from "hooks";
 import { UserState } from "types";
-
+import Routes from "app_constants/routes";
 import styles from "./styles";
 
 import placeholder from "assets/images/placeholder.png";
@@ -34,7 +34,9 @@ const WelcomeView = ({
         {!keyboardDidShow && (
           <>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Root", { screen: "Home" })}
+              onPress={() =>
+                navigation.navigate(Routes.ROOT, { screen: Routes.HOME })
+              }
               style={styles.skip}
             >
               <Text style={[styles.skipText, { color: colors.text }]}>
