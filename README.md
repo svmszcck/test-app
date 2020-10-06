@@ -63,11 +63,13 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - For testing I have used some snaphots using react-test-renderer and Enzyme for the real Unit Testing. Normally I use TDD but as I didn't have much time I had to integrate the tests in the end.
 
+- I tried to use as much resuable components as possible. You can check the reusable components in "src/components" folder.
+
 **Cons:**
 
 - Not E2E testing as there wasn't enough time to work on that.
 
-- Not %100 code coverage for the Unit Tests.
+- Not %100 code coverage regarding Unit Testing. However you can check how I am testing the components by checking the implemented tests.
 
 - No feature branchs, regular commits. Normally I should have used feature branchs for the separate features and pushed those changes regularly.
 
