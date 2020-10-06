@@ -61,4 +61,6 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 - Not %100 code coverage for the Unit Tests.
 
+- No feature branchs, regular commits. Normally I should have used feature branchs for the separate features and pushed those changes regularly.
+
 **Anyway, if I had more time I could solve these issues but it's also important to be aware of these right? =)**
