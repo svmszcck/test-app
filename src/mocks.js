@@ -1,5 +1,6 @@
 import React from "react";
 import configureMockStore from "redux-mock-store";
+import * as redux from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import thunk from "redux-thunk";
@@ -38,5 +39,12 @@ export const MockedNavigator = ({ component, params = {} }) => {
 };
 
 export const navigation = {
-  navigate: () => {},
+  navigate: jest.fn(),
 };
+
+export const mockUseSelector = jest.fn();
+export const mockUseDispatch = jest.fn();
+
+export const useDispatchSpy = jest.spyOn(redux, "useDispatch");
+export const mockDispatchFn = jest.fn();
+useDispatchSpy.mockReturnValue(mockDispatchFn);

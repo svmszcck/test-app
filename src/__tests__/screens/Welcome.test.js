@@ -2,12 +2,12 @@ import { TouchableOpacity } from "react-native";
 import React from "react";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
-import { Avatar } from "react-native-elements";
+import { Avatar, Button } from "react-native-elements";
 import { mount } from "enzyme";
 
 import { Welcome } from "screens";
 import WelcomeView from "screens/Welcome/view";
-import { store, navigation, MockedNavigator } from "mocks";
+import { store, navigation, useDispatchSpy } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -20,7 +20,7 @@ describe("Testing Welcome Screen", () => {
 
   const container = (
     <Provider store={store}>
-      <MockedNavigator component={Welcome} />
+      <Welcome navigation={navigation} />
     </Provider>
   );
 
@@ -52,11 +52,15 @@ describe("Testing Welcome Screen", () => {
     expect(selectUserImg).toHaveBeenCalled();
   });
 
-  it("ertert", () => {
+  it("test navigation actions", () => {
     const wrapper = mount(container);
 
-    const skipButton = wrapper.find(TouchableOpacity);
+    const skipButton = wrapper.find(TouchableOpacity).at(0);
+    const saveUserButton = wrapper.find(Button).at(0);
 
-    console.log(skipButton.debug());
+    skipButton.props().onPress();
+
+    expect(navigation.navigate).toHaveBeenCalled();
+    expect(useDispatchSpy).toHaveBeenCalled();
   });
 });
