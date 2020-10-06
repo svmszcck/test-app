@@ -1,6 +1,6 @@
 # Mytheresa React Native Test App
 
-Used Technologies:
+**Used Technologies:**
 
 - React Native & Expo
 - Redux & Redux Persist, Redux Thunk (for side effects)
@@ -10,7 +10,7 @@ Used Technologies:
 - Axios for API Calls
 - Jest & React Test Renderer & Enzyme for Unit Testing
 
-**Screenshots**:
+**Screenshots:**
 <br /> <br />
 
 <img src="https://i.ibb.co/H4wXjrk/Screenshot-2020-10-06-10-48-04-854-host-exp-exponent.jpg" width="400" >
