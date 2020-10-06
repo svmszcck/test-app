@@ -1,4 +1,4 @@
-# Mytheresa React Native Test App
+# React Native Test App
 
 **Used Technologies:**
 
