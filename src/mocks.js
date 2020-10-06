@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "react-native";
 import configureMockStore from "redux-mock-store";
 import * as redux from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
@@ -7,6 +8,7 @@ import thunk from "redux-thunk";
 
 const mockStore = configureMockStore([thunk]);
 const Stack = createStackNavigator();
+jest.spyOn(Alert, "alert");
 
 export const store = mockStore({
   user: {

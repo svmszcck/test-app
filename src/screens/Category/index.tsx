@@ -23,8 +23,10 @@ const Category = ({ navigation, route }: CategoryProps) => {
   }, []);
 
   const loadMore = () => {
-    if (id) dispatch(getMovieByGenre(id, page + 1));
-    setPage(page + 1);
+    if (id) {
+      dispatch(getMovieByGenre(id, page + 1));
+      setPage(page + 1);
+    }
   };
 
   return (

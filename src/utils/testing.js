@@ -11,6 +11,7 @@ const { window } = jsdom;
 jest.useFakeTimers();
 
 export const setupEnv = () => {
+  jest.useFakeTimers();
   function copyProps(src, target) {
     Object.defineProperties(target, {
       ...Object.getOwnPropertyDescriptors(src),

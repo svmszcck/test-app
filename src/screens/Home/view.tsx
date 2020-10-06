@@ -1,20 +1,19 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   View,
   ScrollView,
   RefreshControl,
   TouchableOpacity,
   Image,
-  useColorScheme,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, Tile } from "react-native-elements";
 import { FlatGrid } from "react-native-super-grid";
 
 import { Layout, Section, Carousel } from "components";
-import Colors from "constants/colors";
 import Device from "constants/layout";
 import { Genre } from "types";
+import { useColor } from "hooks";
 import styles from "./styles";
 
 import tada from "assets/images/tada.png";
@@ -29,16 +28,13 @@ const HomeView = ({
   categories,
   setCategories,
   loadMore,
-  genresLoading,
-  moviesLoading,
   popularMoviesLoading,
   isRefreshing,
   refresh,
   name,
   showMessage,
 }: HomeViewProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
 
   return (
     <Layout>

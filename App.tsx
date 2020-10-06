@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { LogBox, View } from "react-native";
+import { LogBox, View, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { useCachedResources, useColorScheme } from "hooks";
+import { useCachedResources } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
 import { isApple } from "utils/device";

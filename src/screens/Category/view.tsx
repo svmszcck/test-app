@@ -1,14 +1,9 @@
-import React, { useMemo } from "react";
-import { View, ScrollView, useColorScheme } from "react-native";
-import { ListItem, Text } from "react-native-elements";
+import React from "react";
 import { isEmpty } from "lodash";
 
 import { Layout, Section, List } from "components";
-import Colors from "constants/colors";
-import { IMAGE_URL } from "constants/api";
-import { IMAGE_SMALL } from "constants/ui";
+import { useColor } from "hooks";
 import { Movie } from "types";
-import styles from "./styles";
 
 const CategoryView = ({
   navigation,
@@ -17,8 +12,7 @@ const CategoryView = ({
   loadMore,
   name,
 }: CategoryViewProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
 
   return (
     <Layout navigation={navigation} hasMenu isLoading={isEmpty(movies)}>
