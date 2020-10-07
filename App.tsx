@@ -1,5 +1,5 @@
 import React from "react";
-import { NativeModules, LogBox, View, useColorScheme } from "react-native";
+import { LogBox, View, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -11,8 +11,6 @@ import setupRedux from "store";
 import { isApple } from "utils/device";
 import { STATUS_BAR_HEIGHT } from "app_constants/ui";
 import { useColor } from "hooks";
-
-const { StatusBarManager } = NativeModules;
 
 LogBox.ignoreAllLogs(true);
 
