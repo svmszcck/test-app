@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
+  GestureResponderEvent,
 } from "react-native";
 import { Text } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
@@ -90,7 +91,7 @@ type LayoutProps = {
   isLoading: boolean;
   hasMenu: boolean;
   rightIcon: string;
-  rightAction: Function;
+  rightAction: (event: GestureResponderEvent) => void;
 };
 
 export default Layout;

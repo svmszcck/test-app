@@ -70,6 +70,7 @@ export const MockedNavigator = ({ component: Component, params = {} }) => {
 
 export const navigation = {
   navigate: jest.fn(),
+  goBack: jest.fn(),
 };
 
 export const mockUseSelector = jest.fn();
