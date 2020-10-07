@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NativeModules, LogBox, View, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { getStatusBarHeight } from "react-native-status-bar-height";
 
 import { useCachedResources } from "hooks";
 import Navigation from "router";
@@ -18,18 +19,9 @@ LogBox.ignoreAllLogs(true);
 const { store, persistor } = setupRedux();
 
 export default function App() {
-  const [statusBarHeight, setStatusBarHeight] = useState<number>(
-    STATUS_BAR_HEIGHT
-  );
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   const colors = useColor();
-
-  useEffect(() => {
-    StatusBarManager.getHeight((response: StatusBar) =>
-      setStatusBarHeight(response.height)
-    );
-  }, []);
 
   if (!isLoadingComplete) {
     return null;
@@ -41,7 +33,7 @@ export default function App() {
             {isApple && (
               <View
                 style={{
-                  height: statusBarHeight,
+                  height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
                   backgroundColor: colors.primaryDark,
                 }}
               ></View>
@@ -53,7 +45,3 @@ export default function App() {
     );
   }
 }
-
-type StatusBar = {
-  height: number;
-};
