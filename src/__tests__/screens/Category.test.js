@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
 import { Category } from "screens";
-import { store, MockedNavigator } from "mocks";
+import { store, route, MockedNavigator } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
@@ -21,7 +21,7 @@ describe("Testing Category Screen", () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Category />
+          <Category route={route} />
         </Provider>
       )
       .toJSON();

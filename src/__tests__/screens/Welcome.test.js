@@ -6,17 +6,12 @@ import { Avatar, Button } from "react-native-elements";
 import { mount } from "enzyme";
 
 import { Welcome } from "screens";
-import { store, MockedNavigator, useDispatchSpy } from "mocks";
+import { store, navigation, MockedNavigator, useDispatchSpy } from "mocks";
 import { setupEnv } from "utils/testing";
 
 setupEnv();
 
 describe("Testing Welcome Screen", () => {
-  const keyboardDidShow = jest.fn();
-  const selectUserImg = jest.fn();
-  const setName = jest.fn();
-  const saveUser = jest.fn();
-
   const container = (
     <Provider store={store}>
       <MockedNavigator component={Welcome} />

@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
 
 import { MovieDetails } from "screens";
-import { store } from "mocks";
+import { store, route } from "mocks";
 
 jest.useFakeTimers();
 
@@ -13,7 +13,7 @@ describe("Testing Movie Details Screen", () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <MovieDetails />
+          <MovieDetails route={route} />
         </Provider>
       )
       .toJSON();

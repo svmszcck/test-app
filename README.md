@@ -106,6 +106,12 @@ Common(shared) types are in the "types.ts" file. Component specific types are di
 
 Gestures are not working smoothly on iOS due to a bug related to React Navigation 5, therefore I had to disable the animations :(
 
+In order to run the all tests please do "npm run test". I have added --verbose and --silent flags to the command to hide the enzyme related warnings :)
+
+Right now there are **23 tests** and all of them are passing ;)
+
+<img src="https://i.ibb.co/N10ptpD/tests.png" >
+
 # Pros & Cons
 
 **Pros:**

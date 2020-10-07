@@ -61,7 +61,9 @@ export const MockedNavigator = ({ component: Component, params = {} }) => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="MockedScreen" initialParams={params}>
-          {(props) => <Component {...props} navigation={navigation} />}
+          {(props) => (
+            <Component {...props} navigation={navigation} route={route} />
+          )}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
@@ -71,6 +73,10 @@ export const MockedNavigator = ({ component: Component, params = {} }) => {
 export const navigation = {
   navigate: jest.fn(),
   goBack: jest.fn(),
+};
+
+export const route = {
+  params: {},
 };
 
 export const mockUseSelector = jest.fn();
