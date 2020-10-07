@@ -10,6 +10,8 @@ import { ColorSchemeName } from "react-native";
 
 import { NotFound, Welcome } from "screens";
 import { RootStackParamList, Store } from "types";
+import { Routes } from "app_constants";
+
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -38,12 +40,12 @@ function RootNavigator() {
     <Stack.Navigator
       headerMode="none"
       screenOptions={{ headerShown: false, animationEnabled: false }}
-      initialRouteName={name ? "Root" : "Welcome"}
+      initialRouteName={name ? Routes.ROOT : Routes.WELCOME}
     >
-      <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name={Routes.WELCOME} component={Welcome} />
+      <Stack.Screen name={Routes.ROOT} component={BottomTabNavigator} />
       <Stack.Screen
-        name="NotFound"
+        name={Routes.NOT_FOUND}
         component={NotFound}
         options={{ title: "Oops!" }}
       />
