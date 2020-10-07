@@ -62,6 +62,7 @@ const MovieDetailsView = ({
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {genres.map((genre: Genre) => (
                 <Tile
+                  key={genre.id}
                   title={
                     genre.name.length >= GENRE_TEXT_LIMIT
                       ? trimText(genre.name, GENRE_TEXT_LIMIT)
