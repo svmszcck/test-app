@@ -54,7 +54,7 @@ const MovieDetailsView = ({
             disabled
             maxStars={5}
             rating={voteAverage ? voteAverage / 2 : 0}
-            fullStarColor={"#EC4B4B"}
+            fullStarColor={colors.danger}
           />
         </View>
         {genres && (
