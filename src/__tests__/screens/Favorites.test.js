@@ -37,8 +37,6 @@ describe("Testing Favorites Screen", () => {
 
     const removeItem = wrapper.find(Ionicons).at(2);
 
-    console.log(removeItem.debug());
-
     removeItem.props().onPress();
 
     expect(Alert.alert).toHaveBeenCalled();
