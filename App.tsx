@@ -1,6 +1,7 @@
 import React from "react";
 import { LogBox, View, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
+import { StatusBar } from "expo-status-bar";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { getStatusBarHeight } from "react-native-status-bar-height";
@@ -8,7 +9,6 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 import { useCachedResources } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
-import { isApple } from "utils/device";
 import { STATUS_BAR_HEIGHT } from "app_constants/ui";
 import { useColor } from "hooks";
 
@@ -28,15 +28,14 @@ export default function App() {
       <SafeAreaProvider>
         <Provider store={store}>
           <PersistGate loading={<View />} persistor={persistor}>
-            {isApple && (
-              <View
-                style={{
-                  height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
-                  backgroundColor: colors.primaryDark,
-                }}
-              ></View>
-            )}
+            <View
+              style={{
+                height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
+                backgroundColor: colors.primaryDark,
+              }}
+            ></View>
             <Navigation colorScheme={colorScheme} />
+            <StatusBar />
           </PersistGate>
         </Provider>
       </SafeAreaProvider>

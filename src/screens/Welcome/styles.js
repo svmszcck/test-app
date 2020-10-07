@@ -24,7 +24,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   skip: {
-    marginTop: 20,
+    marginTop: 0,
     marginLeft: "auto",
     marginRight: 20,
     justifyContent: "center",
