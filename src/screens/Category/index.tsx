@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getMovieByGenre, resetMoviesByGenre } from "store/actions/posts";
@@ -10,17 +10,14 @@ const Category = ({ navigation, route }: CategoryProps) => {
   const [page, setPage] = useState<number>(1);
   const posts = useSelector((state: Store) => state.posts);
   const { moviesByGenre, moviesByGenreLoading } = posts;
-
-  const id = useMemo(() => route?.params?.id, [route]);
-
-  const name = useMemo(() => route?.params?.name, [route]);
+  const { id, name } = route.params;
 
   useEffect(() => {
     if (id) dispatch(getMovieByGenre(id, page));
     return () => {
       dispatch(resetMoviesByGenre());
     };
-  }, []);
+  }, [id]);
 
   const loadMore = () => {
     if (id) {

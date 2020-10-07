@@ -1,24 +1,22 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   View,
   ScrollView,
   ActivityIndicator,
   StyleSheet,
-  TouchableOpacity,
   FlatList,
-  useColorScheme,
 } from "react-native";
 import { Avatar, Button, Text, ListItem } from "react-native-elements";
 import { isEmpty } from "lodash";
 import { Ionicons } from "@expo/vector-icons";
 
-import Colors from "app_constants/colors";
 import { IMAGE_URL } from "app_constants/api";
 import Routes from "app_constants/routes";
 import { IMAGE_SMALL } from "app_constants/ui";
 import { DELAY_TIME } from "app_constants/general";
 import { delayTask } from "utils/ui";
 import { Movie } from "types";
+import { useColor } from "hooks";
 
 const List = ({
   navigation,
@@ -31,8 +29,7 @@ const List = ({
   loadMore,
   warning,
 }: ListProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
 
   return (
     <View>

@@ -1,20 +1,19 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   View,
   FlatList,
   StyleSheet,
   ActivityIndicator,
   GestureResponderEvent,
-  useColorScheme,
 } from "react-native";
 import { Text, Tile } from "react-native-elements";
 
 import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
 import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "app_constants/ui";
-import Colors from "app_constants/colors";
 import Routes from "app_constants/routes";
 import { trimText } from "utils/ui";
+import { useColor } from "hooks";
 import { Movie } from "types";
 
 const posterWidth = Device.window.width / 2.5;
@@ -26,8 +25,7 @@ const Carousel = ({
   isLoading = false,
   loadMore,
 }: CarouselType) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   return (
     <FlatList
       keyExtractor={(item) => item.id}

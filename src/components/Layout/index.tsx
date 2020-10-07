@@ -1,15 +1,14 @@
-import React, { useMemo, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import {
   View,
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
-  useColorScheme,
 } from "react-native";
 import { Text } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
 
-import Colors from "app_constants/colors";
+import { useColor } from "hooks";
 
 const Layout = ({
   children,
@@ -19,8 +18,7 @@ const Layout = ({
   rightAction,
   navigation,
 }: LayoutProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
       {isLoading ? (

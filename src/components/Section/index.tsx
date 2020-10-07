@@ -1,12 +1,11 @@
-import React, { useMemo, ReactNode } from "react";
-import { View, StyleSheet, useColorScheme } from "react-native";
+import React, { ReactNode } from "react";
+import { View, StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
 
-import Colors from "app_constants/colors";
+import { useColor } from "hooks";
 
 const Section = ({ text, children, style }: SectionProps) => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], []);
+  const colors = useColor();
   return (
     <View style={styles.container}>
       <Text style={[styles.label, { color: colors.textBold, ...style }]}>

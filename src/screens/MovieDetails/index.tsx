@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useFocusEffect } from "@react-navigation/native";
 
 import { getMovieDetails, resetMovie } from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
@@ -18,15 +19,19 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     vote_average: voteAverage,
   }: Movie = movie;
   const { favorites } = user;
-  const isFavorite = favorites.find((favorite: any) => favorite?.id === id);
+
+  const isFavorite = useMemo(
+    () => favorites.find((favorite: any) => favorite?.id === id),
+    [favorites, id]
+  );
 
   useEffect(() => {
-    const id = route?.params?.id;
-    if (id) dispatch(getMovieDetails(id));
-    return () => {
+    const id = route.params.id;
+    if (id) {
       dispatch(resetMovie());
-    };
-  }, []);
+      dispatch(getMovieDetails(id));
+    }
+  }, [route.params.id]);
 
   const doToggleFavorite = () => {
     dispatch(
