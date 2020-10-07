@@ -35,6 +35,69 @@ I have used **"Container-Presentational Pattern"**. Because I love this pattern 
 
 I have also separated services & constants & config variables as separate files.
 
+Let me show the folder structure:
+
+```
+src
+├── __tests__ => snaphot & unit tests
+│   └── components
+│   └── screens
+├── app_constants => global constant variables
+│   └── api.js
+│   └── colors.ts
+│   └── general.js
+│   └── index.js
+│   └── layout.ts
+│   └── routes.js
+│   └── texts.js
+│   └── ui.js
+├── assets
+│   └── fonts
+│   └── images
+├── components => shared components
+│   └── Carousel
+│   └── Layout
+│   └── List
+│   └── Section
+│   └── index.js
+├── hooks => global hooks
+│   └── index.js
+│   └── useBackHandler.ts
+│   └── useCachedResources.ts
+│   └── useColor.ts
+│   └── useKeyboardHandler.ts
+├── router
+│   └── BottomTabNavigator.tsx
+│   └── index.tsx
+│   └── LinkingConfiguration.ts
+├── screens => app screens
+│   └── Category
+│   └── Favorites
+│   └── Home
+│   └── MovieDetails
+│   └── Profile
+│   └── Search
+│   └── Welcome
+│   └── index.js
+│   └── NotFound.tsx
+├── services => api calls
+│   └── post.ts
+├── store => state management
+│   └── actions
+│   └── reducers
+│   └── constants.js
+│   └── index.js
+├── utils => helper functions
+│   └── device.ts
+│   └── image.ts
+│   └── testing.js
+│   └── ui.js
+├── app_config.js => global config variables
+├── mocks.js => mocks for the tests
+├── types.ts => global types
+
+```
+
 # Details
 
 I tried to follow DRY, SOLID principles.
