@@ -25,7 +25,7 @@
 
 <img src="https://i.ibb.co/tLs86PY/Screenshot-2020-10-06-10-47-50-726-host-exp-exponent.jpg" width="400" >
 
-<img src="https://i.ibb.co/VM092Dt/Screenshot-2020-10-06-10-47-55-799-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/0Y50Lyw/Screenshot-2020-10-07-10-16-35-195-host-exp-exponent.jpg" width="400" >
 
 <br /> <br />
 
