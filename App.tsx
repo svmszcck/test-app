@@ -1,5 +1,5 @@
-import React from "react";
-import { LogBox, View, StyleSheet, useColorScheme } from "react-native";
+import React, { useEffect, useState } from "react";
+import { NativeModules, LogBox, View, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -8,16 +8,28 @@ import { useCachedResources } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
 import { isApple } from "utils/device";
+import { STATUS_BAR_HEIGHT } from "app_constants/ui";
 import { useColor } from "hooks";
+
+const { StatusBarManager } = NativeModules;
 
 LogBox.ignoreAllLogs(true);
 
 const { store, persistor } = setupRedux();
 
 export default function App() {
+  const [statusBarHeight, setStatusBarHeight] = useState<number>(
+    STATUS_BAR_HEIGHT
+  );
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   const colors = useColor();
+
+  useEffect(() => {
+    StatusBarManager.getHeight((response: StatusBar) =>
+      setStatusBarHeight(response.height)
+    );
+  }, []);
 
   if (!isLoadingComplete) {
     return null;
@@ -28,10 +40,10 @@ export default function App() {
           <PersistGate loading={<View />} persistor={persistor}>
             {isApple && (
               <View
-                style={[
-                  styles.iosStatusBar,
-                  { backgroundColor: colors.primaryDark },
-                ]}
+                style={{
+                  height: statusBarHeight,
+                  backgroundColor: colors.primaryDark,
+                }}
               ></View>
             )}
             <Navigation colorScheme={colorScheme} />
@@ -42,8 +54,6 @@ export default function App() {
   }
 }
 
-const styles = StyleSheet.create({
-  iosStatusBar: {
-    height: 20,
-  },
-});
+type StatusBar = {
+  height: number;
+};
