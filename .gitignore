@@ -1,6 +1,8 @@
 node_modules/**/*
 .expo/*
 /coverage/
+/src/__tests__/components/__snapshots__
+/src/__tests__/screens/__snapshots__
 npm-debug.*
 *.jks
 *.p8

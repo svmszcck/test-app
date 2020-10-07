@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Testing List Component renders correctly 1`] = `
 <View>
+  <Text
+    style={
+      Object {
+        "color": "#0B354F",
+        "fontWeight": "bold",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 30,
+      }
+    }
+  />
   <RCTScrollView
     contentContainerStyle={
       Object {
@@ -12,6 +23,7 @@ exports[`renders correctly 1`] = `
   >
     <View>
       <RCTScrollView
+        data={Array []}
         disableVirtualization={false}
         getItem={[Function]}
         getItemCount={[Function]}

@@ -42,7 +42,7 @@ const Layout = ({
                   Back
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.favorite} onPress={rightAction}>
+              <TouchableOpacity style={styles.rightMenu} onPress={rightAction}>
                 <Ionicons size={30} name={rightIcon} />
               </TouchableOpacity>
             </View>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginBottom: 20,
   },
-  favorite: {
+  rightMenu: {
     marginLeft: "auto",
     width: 30,
   },

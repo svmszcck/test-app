@@ -29,17 +29,26 @@ describe("Testing Layout Component", () => {
     expect(loadingSpinner.exists()).toBeTruthy();
   });
 
-  it("should show the menu && go back", () => {
+  it("should show the menu && handle the user actions", () => {
+    const rightAction = jest.fn();
     const wrapper = mount(
       <Provider store={store}>
-        <Layout isLoading={false} hasMenu navigation={navigation} />
+        <Layout
+          isLoading={false}
+          hasMenu
+          navigation={navigation}
+          rightAction={rightAction}
+        />
       </Provider>
     );
 
     const backIcon = wrapper.find(TouchableOpacity).at(0);
+    const rightMenu = wrapper.find(TouchableOpacity).at(1);
 
     backIcon.props().onPress();
+    rightMenu.props().onPress();
 
     expect(navigation.goBack).toHaveBeenCalled();
+    expect(rightAction).toHaveBeenCalled();
   });
 });
