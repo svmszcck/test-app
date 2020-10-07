@@ -33,7 +33,7 @@ const Welcome = ({ navigation }: WelcomeProps) => {
     if (name) {
       Keyboard.dismiss();
       dispatch(updateUserInfo({ name }));
-      navigation.navigate(Routes.ROOT);
+      navigation.navigate(Routes.ROOT, { screen: Routes.HOME });
       setName(undefined);
     } else {
       Alert.alert("Error!", "Please write your name");

@@ -38,7 +38,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 8,
-    width: 100,
+    width: 120,
     marginRight: 8,
   },
   genreTitle: {
