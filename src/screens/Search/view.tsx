@@ -29,7 +29,7 @@ const SearchView = ({
         onChangeText={setValue}
         value={value}
         containerStyle={{ backgroundColor: colors.primary }}
-        inputContainerStyle={{ backgroundColor: "white" }}
+        inputContainerStyle={{ backgroundColor: colors.white }}
       />
       {searched ? (
         <Section text="Search Results">

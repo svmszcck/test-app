@@ -34,4 +34,15 @@ export default StyleSheet.create({
   description: {
     marginTop: 25,
   },
+  genreContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    width: 100,
+    marginRight: 8,
+  },
+  genreTitle: {
+    fontSize: 15,
+    marginTop: -5,
+  },
 });

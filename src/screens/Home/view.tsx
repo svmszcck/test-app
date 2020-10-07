@@ -37,13 +37,10 @@ const HomeView = ({
     <Layout>
       <View style={styles.header}>
         <TouchableOpacity
-          style={{ flexDirection: "row", alignItems: "center" }}
-          onPress={() => (name ? showMessage() : null)}
+          style={styles.welcome}
+          onPress={() => (name ? showMessage() : undefined)}
         >
-          <Image
-            source={tada}
-            style={{ width: 25, height: 25, marginRight: 12 }}
-          />
+          <Image source={tada} style={styles.tada} />
           <Text style={[styles.user, { color: colors.textBold }]}>
             Hello {name ? name : "Unknown Soldier"}, welcome :)
           </Text>

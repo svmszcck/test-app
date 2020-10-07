@@ -63,19 +63,11 @@ const MovieDetailsView = ({
                 <Tile
                   title={genre.name}
                   containerStyle={{
+                    ...styles.genreContainer,
                     backgroundColor: colors.secondary,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: 8,
-                    width: 100,
-                    marginRight: 8,
                   }}
                   height={40}
-                  titleStyle={{
-                    fontSize: 15,
-                    color: "white",
-                    marginTop: -5,
-                  }}
+                  titleStyle={{ ...styles.genreTitle, color: colors.white }}
                   activeOpacity={0.8}
                   onPress={() =>
                     navigation.navigate(Routes.CATEGORY, {
