@@ -11,7 +11,8 @@
 - Jest & React Test Renderer & Enzyme for Unit Testing
 
 <br>
-** UI & UX IS CREATED BY ME 🎉😜 **
+
+**UI & UX IS CREATED BY ME 🎉😜**
 <br><br>
 
 **Screenshots:**
