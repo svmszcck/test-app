@@ -125,7 +125,7 @@ Right now there are **23 tests** and all of them are passing ;) If I had more ti
 
 - I have tested the app on both Android and iOS. I have used platform specific code in some sections.
 
-- Redux as the state manager.
+- Redux as the state manager. I have also used Redux Persist for caching & persistent store.
 
 - I have separated the business logic from the UI part(Business logic is in the container files, UI related things are in the view files.)
 
