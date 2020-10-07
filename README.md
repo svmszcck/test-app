@@ -18,19 +18,19 @@
 **Screenshots:**
 <br /> <br />
 
-<img src="https://i.ibb.co/H4wXjrk/Screenshot-2020-10-06-10-48-04-854-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/H4wXjrk/Screenshot-2020-10-06-10-48-04-854-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/cQDCgWD/Screenshot-2020-10-06-10-47-25-965-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/cQDCgWD/Screenshot-2020-10-06-10-47-25-965-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/cvZZWDd/Screenshot-2020-10-06-10-47-31-397-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/cvZZWDd/Screenshot-2020-10-06-10-47-31-397-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/L8QcbJ9/Screenshot-2020-10-06-10-47-41-063-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/L8QcbJ9/Screenshot-2020-10-06-10-47-41-063-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/xY4fT25/Screenshot-2020-10-06-10-47-35-725-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/xY4fT25/Screenshot-2020-10-06-10-47-35-725-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/tLs86PY/Screenshot-2020-10-06-10-47-50-726-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/tLs86PY/Screenshot-2020-10-06-10-47-50-726-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/0Y50Lyw/Screenshot-2020-10-07-10-16-35-195-host-exp-exponent.jpg" width="400" >
+<img src="https://i.ibb.co/0Y50Lyw/Screenshot-2020-10-07-10-16-35-195-host-exp-exponent.jpg" width="300" >
 
 <br /> <br />
 
