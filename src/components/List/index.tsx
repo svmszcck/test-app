@@ -18,6 +18,8 @@ import { delayTask } from "utils/ui";
 import { Movie } from "types";
 import { useColor } from "hooks";
 
+import placeholder from "assets/images/movie.jpg";
+
 const List = ({
   navigation,
   elements,
@@ -59,9 +61,13 @@ const List = ({
             >
               <Avatar
                 size="large"
-                source={{
-                  uri: `${IMAGE_URL(IMAGE_SMALL)}/${posterPath}`,
-                }}
+                source={
+                  posterPath
+                    ? {
+                        uri: `${IMAGE_URL(IMAGE_SMALL)}/${posterPath}`,
+                      }
+                    : placeholder
+                }
               />
               <ListItem.Content>
                 <ListItem.Title>{title}</ListItem.Title>

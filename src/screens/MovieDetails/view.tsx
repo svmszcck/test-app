@@ -13,6 +13,8 @@ import { Movie, Genre } from "types";
 import { useColor } from "hooks";
 import styles from "./styles";
 
+import placeholder from "assets/images/movie.jpg";
+
 const MovieDetailsView = ({
   navigation,
   toggleFavorite,
@@ -40,9 +42,13 @@ const MovieDetailsView = ({
         <View style={styles.topSection}>
           <Image
             style={styles.poster}
-            source={{
-              uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
-            }}
+            source={
+              posterPath
+                ? {
+                    uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
+                  }
+                : placeholder
+            }
           />
           <Text style={[styles.title, { color: colors.textBold }]}>
             {title}
