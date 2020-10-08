@@ -17,7 +17,7 @@
 
 You can test the app via Appetize using this link:
 
-https://appetize.io/app/dd2vap0j0af4k9j339nhvd718m
+https://appetize.io/app/6kf045zjy2xyhffwzxbrn4kgd4
 
 <br>
 
