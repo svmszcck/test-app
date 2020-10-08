@@ -17,7 +17,7 @@ const Search = ({ navigation }: SearchProps) => {
   const search = (isLoadMore: boolean = false) => {
     if (!isLoadMore) dispatch(resetSearchedMovies());
     if (value) {
-      dispatch(searchMovie(value, isLoadMore ? page : 1));
+      dispatch(searchMovie(value, isLoadMore ? page + 1 : 1));
       setSearched(true);
       setPage(isLoadMore ? page + 1 : 1);
       if (!isLoadMore) dispatch(updateSearchCount());
