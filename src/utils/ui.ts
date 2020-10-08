@@ -44,3 +44,7 @@ export const showSurprise = (name: string) => {
     { text: "Yes I am", onPress: () => {} },
   ]);
 };
+
+export const showApiError = (name: string) => {
+  Alert.alert("Error", "Something went wrong. Please try again :(");
+};
