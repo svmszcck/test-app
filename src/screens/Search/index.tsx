@@ -14,12 +14,15 @@ const Search = ({ navigation }: SearchProps) => {
   const posts = useSelector((state: Store) => state.posts);
   const { searchedMovies, isSearching } = posts;
 
+  console.log(searchedMovies[0]);
+
   const search = (isLoadMore: boolean = false) => {
     if (!isLoadMore) dispatch(resetSearchedMovies());
     if (value) {
-      dispatch(searchMovie(value, isLoadMore ? page + 1 : 1));
+      const newPage = isLoadMore ? page + 1 : 1;
+      dispatch(searchMovie(value, newPage));
       setSearched(true);
-      setPage(isLoadMore ? page + 1 : 1);
+      setPage(newPage);
       if (!isLoadMore) dispatch(updateSearchCount());
     }
   };

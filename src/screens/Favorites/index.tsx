@@ -3,14 +3,15 @@ import { Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toggleFavorite } from "store/actions/user";
+import { Store } from "types";
 import FavoritesView from "./view";
 
 const Favorites = ({ navigation }: FavoritesProps) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state: Store) => state.user);
   const { favorites } = user;
 
-  const removeItem = (id) => {
+  const removeItem = (id: number) => {
     Alert.alert(
       "Warning!",
       "Are you sure you want to remove this movie from your favorite list",
