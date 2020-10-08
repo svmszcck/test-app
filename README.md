@@ -71,7 +71,7 @@ src
 │   └── List
 │   └── Section
 │   └── index.js
-├── hooks => global hooks
+├── hooks => custom hooks
 │   └── index.js
 │   └── useBackHandler.ts
 │   └── useCachedResources.ts
@@ -99,6 +99,7 @@ src
 │   └── constants.js
 │   └── index.js
 ├── utils => helper functions
+│   └── api.ts
 │   └── device.ts
 │   └── image.ts
 │   └── testing.js
