@@ -2,28 +2,32 @@ import { StackScreenProps } from "@react-navigation/stack";
 import * as React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import Routes from "app_constants/routes";
 import { RootStackParamList } from "types";
+import { useColor } from "hooks";
 
-export default function NotFound({
+const NotFound = ({
   navigation,
-}: StackScreenProps<RootStackParamList, "NotFound">) {
+}: StackScreenProps<RootStackParamList, Routes.NOT_FOUND>) => {
+  const colors = useColor();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.white }]}>
       <Text style={styles.title}>This screen doesn't exist.</Text>
       <TouchableOpacity
-        onPress={() => navigation.replace("Root")}
+        onPress={() => navigation.replace(Routes.ROOT)}
         style={styles.link}
       >
-        <Text style={styles.linkText}>Go to home screen!</Text>
+        <Text style={[styles.linkText, { color: colors.link }]}>
+          Go to home screen!
+        </Text>
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 14,
-    color: "#2e78b7",
   },
 });
+
+export default NotFound;

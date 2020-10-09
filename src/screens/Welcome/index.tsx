@@ -11,7 +11,7 @@ import WelcomeView from "./view";
 
 const Welcome = ({ navigation }: WelcomeProps) => {
   const [keyboardDidShow, setKeyboardDidShow] = useState<boolean>(false);
-  const [name, setName] = useState<string>();
+  const [name, setName] = useState<string | undefined>();
   const dispatch = useDispatch();
   const user = useSelector((state: Store) => state.user);
   const { avatar } = user;

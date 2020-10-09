@@ -14,8 +14,6 @@ const Search = ({ navigation }: SearchProps) => {
   const posts = useSelector((state: Store) => state.posts);
   const { searchedMovies, isSearching } = posts;
 
-  console.log(searchedMovies[0]);
-
   const search = (isLoadMore: boolean = false) => {
     if (!isLoadMore) dispatch(resetSearchedMovies());
     if (value) {

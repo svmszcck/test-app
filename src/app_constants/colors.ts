@@ -7,6 +7,7 @@ const theme = {
   secondary: "#2CA17C",
   danger: "#EC4B4B",
   white: "#fff",
+  link: "#2e78b7"
 };
 
 export default {
