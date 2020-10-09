@@ -33,7 +33,7 @@ export default function App() {
                 height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
                 backgroundColor: colors.primaryDark,
               }}
-            ></View>
+            />
             <Navigation colorScheme={colorScheme} />
             <StatusBar />
           </PersistGate>
