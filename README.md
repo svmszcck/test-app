@@ -86,11 +86,11 @@ src
 │   └── Favorites
 │   └── Home
 │   └── MovieDetails
+│   └── NotFound
 │   └── Profile
 │   └── Search
 │   └── Welcome
 │   └── index.js
-│   └── NotFound.tsx
 ├── services => api calls
 │   └── post.ts
 ├── store => state management
