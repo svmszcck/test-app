@@ -28,7 +28,7 @@ https://appetize.io/app/6kf045zjy2xyhffwzxbrn4kgd4
 
 <img src="https://i.ibb.co/cQDCgWD/Screenshot-2020-10-06-10-47-25-965-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/cvZZWDd/Screenshot-2020-10-06-10-47-31-397-host-exp-exponent.jpg" width="300" >
+<img src="https://i.ibb.co/xHzgQhq/Screenshot-2020-10-06-10-47-31-397-host-exp-exponent.jpg" width="300" >
 
 <img src="https://i.ibb.co/L8QcbJ9/Screenshot-2020-10-06-10-47-41-063-host-exp-exponent.jpg" width="300" >
 
