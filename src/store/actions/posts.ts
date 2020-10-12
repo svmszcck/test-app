@@ -7,81 +7,86 @@ import {
 } from "services/post";
 import { updateLoginState, showApiError } from "utils/ui";
 import {
-  GET_GENRES,
-  GET_POPULAR_MOVIES,
-  GET_MOVIE,
-  GET_SEARCHED_MOVIES,
-  GET_MOVIES_BY_GENRE,
+  UPDATE_GENRES,
+  UPDATE_POPULAR_MOVIES,
+  UPDATE_MOVIE,
+  UPDATE_SEARCHED_MOVIES,
+  UPDATE_MOVIES_BY_GENRE,
   RESET_MOVIE,
   RESET_SEARCHED_MOVIES,
   RESET_MOVIES_BY_GENRE,
   RESET_POSTS,
+  GENRES_LOADING,
+  POPULAR_MOVIES_LOADING,
+  MOVIE_LOADING,
+  IS_SEARCHING,
+  MOVIES_BY_GENRE_LOADING
 } from "../constants";
 
 export const getGenres = () => async (dispatch: Function) => {
-  updateLoginState(dispatch, "genresLoading", true);
+  updateLoginState(dispatch, GENRES_LOADING, true);
   const data = await genresService();
   if (data && data.genres) {
     dispatch({
-      type: GET_GENRES,
+      type: UPDATE_GENRES,
       payload: { genres: data.genres },
     });
   } else showApiError();
-  updateLoginState(dispatch, "genresLoading", false);
+  updateLoginState(dispatch, GENRES_LOADING, false);
 };
 
 export const getPopularMovies = (page: number) => async (
   dispatch: Function
 ) => {
-  updateLoginState(dispatch, "popularMoviesLoading", true);
+  updateLoginState(dispatch, POPULAR_MOVIES_LOADING, true);
   const data = await popularMoviesService(page);
   if (data?.results) {
     dispatch({
-      type: GET_POPULAR_MOVIES,
+      type: UPDATE_POPULAR_MOVIES,
       payload: { popularMovies: data.results },
     });
   } else showApiError();
-  updateLoginState(dispatch, "popularMoviesLoading", false);
+  updateLoginState(dispatch, POPULAR_MOVIES_LOADING, false);
 };
 
 export const getMovieDetails = (id: number) => async (dispatch: Function) => {
-  updateLoginState(dispatch, "movieLoading", true);
+  updateLoginState(dispatch, MOVIE_LOADING, true);
   const data = await movieDetailsService(id);
   if (data) {
     dispatch({
-      type: GET_MOVIE,
+      type: UPDATE_MOVIE,
       payload: { movie: data },
     });
   } else showApiError();
-  updateLoginState(dispatch, "movieLoading", false);
+  updateLoginState(dispatch, MOVIE_LOADING, false);
 };
 
 export const searchMovie = (query: string, page: number) => async (
   dispatch: Function
 ) => {
-  updateLoginState(dispatch, "isSearching", true);
+  updateLoginState(dispatch, IS_SEARCHING, true);
   const data = await searchMovieService(query, page);
   if (data?.results) {
     dispatch({
-      type: GET_SEARCHED_MOVIES,
+      type: UPDATE_SEARCHED_MOVIES,
       payload: { searchedMovies: data.results },
     });
   } else showApiError();
-  updateLoginState(dispatch, "isSearching", false);
+  updateLoginState(dispatch, IS_SEARCHING, false);
 };
 
 export const getMovieByGenre = (genre: Number, page: number) => async (
   dispatch: Function
 ) => {
-  updateLoginState(dispatch, "moviesByGenreLoading", true);
+  updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, true);
   const data = await moviesByGenreService(genre, page);
   if (data?.results) {
     dispatch({
-      type: GET_MOVIES_BY_GENRE,
+      type: UPDATE_MOVIES_BY_GENRE,
       payload: { moviesByGenre: data.results },
     });
   } else showApiError();
-  updateLoginState(dispatch, "moviesByGenreLoading", false);
+  updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, false);
 };
 
 export const resetMovie = () => async (dispatch: Function) => {

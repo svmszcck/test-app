@@ -1,8 +1,8 @@
 import { Action, FavoriteMovie, UserState } from "types";
 import {
   LOGIN,
-  GET_FAVORITES,
-  GET_SEARCH_COUNT,
+  UPDATE_FAVORITES,
+  UPDATE_SEARCH_COUNT,
   RESET_USER,
 } from "../constants";
 
@@ -17,8 +17,8 @@ const userReducer = (state = initialState, { type, payload }: Action) => {
   switch (type) {
     case LOGIN:
       return { ...state, ...payload };
-    case GET_FAVORITES:
-      const { id, title, img } = payload;
+    case UPDATE_FAVORITES:
+      const { id } = payload;
       let result;
       const { favorites } = state;
       const isFavorite = favorites.find(
@@ -30,7 +30,7 @@ const userReducer = (state = initialState, { type, payload }: Action) => {
         );
       else result = [...favorites, payload];
       return { ...state, favorites: result };
-    case GET_SEARCH_COUNT:
+    case UPDATE_SEARCH_COUNT:
       return { ...state, searchCount: state.searchCount + 1 };
     case RESET_USER:
       return initialState;

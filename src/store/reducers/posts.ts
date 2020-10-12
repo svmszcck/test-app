@@ -1,11 +1,11 @@
 import { Action, PostsState } from "types";
 import {
-  GET_MOVIES,
-  GET_MOVIE,
-  GET_GENRES,
-  GET_POPULAR_MOVIES,
-  GET_SEARCHED_MOVIES,
-  GET_MOVIES_BY_GENRE,
+  UPDATE_MOVIES,
+  UPDATE_MOVIE,
+  UPDATE_GENRES,
+  UPDATE_POPULAR_MOVIES,
+  UPDATE_SEARCHED_MOVIES,
+  UPDATE_MOVIES_BY_GENRE,
   SET_LOADING_STATE,
   RESET_MOVIE,
   RESET_SEARCHED_MOVIES,
@@ -30,18 +30,18 @@ const initialState: PostsState = {
 
 const postsReducer = (state = initialState, { type, payload }: Action) => {
   switch (type) {
-    case GET_MOVIES:
+    case UPDATE_MOVIES:
       return { ...state, ...payload };
-    case GET_GENRES:
+    case UPDATE_GENRES:
       return { ...state, ...payload };
-    case GET_MOVIE:
+    case UPDATE_MOVIE:
       return { ...state, ...payload };
-    case GET_SEARCHED_MOVIES:
+    case UPDATE_SEARCHED_MOVIES:
       return {
         ...state,
         searchedMovies: [...state.searchedMovies, ...payload.searchedMovies],
       };
-    case GET_MOVIES_BY_GENRE:
+    case UPDATE_MOVIES_BY_GENRE:
       const wer = {
         ...state,
         moviesByGenre: [...state.moviesByGenre, ...payload.moviesByGenre],
@@ -50,7 +50,7 @@ const postsReducer = (state = initialState, { type, payload }: Action) => {
         ...state,
         moviesByGenre: [...state.moviesByGenre, ...payload.moviesByGenre],
       };
-    case GET_POPULAR_MOVIES:
+    case UPDATE_POPULAR_MOVIES:
       return {
         ...state,
         popularMovies: [...state.popularMovies, ...payload.popularMovies],

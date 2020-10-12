@@ -1,7 +1,7 @@
 import {
   LOGIN,
-  GET_FAVORITES,
-  GET_SEARCH_COUNT,
+  UPDATE_FAVORITES,
+  UPDATE_SEARCH_COUNT,
   RESET_USER,
 } from "../constants";
 
@@ -10,11 +10,11 @@ export const updateUserInfo = (payload) => (dispatch) => {
 };
 
 export const toggleFavorite = (payload) => (dispatch) => {
-  dispatch({ type: GET_FAVORITES, payload });
+  dispatch({ type: UPDATE_FAVORITES, payload });
 };
 
 export const updateSearchCount = () => (dispatch) => {
-  dispatch({ type: GET_SEARCH_COUNT });
+  dispatch({ type: UPDATE_SEARCH_COUNT });
 };
 
 export const logout = () => (dispatch) => {
