@@ -1,15 +1,15 @@
 import { sendRequest } from "utils/api";
 
-export const genresService = async () => sendRequest("genre/movie/list");
+export const genresService = () => sendRequest("genre/movie/list");
 
-export const popularMoviesService = async (page: number) =>
+export const popularMoviesService = (page: number) =>
   sendRequest("movie/popular", { page });
 
-export const movieDetailsService = async (id: string) =>
+export const movieDetailsService = (id: string) =>
   sendRequest(`movie/${id}`);
 
-export const searchMovieService = async (query: string, page: number) =>
+export const searchMovieService = (query: string, page: number) =>
   sendRequest("search/movie", { query, page });
 
-export const moviesByGenreService = async (genre: Number, page: number) =>
+export const moviesByGenreService = (genre: Number, page: number) =>
   sendRequest("discover/movie", { with_genres: genre, page });

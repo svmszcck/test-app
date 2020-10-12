@@ -89,25 +89,25 @@ export const getMovieByGenre = (genre: Number, page: number) => async (
   updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, false);
 };
 
-export const resetMovie = () => async (dispatch: Function) => {
+export const resetMovie = () => (dispatch: Function) => {
   dispatch({
     type: RESET_MOVIE,
   });
 };
 
-export const resetSearchedMovies = () => async (dispatch: Function) => {
+export const resetSearchedMovies = () => (dispatch: Function) => {
   dispatch({
     type: RESET_SEARCHED_MOVIES,
   });
 };
 
-export const resetMoviesByGenre = () => async (dispatch: Function) => {
+export const resetMoviesByGenre = () => (dispatch: Function) => {
   dispatch({
     type: RESET_MOVIES_BY_GENRE,
   });
 };
 
-export const resetPosts = () => async (dispatch: Function) => {
+export const resetPosts = () => (dispatch: Function) => {
   dispatch({
     type: RESET_POSTS,
   });
