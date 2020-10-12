@@ -20,7 +20,7 @@ import {
   GENRES_LOADING,
   POPULAR_MOVIES_LOADING,
   MOVIE_LOADING,
-  MOVIES_BY_GENRE_LOADING
+  MOVIES_BY_GENRE_LOADING,
 } from "../constants";
 
 export const getGenres = () => async (dispatch: Function) => {
