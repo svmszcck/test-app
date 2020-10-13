@@ -104,7 +104,7 @@ src
 │   └── device.ts
 │   └── image.ts
 │   └── testing.js
-│   └── ui.js
+│   └── ui.ts
 ├── app_config.js => global config variables
 ├── mocks.js => mocks for the tests
 ├── types.ts => global types
