@@ -1,6 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 
 import { PERMISSION_GRANTED } from "app_constants/device";
+import { IMAGE_ASPECT_RATIO, IMAGE_QUALITY } from "app_constants/ui";
 import { showCommonError } from "utils/ui";
 
 export const checkPermission = async () => {
@@ -16,8 +17,8 @@ export const pickImage = async () => {
   let result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.All,
     allowsEditing: true,
-    aspect: [4, 3],
-    quality: 1,
+    aspect: IMAGE_ASPECT_RATIO,
+    quality: IMAGE_QUALITY,
   });
 
   if (!result || result.cancelled) {
