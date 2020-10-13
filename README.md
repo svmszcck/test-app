@@ -141,7 +141,7 @@ Right now there are **23 tests** and all of them are passing ;) If I had more ti
 
 - Since "KeyboardAvoidingView" component of React Native is a little bit buggy, I have implemented my own keyboard handler. Therefore input field is visible on small screens.
 
-- I have put the styles in separate files for the screen components. However normal shared components have single files(styles are in the components files). This is called "Single File Components" as in Vue.
+- I have put the styles in separate files for the screen components. However normal shared components have single files(styles are in the component files). This is called "Single File Components" as in Vue.
 
 - For testing I have used some snaphots using react-test-renderer and Enzyme for the real Unit Testing. Normally I use TDD but as I didn't have much time I had to integrate the tests in the end.
 
