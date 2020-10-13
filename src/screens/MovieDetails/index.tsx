@@ -27,11 +27,11 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
 
   useEffect(() => {
     const { id } = route.params;
-    if (id) {
+    if (movie.id !== id) {
       dispatch(resetMovie());
       dispatch(getMovieDetails(id));
     }
-  }, [route.params.id]);
+  }, []);
 
   const doToggleFavorite = () => {
     dispatch(
