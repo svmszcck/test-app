@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import { Keyboard, KeyboardEventListener } from "react-native";
 
 import { isApple } from "utils/device";
+import {
+  KEYBOARD_WILL_SHOW,
+  KEYBOARD_DID_SHOW,
+  KEYBOARD_WILL_HIDE,
+  KEYBOARD_DID_HIDE,
+} from "app_constants/events";
 
 const useKeyboardHandler = (
   showAction: KeyboardEventListener,
@@ -9,11 +15,11 @@ const useKeyboardHandler = (
 ) => {
   useEffect(() => {
     Keyboard.addListener(
-      isApple ? "keyboardWillShow" : "keyboardDidShow",
+      isApple ? KEYBOARD_WILL_SHOW : KEYBOARD_DID_SHOW,
       showAction
     );
     Keyboard.addListener(
-      isApple ? "keyboardWillHide" : "keyboardDidHide",
+      isApple ? KEYBOARD_WILL_HIDE : KEYBOARD_DID_HIDE,
       hideAction
     );
   }, []);
