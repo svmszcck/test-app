@@ -4,8 +4,11 @@ import { useColorScheme } from "react-native";
 import Colors from "app_constants/colors";
 
 const useColor = () => {
-  const colorScheme = useColorScheme();
-  const colors = useMemo(() => Colors[colorScheme], [Colors, colorScheme]);
+  const colorScheme: string | null | undefined = useColorScheme();
+  const colors: object = useMemo(() => Colors[colorScheme], [
+    Colors,
+    colorScheme,
+  ]);
   return colors;
 };
 
