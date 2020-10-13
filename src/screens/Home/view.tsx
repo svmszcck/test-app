@@ -14,6 +14,7 @@ import { Layout, Section, Carousel } from "components";
 import { Genre } from "types";
 import { useColor } from "hooks";
 import Routes from "app_constants/routes";
+import { DEFAULT_NAME } from "app_constants/general";
 import styles from "./styles";
 
 import tada from "assets/images/tada.png";
@@ -42,7 +43,7 @@ const HomeView = ({
         >
           <Image source={tada} style={styles.tada} />
           <Text style={[styles.user, { color: colors.textBold }]}>
-            Hello {name ? name : "Unknown Soldier"}, welcome :)
+            Hello {name ? name : DEFAULT_NAME}, welcome :)
           </Text>
         </TouchableOpacity>
 
