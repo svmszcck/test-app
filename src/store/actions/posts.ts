@@ -26,7 +26,7 @@ import {
 export const getGenres = () => async (dispatch: Function) => {
   updateLoginState(dispatch, GENRES_LOADING, true);
   const data = await genresService();
-  if (data && data.genres) {
+  if (data?.genres) {
     dispatch({
       type: UPDATE_GENRES,
       payload: { genres: data.genres },
