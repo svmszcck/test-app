@@ -6,3 +6,6 @@ export const POSTER_TEXT_LIMIT = 15;
 export const GENRE_TEXT_LIMIT = 10;
 
 export const STATUS_BAR_HEIGHT = 20;
+
+export const LIGHT = "light";
+export const DARK = "dark";

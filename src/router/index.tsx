@@ -11,6 +11,7 @@ import { ColorSchemeName } from "react-native";
 import { NotFound, Welcome } from "screens";
 import { RootStackParamList, Store } from "types";
 import { Routes } from "app_constants";
+import { DARK } from "app_constants/ui";
 
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -23,7 +24,7 @@ export default function Navigation({
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+      theme={colorScheme === DARK ? DarkTheme : DefaultTheme}
     >
       <RootNavigator />
     </NavigationContainer>
