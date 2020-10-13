@@ -1,10 +1,11 @@
 import * as ImagePicker from "expo-image-picker";
 
+import { PERMISSION_GRANTED } from "app_constants/device";
 import { showCommonError } from "utils/ui";
 
 export const checkPermission = async () => {
   const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
-  if (status !== "granted") {
+  if (status !== PERMISSION_GRANTED) {
     alert("Sorry, we need camera roll permissions to make this work!");
     return false;
   }
