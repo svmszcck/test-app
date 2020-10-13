@@ -45,6 +45,6 @@ export const showSurprise = (name: string) => {
   ]);
 };
 
-export const showApiError = (name: string) => {
+export const showCommonError = () => {
   Alert.alert("Error", "Something went wrong. Please try again :(");
 };

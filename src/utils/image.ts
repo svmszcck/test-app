@@ -1,5 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 
+import { showCommonError } from "utils/ui";
+
 export const checkPermission = async () => {
   const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
   if (status !== "granted") {
@@ -18,7 +20,7 @@ export const pickImage = async () => {
   });
 
   if (!result || result.cancelled) {
-    alert("Something went wrong, please try again!");
+    showCommonError();
     return;
   }
   return result?.uri;

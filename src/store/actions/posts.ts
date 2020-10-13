@@ -5,7 +5,7 @@ import {
   searchMovieService,
   moviesByGenreService,
 } from "services/post";
-import { updateLoginState, showApiError } from "utils/ui";
+import { updateLoginState, showCommonError } from "utils/ui";
 import {
   UPDATE_GENRES,
   UPDATE_POPULAR_MOVIES,
@@ -31,7 +31,7 @@ export const getGenres = () => async (dispatch: Function) => {
       type: UPDATE_GENRES,
       payload: { genres: data.genres },
     });
-  } else showApiError();
+  } else showCommonError();
   updateLoginState(dispatch, GENRES_LOADING, false);
 };
 
@@ -45,7 +45,7 @@ export const getPopularMovies = (page: number) => async (
       type: UPDATE_POPULAR_MOVIES,
       payload: { popularMovies: data.results },
     });
-  } else showApiError();
+  } else showCommonError();
   updateLoginState(dispatch, POPULAR_MOVIES_LOADING, false);
 };
 
@@ -57,7 +57,7 @@ export const getMovieDetails = (id: number) => async (dispatch: Function) => {
       type: UPDATE_MOVIE,
       payload: { movie: data },
     });
-  } else showApiError();
+  } else showCommonError();
   updateLoginState(dispatch, MOVIE_LOADING, false);
 };
 
@@ -71,7 +71,7 @@ export const searchMovie = (query: string, page: number) => async (
       type: UPDATE_SEARCHED_MOVIES,
       payload: { searchedMovies: data.results },
     });
-  } else showApiError();
+  } else showCommonError();
   updateLoginState(dispatch, IS_SEARCHING, false);
 };
 
@@ -85,7 +85,7 @@ export const getMovieByGenre = (genre: Number, page: number) => async (
       type: UPDATE_MOVIES_BY_GENRE,
       payload: { moviesByGenre: data.results },
     });
-  } else showApiError();
+  } else showCommonError();
   updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, false);
 };
 
