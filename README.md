@@ -55,12 +55,13 @@ src
 │   └── screens
 ├── app_constants => global constant variables
 │   └── api.js
-│   └── colors.ts
+│   └── colors.js
+│   └── device.js
+│   └── events.js
 │   └── general.js
 │   └── index.js
 │   └── layout.ts
 │   └── routes.js
-│   └── texts.js
 │   └── ui.js
 ├── assets
 │   └── fonts
