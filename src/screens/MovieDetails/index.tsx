@@ -26,7 +26,7 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   );
 
   useEffect(() => {
-    const id = route.params.id;
+    const { id } = route.params;
     if (id) {
       dispatch(resetMovie());
       dispatch(getMovieDetails(id));
