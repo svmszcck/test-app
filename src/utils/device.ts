@@ -1,5 +1,7 @@
-import { AsyncStorage, Platform } from "react-native";
+import { Platform } from "react-native";
 
-export const isAndroid: boolean = Platform.OS === "android";
+import { ANDROID, IOS } from "app_constants/device";
 
-export const isApple: boolean = Platform.OS === "ios";
+export const isAndroid: boolean = Platform.OS === ANDROID;
+
+export const isApple: boolean = Platform.OS === IOS;
