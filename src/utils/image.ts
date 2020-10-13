@@ -17,5 +17,9 @@ export const pickImage = async () => {
     quality: 1,
   });
 
-  if (!result.cancelled) return result.uri;
+  if (!result || result.cancelled) {
+    alert("Something went wrong, please try again!");
+    return;
+  }
+  return result?.uri;
 };
