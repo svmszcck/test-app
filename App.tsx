@@ -10,9 +10,11 @@ import { useCachedResources } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
 import { STATUS_BAR_HEIGHT } from "app_constants/ui";
+import { VIRTUALIZED_LIST_ERROR } from "app_constants/general";
 import { useColor } from "hooks";
 
-LogBox.ignoreAllLogs(true);
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs([VIRTUALIZED_LIST_ERROR]);
 
 const { store, persistor } = setupRedux();
 
