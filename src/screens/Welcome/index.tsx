@@ -7,6 +7,7 @@ import { checkPermission, pickImage } from "utils/image";
 import Routes from "app_constants/routes";
 import { Store } from "types";
 import { useKeyboardHandler } from "hooks";
+import { validateName } from "utils/validation";
 import WelcomeView from "./view";
 
 const Welcome = ({ navigation }: WelcomeProps) => {
@@ -30,13 +31,15 @@ const Welcome = ({ navigation }: WelcomeProps) => {
   };
 
   const saveUser = () => {
-    if (name) {
+    if (!name) {
+      Alert.alert("Error!", "Please write your name");
+    } else if (!validateName(name)) {
+      Alert.alert("Error!", "Please write a correct name");
+    } else {
       Keyboard.dismiss();
       dispatch(updateUserInfo({ name }));
       navigation.navigate(Routes.ROOT, { screen: Routes.HOME });
       setName(undefined);
-    } else {
-      Alert.alert("Error!", "Please write your name");
     }
   };
 

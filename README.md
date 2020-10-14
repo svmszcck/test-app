@@ -159,6 +159,6 @@ Right now there are **23 tests** and all of them are passing ;) If I had more ti
 
 - There are still js files in the project. Some of them should be refactored to typescript.
 
-- There should be validation for the name input. Right now it is possible to add special chars & numbers into the name input.
+- The validation for the name input should be more precise. It is not allowing some non-english chars.
 
 **Anyway, if I had more time I could solve these issues but it's also important to be aware of these right? =)**
