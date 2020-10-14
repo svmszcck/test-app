@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, ScrollView } from "react-native";
+import { View, Image, ScrollView, TouchableOpacity } from "react-native";
 import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
 import Rating from "react-native-star-rating";
@@ -8,7 +8,7 @@ import { Layout, Section } from "components";
 import { IMAGE_URL } from "app_constants/api";
 import { IMAGE_MEDIUM, GENRE_TEXT_LIMIT } from "app_constants/ui";
 import Routes from "app_constants/routes";
-import { trimText } from "utils/ui";
+import { trimText, normalizeDate } from "utils/ui";
 import { Movie, Genre } from "types";
 import { useColor } from "hooks";
 import styles from "./styles";
@@ -20,6 +20,7 @@ const MovieDetailsView = ({
   toggleFavorite,
   movie,
   isFavorite,
+  openIMDB,
 }: MovieDetailsProps) => {
   const colors = useColor();
   const {
@@ -28,6 +29,8 @@ const MovieDetailsView = ({
     genres,
     vote_average: voteAverage,
     poster_path: posterPath,
+    imdb_id: imdbID,
+    release_date: releaseDate,
   } = movie;
 
   return (
@@ -40,17 +43,25 @@ const MovieDetailsView = ({
     >
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
-          <Image
-            style={styles.poster}
-            source={
-              posterPath
-                ? {
-                    uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
-                  }
-                : placeholder
-            }
-          />
-          <Text style={[styles.title, { color: colors.textBold }]}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => (imdbID ? openIMDB(imdbID) : null)}
+          >
+            <Image
+              style={styles.poster}
+              source={
+                posterPath
+                  ? {
+                      uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
+                    }
+                  : placeholder
+              }
+            />
+          </TouchableOpacity>
+          <Text
+            onPress={() => (imdbID ? openIMDB(imdbID) : null)}
+            style={[styles.title, { color: colors.textBold }]}
+          >
             {title}
           </Text>
           <Text style={[styles.score, { color: colors.text }]}>
@@ -95,7 +106,10 @@ const MovieDetailsView = ({
             </ScrollView>
           </Section>
         )}
-        <Section text="Description" style={styles.description}>
+        <Section text="Release Date" style={styles.info}>
+          <Text>{releaseDate ? normalizeDate(releaseDate) : "-"}</Text>
+        </Section>
+        <Section text="Description" style={styles.info}>
           <Text>{overview}</Text>
         </Section>
       </ScrollView>
@@ -109,6 +123,7 @@ type MovieDetailsProps = {
   movie: Movie;
   movieLoading: boolean;
   isFavorite: boolean;
+  openIMDB: Function;
 };
 
 export default MovieDetailsView;

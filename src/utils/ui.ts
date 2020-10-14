@@ -19,6 +19,9 @@ export const trimText = (text: string, limit: number) => {
   return `${result}...`;
 };
 
+export const normalizeDate = (date: string) =>
+  new Date(date).toLocaleDateString();
+
 export const delayTask = (task: Function, time: number) =>
   setTimeout(() => {
     task();

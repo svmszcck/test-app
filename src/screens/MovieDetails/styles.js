@@ -31,8 +31,8 @@ export default StyleSheet.create({
     fontSize: 26,
     marginBottom: 5,
   },
-  description: {
-    marginTop: 25,
+  info: {
+    marginTop: 10,
   },
   genreContainer: {
     justifyContent: "center",

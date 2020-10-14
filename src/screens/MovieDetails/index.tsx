@@ -4,6 +4,8 @@ import { useFocusEffect } from "@react-navigation/native";
 
 import { getMovieDetails, resetMovie } from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
+import { openLink } from "utils/general";
+import { IMDB_URL } from "app_constants/api";
 import { Movie, Store } from "types";
 import MovieDetailsView from "./view";
 
@@ -44,6 +46,8 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
     );
   };
 
+  const openIMDB = (id: string) => openLink(`${IMDB_URL}/${id}`);
+
   return (
     <MovieDetailsView
       navigation={navigation}
@@ -51,6 +55,7 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       movie={movie}
       movieLoading={movieLoading}
       isFavorite={isFavorite}
+      openIMDB={openIMDB}
     />
   );
 };

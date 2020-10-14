@@ -39,6 +39,7 @@ export type Movie = {
   poster_path: string;
   vote_average: number;
   genres: Array<Genre>;
+  imdb_id: string;
 };
 
 export type FavoriteMovie = {
