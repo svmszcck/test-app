@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserInfo } from "store/actions/user";
 import { checkPermission, pickImage } from "utils/image";
 import Routes from "app_constants/routes";
+import { DEFAULT_ERROR_TITLE } from "app_constants/general";
 import { Store } from "types";
 import { useKeyboardHandler } from "hooks";
 import { validateName } from "utils/validation";
@@ -32,9 +33,9 @@ const Welcome = ({ navigation }: WelcomeProps) => {
 
   const saveUser = () => {
     if (!name) {
-      Alert.alert("Error!", "Please write your name");
+      Alert.alert(DEFAULT_ERROR_TITLE, "Please write your name");
     } else if (!validateName(name)) {
-      Alert.alert("Error!", "Please write a correct name");
+      Alert.alert(DEFAULT_ERROR_TITLE, "Please write a correct name");
     } else {
       Keyboard.dismiss();
       dispatch(updateUserInfo({ name }));

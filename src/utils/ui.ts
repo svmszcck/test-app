@@ -1,6 +1,7 @@
 import { Alert, BackHandler } from "react-native";
 
 import { SET_LOADING_STATE } from "store/constants";
+import { DEFAULT_ERROR_TITLE } from "app_constants/general";
 
 export const updateLoginState = (
   dispatch: Function,
@@ -46,5 +47,5 @@ export const showSurprise = (name: string) => {
 };
 
 export const showCommonError = () => {
-  Alert.alert("Error", "Something went wrong. Please try again :(");
+  Alert.alert(DEFAULT_ERROR_TITLE, "Something went wrong. Please try again :(");
 };
