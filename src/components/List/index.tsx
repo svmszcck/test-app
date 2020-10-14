@@ -40,7 +40,10 @@ const List = ({
           {warning}
         </Text>
       )}
-      <View style={styles.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.container}
+      >
         <FlatList
           keyExtractor={(item) => item.id.toString()}
           data={elements}
@@ -106,7 +109,7 @@ const List = ({
             />
           )}
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
