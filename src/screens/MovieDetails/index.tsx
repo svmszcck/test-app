@@ -33,7 +33,7 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       dispatch(resetMovie());
       dispatch(getMovieDetails(id));
     }
-  }, []);
+  }, [route.params.id]);
 
   const doToggleFavorite = () => {
     dispatch(
