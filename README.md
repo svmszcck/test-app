@@ -61,6 +61,7 @@ src
 │   └── api.js
 │   └── colors.js
 │   └── device.js
+│   └── errors.js
 │   └── events.js
 │   └── general.js
 │   └── index.js
@@ -106,6 +107,7 @@ src
 ├── utils => helper functions
 │   └── api.ts
 │   └── device.ts
+│   └── general.ts
 │   └── image.ts
 │   └── testing.js
 │   └── ui.ts
