@@ -22,7 +22,7 @@ describe("Testing List Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("show show the warning", () => {
+  it("should show the warning", () => {
     const wrapper = mount(component);
 
     const warningText = wrapper.find(Text);
