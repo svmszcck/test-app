@@ -129,7 +129,7 @@ Right now there are **23 tests** and all of them are passing ;) If I had more ti
 
 <img src="https://i.ibb.co/N10ptpD/tests.png" >
 
-<br> <br>
+<br>
 
 **Latest things I have worked on:**
 
