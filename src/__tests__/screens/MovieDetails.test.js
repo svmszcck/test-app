@@ -37,16 +37,25 @@ describe("Testing Movie Details Screen", () => {
   it("shows movie details correctly", () => {
     const wrapper = mount(container);
 
-    const genresSection = wrapper.find(Section);
+    const genresSection = wrapper.find(Section).at(0);
+    const releaseDateSection = wrapper.find(Section).at(1);
+    const descriptionSection = wrapper.find(Section).at(2);
+
     const title = wrapper.find(Text).at(1);
     const score = wrapper.find(Text).at(2);
+    const date = releaseDateSection.find(Text).at(0);
+    const overview = descriptionSection.find(Text).at(1);
     const genreTiles = wrapper.find(Tile);
     const rating = wrapper.find(Rating);
 
     expect(genresSection.exists()).toBeTruthy();
+    expect(releaseDateSection.exists()).toBeTruthy();
+    expect(descriptionSection.exists()).toBeTruthy();
     expect(genreTiles.length).toBe(1);
     expect(title.text()).toBe("Rwer");
     expect(score.text()).toBe("5.6");
     expect(rating.props().rating).toBe(5.6 / 2);
+    expect(date.exists()).toBeTruthy();
+    expect(descriptionSection.text().includes("Blablabla hehehe")).toBeTruthy();
   });
 });

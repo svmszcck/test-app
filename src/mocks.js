@@ -23,6 +23,7 @@ export const state = {
       id: 12,
       title: "Rwer",
       poster_path: "ekjrhtkjert",
+      overview: "Blablabla hehehe",
       vote_average: 5.6,
       genres: [
         {
