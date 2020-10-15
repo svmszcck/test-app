@@ -127,7 +127,7 @@ Gestures are not working smoothly on iOS due to a bug related to React Navigatio
 
 In order to run the all tests please do "npm run test". I have added --verbose and --silent flags to the command to hide the enzyme related warnings :)
 
-Right now there are **23 tests** and all of them are passing ;) If I had more time I could add more tests :P I am using JSDOM for Enzyme, it allows me to add a fake DOM tree to the React Native code.
+Right now there are **25 tests** and all of them are passing ;) If I had more time I could add more tests :P I am using JSDOM for Enzyme, it allows me to add a fake DOM tree to the React Native code.
 
 <img src="https://i.ibb.co/N10ptpD/tests.png" >
 
@@ -141,6 +141,7 @@ Right now there are **23 tests** and all of them are passing ;) If I had more ti
 - Added validation for the name input for "Welcome" screen
 - Performance optimization for "Movie Details" page by using the cached data(I am checking the new movie id and comparing it with the cached id)
 - Some visual improvements
+- Added more Unit Tests ❤️
 
 # Pros & Cons
 
