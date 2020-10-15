@@ -140,7 +140,7 @@ Right now there are **26 tests** and all of them are passing ;) If I had more ti
 **Latest things I have worked on:**
 
 - Refactored some hard-coded strings to constant variables
-- Fixed a bug related to TheMovieDB API V3(Their V3 API has a bug, basically the order of the query strings are changing the results and that's not expected, therefore i have fixed that by moving api_key param to the end). In addition due to duplicate movies in the results of the paginated api calls, FlatLists were causing bug. Therefore I have added indexes at the end of the keys to make sure keys are %100 unique. Problem solved ;)
+- Fixed a bug related to TheMovieDB API V3(Their V3 API has a bug, basically the order of the query strings are changing the results and that's not expected, therefore i have fixed that by moving api_key param to the end). In addition due to duplicate movies in the results of the paginated api calls, FlatLists were causing bugs & crashes. Therefore I have added indexes at the end of the keys to make sure keys are %100 unique. Problem solved ;)
 - Added some missing types for typescript files
 - Added validation for the name input for "Welcome" screen
 - Performance optimization for "Movie Details" page by using the cached data(I am checking the new movie id and comparing it with the cached id)
