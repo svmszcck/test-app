@@ -35,7 +35,6 @@ const WelcomeView = ({
           <>
             <TouchableOpacity
               onPress={() => {
-                navigation.popToTop();
                 navigation.navigate(Routes.ROOT, { screen: Routes.HOME });
               }}
               style={styles.skip}

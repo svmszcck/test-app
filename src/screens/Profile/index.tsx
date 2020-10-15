@@ -16,6 +16,7 @@ const Profile = ({ navigation }: ProfileProps) => {
   const doLogout = () => {
     dispatch(logout());
     dispatch(resetPosts());
+    navigation.popToTop();
     navigation.navigate(Routes.WELCOME);
   };
 
