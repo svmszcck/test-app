@@ -75,7 +75,7 @@ const MovieDetailsView = ({
           />
         </View>
         {genres && (
-          <Section text="Genres" style={styles.description}>
+          <Section text="Genres" style={styles.info}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {genres.map((genre: Genre) => (
                 <Tile

@@ -24,6 +24,12 @@ export const state = {
       title: "Rwer",
       poster_path: "ekjrhtkjert",
       vote_average: 5.6,
+      genres: [
+        {
+          id: 2,
+          name: "Horror",
+        },
+      ],
     },
     movies: [],
     genres: [
