@@ -45,8 +45,8 @@ const ProfileView = ({
             {searchCount > 1 ? " times" : " time"}.
           </Text>
           <Text style={styles.statItem}>
-            You have added{" "}
-            <Text style={styles.searchCount}>{favoritesCount}</Text>
+            You have added
+            <Text style={styles.searchCount}> {favoritesCount}</Text>
             {favoritesCount > 1 ? " movies" : " movie"} to the favorite list.
           </Text>
         </Section>

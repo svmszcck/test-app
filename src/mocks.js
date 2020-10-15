@@ -14,6 +14,7 @@ export const state = {
   user: {
     name: "Onur",
     avatar: null,
+    searchCount: 3,
     favorites: [
       { id: 13123, title: "Blabla", poster_path: "ewrwer", vote_average: 3.2 },
     ],
