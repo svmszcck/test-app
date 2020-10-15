@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logout, updateUserInfo } from "store/actions/user";
+import { resetPosts } from "store/actions/posts";
 import { Store } from "types";
 import Routes from "app_constants/routes";
 import { checkPermission, pickImage } from "utils/image";
@@ -14,6 +15,7 @@ const Profile = ({ navigation }: ProfileProps) => {
 
   const doLogout = () => {
     dispatch(logout());
+    dispatch(resetPosts());
     navigation.navigate(Routes.WELCOME);
   };
 
