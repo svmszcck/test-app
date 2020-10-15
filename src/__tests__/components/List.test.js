@@ -12,18 +12,21 @@ import { setupEnv } from "utils/testing";
 setupEnv();
 
 describe("Testing List Component", () => {
-  const component = (
-    <Provider store={store}>
-      <List elements={[]} warning />
-    </Provider>
-  );
+  let container;
+  beforeEach(() => {
+    container = (
+      <Provider store={store}>
+        <List elements={[]} warning />
+      </Provider>
+    );
+  });
   it("renders correctly", () => {
-    const tree = renderer.create(component).toJSON();
+    const tree = renderer.create(container).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should show the warning", () => {
-    const wrapper = mount(component);
+    const wrapper = mount(container);
 
     const warningText = wrapper.find(Text);
 
