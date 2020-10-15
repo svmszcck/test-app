@@ -12,6 +12,7 @@ export default StyleSheet.create({
   topSection: {
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 30,
   },
   favorite: {
     marginLeft: "auto",
