@@ -131,6 +131,8 @@ If you want to run a single test, you can do this: "jest filename.test.js". If y
 
 Right now there are **26 tests** and all of them are passing ;) If I had more time I could add more tests :P I am using JSDOM for Enzyme, it allows me to add a fake DOM tree to the React Native code.
 
+<br>
+
 <img src="https://i.ibb.co/CWyV9mp/Ekran-Al-nt-s.png" >
 
 <br>
