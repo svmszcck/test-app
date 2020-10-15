@@ -32,7 +32,7 @@ describe("Testing Favorites Screen", () => {
     expect(emptyWarning.text()).not.toBe("Favorite list is empty :(");
   });
 
-  it("movie should be able to removed from the list", () => {
+  it("movie should be able to be removed from the list", () => {
     const wrapper = mount(container);
 
     const removeItem = wrapper.find(Ionicons).at(2);
