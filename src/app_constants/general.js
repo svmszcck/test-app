@@ -1,6 +1,7 @@
 export const DELAY_TIME = 250;
 
 export const DEFAULT_NAME = "Unknown Soldier";
+export const LOAD_MORE = "Load More";
 
 export const VIRTUALIZED_LIST_ERROR = "VirtualizedLists should never be nested";
 

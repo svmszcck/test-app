@@ -11,6 +11,7 @@ import { Text, Tile } from "react-native-elements";
 import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
 import { IMAGE_MEDIUM, POSTER_TEXT_LIMIT } from "app_constants/ui";
+import { LOAD_MORE } from "app_constants/general";
 import Routes from "app_constants/routes";
 import { trimText } from "utils/ui";
 import { useColor } from "hooks";
@@ -64,7 +65,7 @@ const Carousel = ({
               style={[styles.posterLoadMoreTxt, { color: colors.textBold }]}
               onPress={loadMore}
             >
-              Load More
+              {LOAD_MORE}
             </Text>
           )}
         </View>

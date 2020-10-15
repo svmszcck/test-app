@@ -13,7 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { IMAGE_URL } from "app_constants/api";
 import Routes from "app_constants/routes";
 import { IMAGE_SMALL } from "app_constants/ui";
-import { DELAY_TIME } from "app_constants/general";
+import { DELAY_TIME, LOAD_MORE } from "app_constants/general";
 import { delayTask } from "utils/ui";
 import { Movie } from "types";
 import { useColor } from "hooks";
@@ -72,9 +72,9 @@ const List = ({
               />
               <ListItem.Content>
                 <ListItem.Title>{title}</ListItem.Title>
-                <ListItem.Subtitle style={{ color: colors.text }}>{`Score: ${
-                  voteAverage ? voteAverage : "-"
-                }`}</ListItem.Subtitle>
+                <ListItem.Subtitle style={{ color: colors.text }}>
+                  Score: {voteAverage ? voteAverage : "-"}
+                </ListItem.Subtitle>
               </ListItem.Content>
               {hasAction ? (
                 <Ionicons
@@ -96,7 +96,7 @@ const List = ({
                 styles.loadMore,
                 { backgroundColor: colors.secondary },
               ]}
-              title="Load More"
+              title={LOAD_MORE}
               onPress={() => delayTask(loadMore, DELAY_TIME)}
             />
           )}
