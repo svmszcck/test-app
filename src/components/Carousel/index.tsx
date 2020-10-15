@@ -29,7 +29,7 @@ const Carousel = ({
   const colors = useColor();
   return (
     <FlatList
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item, index) => `${item.id}-${index}`}
       data={elements}
       horizontal
       showsHorizontalScrollIndicator={false}

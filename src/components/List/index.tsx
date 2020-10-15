@@ -45,7 +45,7 @@ const List = ({
         contentContainerStyle={styles.container}
       >
         <FlatList
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item, index) => `${item.id}-${index}`}
           data={elements}
           showsVerticalScrollIndicator={false}
           renderItem={({
