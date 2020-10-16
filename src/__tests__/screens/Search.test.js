@@ -9,14 +9,17 @@ import { store } from "mocks";
 jest.useFakeTimers();
 
 describe("Testing Search Screen", () => {
+  let container;
+  beforeEach(() => {
+    container = (
+      <Provider store={store}>
+        <Search />
+      </Provider>
+    );
+  });
+
   it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <Provider store={store}>
-          <Search />
-        </Provider>
-      )
-      .toJSON();
+    const tree = renderer.create(container).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

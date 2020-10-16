@@ -11,11 +11,14 @@ import { setupEnv } from "utils/testing";
 setupEnv();
 
 describe("Testing Carousel Component", () => {
-  const component = (
-    <Provider store={store}>
-      <Carousel isLoading />
-    </Provider>
-  );
+  let component;
+  beforeEach(() => {
+    component = (
+      <Provider store={store}>
+        <Carousel isLoading />
+      </Provider>
+    );
+  });
 
   it("renders correctly", () => {
     const tree = renderer.create(component).toJSON();

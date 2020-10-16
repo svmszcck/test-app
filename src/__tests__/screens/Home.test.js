@@ -12,11 +12,14 @@ import { setupEnv } from "utils/testing";
 setupEnv();
 
 describe("Testing Home Screen", () => {
-  const container = (
-    <Provider store={store}>
-      <MockedNavigator component={Home} />
-    </Provider>
-  );
+  let container;
+  beforeEach(() => {
+    container = (
+      <Provider store={store}>
+        <MockedNavigator component={Home} />
+      </Provider>
+    );
+  });
 
   it("renders correctly", () => {
     const tree = renderer.create(container).toJSON();

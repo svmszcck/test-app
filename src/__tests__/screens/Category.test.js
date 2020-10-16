@@ -11,11 +11,14 @@ import { setupEnv } from "utils/testing";
 setupEnv();
 
 describe("Testing Category Screen", () => {
-  const container = (
-    <Provider store={store}>
-      <MockedNavigator component={Category} />
-    </Provider>
-  );
+  let container;
+  beforeEach(() => {
+    container = (
+      <Provider store={store}>
+        <MockedNavigator component={Category} />
+      </Provider>
+    );
+  });
 
   it("renders correctly", () => {
     const tree = renderer

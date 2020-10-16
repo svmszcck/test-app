@@ -11,11 +11,14 @@ import { setupEnv } from "utils/testing";
 setupEnv();
 
 describe("Testing Layout Component", () => {
-  const component = (
-    <Provider store={store}>
-      <Layout isLoading hasMenu />
-    </Provider>
-  );
+  let component;
+  beforeEach(() => {
+    component = (
+      <Provider store={store}>
+        <Layout isLoading hasMenu />
+      </Provider>
+    );
+  });
 
   it("renders correctly", () => {
     const tree = renderer.create(component).toJSON();
