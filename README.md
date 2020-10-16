@@ -40,7 +40,7 @@ https://streamable.com/qrvxdz
 
 <img src="https://i.ibb.co/tLs86PY/Screenshot-2020-10-06-10-47-50-726-host-exp-exponent.jpg" width="300" >
 
-<img src="https://i.ibb.co/0Y50Lyw/Screenshot-2020-10-07-10-16-35-195-host-exp-exponent.jpg" width="300" >
+<img src="https://i.ibb.co/vLzyGg9/1602840597348.jpg" width="300" >
 
 <br /> <br />
 
