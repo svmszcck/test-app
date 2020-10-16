@@ -39,14 +39,16 @@ const ProfileView = ({
       </View>
       <ScrollView>
         <Section text="Statistics">
-          <Text style={styles.statItem}>
+          <Text style={[styles.statItem, { color: colors.text }]}>
             You have searched
-            <Text style={styles.searchCount}> {searchCount}</Text>
+            <Text style={[styles.searchCount, { color: colors.textBold }]}>
+              {` ${searchCount}`}
+            </Text>
             {searchCount > 1 ? " times" : " time"}.
           </Text>
-          <Text style={styles.statItem}>
+          <Text style={[styles.statItem, { color: colors.text }]}>
             You have added
-            <Text style={styles.searchCount}> {favoritesCount}</Text>
+            <Text style={styles.searchCount}>{` ${favoritesCount}`}</Text>
             {favoritesCount > 1 ? " movies" : " movie"} to the favorite list.
           </Text>
         </Section>

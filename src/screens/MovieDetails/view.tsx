@@ -107,10 +107,12 @@ const MovieDetailsView = ({
           </Section>
         )}
         <Section text="Release Date" style={styles.info}>
-          <Text>{releaseDate ? normalizeDate(releaseDate) : "-"}</Text>
+          <Text style={{ color: colors.text }}>
+            {releaseDate ? normalizeDate(releaseDate) : "-"}
+          </Text>
         </Section>
         <Section text="Description" style={styles.info}>
-          <Text>{overview}</Text>
+          <Text style={{ color: colors.text }}>{overview}</Text>
         </Section>
       </ScrollView>
     </Layout>
