@@ -6,6 +6,7 @@ import { resetPosts } from "store/actions/posts";
 import { Store } from "types";
 import Routes from "app_constants/routes";
 import { checkPermission, pickImage } from "utils/image";
+import { resetNavigationState } from "utils/general";
 import ProfileView from "./view";
 
 const Profile = ({ navigation }: ProfileProps) => {
@@ -16,7 +17,7 @@ const Profile = ({ navigation }: ProfileProps) => {
   const doLogout = () => {
     dispatch(logout());
     dispatch(resetPosts());
-    navigation.popToTop();
+    resetNavigationState(navigation);
     navigation.navigate(Routes.WELCOME);
   };
 

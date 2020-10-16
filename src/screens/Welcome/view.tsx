@@ -34,9 +34,9 @@ const WelcomeView = ({
         {!keyboardDidShow && (
           <>
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(Routes.ROOT, { screen: Routes.HOME });
-              }}
+              onPress={() =>
+                navigation.navigate(Routes.ROOT, { screen: Routes.HOME })
+              }
               style={styles.skip}
             >
               <Text style={[styles.skipText, { color: colors.text }]}>
