@@ -142,10 +142,15 @@ function Tab3Navigator() {
         component={Profile}
         options={{ headerTitle: Routes.PROFILE }}
       />
-      <Tab1Stack.Screen
+      <Tab3Stack.Screen
         name={Routes.FAVORITES}
         component={Favorites}
         options={{ headerTitle: Routes.FAVORITES }}
+      />
+      <Tab3Stack.Screen
+        name={Routes.MOVIE_DETAILS}
+        component={MovieDetails}
+        options={{ headerTitle: Routes.MOVIE_DETAILS }}
       />
     </Tab3Stack.Navigator>
   );
