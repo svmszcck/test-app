@@ -33,6 +33,7 @@ describe("Testing Welcome Screen", () => {
     const saveUserButton = wrapper.find(Button).at(0);
 
     skipButton.props().onPress();
+    saveUserButton.props().onPress();
 
     expect(navigation.navigate).toHaveBeenCalled();
     expect(useDispatchSpy).toHaveBeenCalled();
