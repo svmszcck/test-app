@@ -9,6 +9,11 @@ export const FAVORITES = "Favorites";
 export const SEARCH = "Search";
 export const PROFILE = "Profile";
 
+// Tabs
+export const TAB1 = "Tab1";
+export const TAB2 = "Tab2";
+export const TAB3 = "Tab3";
+
 export default {
   WELCOME,
   ROOT,
@@ -19,4 +24,7 @@ export default {
   FAVORITES,
   SEARCH,
   PROFILE,
+  TAB1,
+  TAB2,
+  TAB3,
 };

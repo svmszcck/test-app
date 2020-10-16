@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 
-import { Colors, Routes } from "app_constants";
+import { Routes } from "app_constants";
 import {
   Home,
   Profile,
@@ -19,26 +19,27 @@ import {
   Tab2ParamList,
   Tab3ParamList,
 } from "types";
+import { useColor } from "hooks";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
+  const colors = useColor();
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName={Routes.TAB1}
       tabBarOptions={{
-        activeTintColor: Colors[colorScheme].secondary,
+        activeTintColor: colors.secondary,
         showLabel: false,
         keyboardHidesTabBar: true,
         style: {
-          backgroundColor: "white",
+          backgroundColor: colors.white,
         },
       }}
     >
       <BottomTab.Screen
-        name="Tab1"
+        name={Routes.TAB1}
         component={Tab1Navigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -47,7 +48,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Tab2"
+        name={Routes.TAB2}
         component={Tab2Navigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -56,7 +57,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Tab3"
+        name={Routes.TAB3}
         component={Tab3Navigator}
         options={{
           tabBarIcon: ({ color }) => (
