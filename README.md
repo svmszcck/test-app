@@ -1,5 +1,9 @@
 # React Native Test App
 
+<img src="https://i.ibb.co/5TCmTSf/Varl-k-1.png" width="300" >
+
+<br>
+
 **Used Technologies:**
 
 - React Native & Expo
