@@ -81,3 +81,17 @@ export type PostsState = {
   movieLoading: boolean;
   isSearching: boolean;
 };
+
+// Action Payloads
+
+export type UserInfo = {
+  name?: string;
+  avatar?: string;
+};
+
+export type FavoriteInfo = {
+  id: number;
+  title?: string;
+  poster_path?: string;
+  vote_average?: number;
+};
