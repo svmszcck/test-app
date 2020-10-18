@@ -7,10 +7,8 @@ import { useColor } from "hooks";
 const Section = ({ text, children, style }: SectionProps) => {
   const colors = useColor();
   return (
-    <View style={styles.container}>
-      <Text style={[styles.label, { color: colors.textBold, ...style }]}>
-        {text}
-      </Text>
+    <View style={{ ...styles.label, ...style }}>
+      <Text style={[styles.label, { color: colors.textBold }]}>{text}</Text>
       {children}
     </View>
   );

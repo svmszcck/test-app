@@ -1,19 +1,25 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFocusEffect } from "@react-navigation/native";
 
-import { getMovieDetails, resetMovie } from "store/actions/posts";
+import {
+  getMovieDetails,
+  getSimilarMovies,
+  resetMovie,
+} from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
 import { openLink } from "utils/general";
 import { IMDB_URL } from "app_constants/api";
 import { Movie, Store } from "types";
 import MovieDetailsView from "./view";
+import { resetSimilarMovies } from "../../store/actions/posts";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState<number>(1);
   const posts = useSelector((state: Store) => state.posts);
   const user = useSelector((state: Store) => state.user);
-  const { movie, movieLoading } = posts;
+  const { movie, similarMovies, movieLoading, similarMoviesLoading } = posts;
   const {
     id,
     title,
@@ -33,6 +39,10 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       dispatch(resetMovie());
       dispatch(getMovieDetails(id));
     }
+    dispatch(getSimilarMovies(id, page));
+    return () => {
+      dispatch(resetSimilarMovies());
+    };
   }, [route.params.id]);
 
   const doToggleFavorite = () => {
@@ -48,6 +58,11 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
 
   const openIMDB = (id: string) => openLink(`${IMDB_URL}/${id}`);
 
+  const loadSimilarMovies = () => {
+    dispatch(getSimilarMovies(id, page + 1));
+    setPage(page + 1);
+  };
+
   return (
     <MovieDetailsView
       navigation={navigation}
@@ -56,6 +71,9 @@ const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
       movieLoading={movieLoading}
       isFavorite={isFavorite}
       openIMDB={openIMDB}
+      similarMoviesLoading={similarMoviesLoading}
+      loadMore={loadSimilarMovies}
+      similarMovies={similarMovies}
     />
   );
 };

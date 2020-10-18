@@ -46,4 +46,7 @@ export default StyleSheet.create({
     fontSize: 15,
     marginTop: -5,
   },
+  similarMovies: {
+    marginBottom: 50,
+  },
 });

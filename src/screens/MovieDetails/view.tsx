@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { Text, Tile } from "react-native-elements";
 import Rating from "react-native-star-rating";
 
-import { Layout, Section } from "components";
+import { Carousel, Layout, Section } from "components";
 import { IMAGE_URL } from "app_constants/api";
 import { IMAGE_MEDIUM, GENRE_TEXT_LIMIT } from "app_constants/ui";
 import Routes from "app_constants/routes";
@@ -21,6 +21,9 @@ const MovieDetailsView = ({
   movie,
   isFavorite,
   openIMDB,
+  similarMoviesLoading,
+  loadMore,
+  similarMovies,
 }: MovieDetailsProps) => {
   const colors = useColor();
   const {
@@ -78,6 +81,7 @@ const MovieDetailsView = ({
           <Section text="Genres" style={styles.info}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {genres.map((genre: Genre) => (
+                // @ts-ignore
                 <Tile
                   key={genre.id}
                   title={
@@ -114,6 +118,14 @@ const MovieDetailsView = ({
         <Section text="Description" style={styles.info}>
           <Text style={{ color: colors.text }}>{overview}</Text>
         </Section>
+        <Section text="Similar Movies" style={styles.similarMovies}>
+          <Carousel
+            isLoading={similarMoviesLoading}
+            loadMore={loadMore}
+            elements={similarMovies}
+            navigation={navigation}
+          />
+        </Section>
       </ScrollView>
     </Layout>
   );
@@ -126,6 +138,9 @@ type MovieDetailsProps = {
   movieLoading: boolean;
   isFavorite: boolean;
   openIMDB: Function;
+  similarMoviesLoading: boolean;
+  loadMore: Function;
+  similarMovies: any;
 };
 
 export default MovieDetailsView;

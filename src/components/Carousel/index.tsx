@@ -7,6 +7,7 @@ import {
   GestureResponderEvent,
 } from "react-native";
 import { Text, Tile } from "react-native-elements";
+import { isEmpty } from "lodash";
 
 import { IMAGE_URL } from "app_constants/api";
 import Device from "app_constants/layout";
@@ -28,49 +29,62 @@ const Carousel = ({
 }: CarouselType) => {
   const colors = useColor();
   return (
-    <FlatList
-      keyExtractor={(item, index) => `${item.id}-${index}`}
-      data={elements}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      renderItem={({
-        item: { id, title, poster_path: posterPath, vote_average: voteAverage },
-      }) => (
-        <View style={styles.poster}>
-          <Tile
-            imageSrc={{
-              uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
-            }}
-            featured
-            activeOpacity={0.8}
-            height={posterHeight}
-            width={posterWidth}
-            onPress={() => navigation.navigate(Routes.MOVIE_DETAILS, { id })}
-            imageContainerStyle={styles.posterImage}
-            containerStyle={styles.posterContainer}
-          />
-          <Text style={[styles.posterTitle, { color: colors.text }]}>
-            {title.length >= POSTER_TEXT_LIMIT
-              ? trimText(title, POSTER_TEXT_LIMIT)
-              : title}
-          </Text>
-        </View>
-      )}
-      ListFooterComponent={
-        <View style={styles.posterLoadMore}>
-          {isLoading ? (
-            <ActivityIndicator animating size="large" color={colors.text} />
-          ) : (
-            <Text
-              style={[styles.posterLoadMoreTxt, { color: colors.textBold }]}
-              onPress={loadMore}
-            >
-              {LOAD_MORE}
+    <>
+      <FlatList
+        keyExtractor={(item, index) => `${item.id}-${index}`}
+        data={elements}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({
+          item: {
+            id,
+            title,
+            poster_path: posterPath,
+            vote_average: voteAverage,
+          },
+        }) => (
+          <View style={styles.poster}>
+            <Tile
+              imageSrc={{
+                uri: `${IMAGE_URL(IMAGE_MEDIUM)}/${posterPath}`,
+              }}
+              featured
+              activeOpacity={0.8}
+              height={posterHeight}
+              width={posterWidth}
+              onPress={() => navigation.navigate(Routes.MOVIE_DETAILS, { id })}
+              imageContainerStyle={styles.posterImage}
+              containerStyle={styles.posterContainer}
+            />
+            <Text style={[styles.posterTitle, { color: colors.text }]}>
+              {title.length >= POSTER_TEXT_LIMIT
+                ? trimText(title, POSTER_TEXT_LIMIT)
+                : title}
             </Text>
-          )}
-        </View>
-      }
-    />
+          </View>
+        )}
+        ListFooterComponent={
+          <View style={styles.posterLoadMore}>
+            {isLoading && (
+              <ActivityIndicator animating size="large" color={colors.text} />
+            )}
+            {!isLoading && !isEmpty(elements) && (
+              <Text
+                style={[styles.posterLoadMoreTxt, { color: colors.textBold }]}
+                onPress={loadMore}
+              >
+                {LOAD_MORE}
+              </Text>
+            )}
+          </View>
+        }
+      />
+      {!isLoading && isEmpty(elements) && (
+        <Text style={{ color: colors.text }}>
+          There isn't anything to show :(
+        </Text>
+      )}
+    </>
   );
 };
 

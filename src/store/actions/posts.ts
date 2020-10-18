@@ -4,6 +4,7 @@ import {
   movieDetailsService,
   searchMovieService,
   moviesByGenreService,
+  similarMoviesService,
 } from "services/post";
 import { updateLoginState, showCommonError } from "utils/ui";
 import {
@@ -12,15 +13,18 @@ import {
   UPDATE_MOVIE,
   UPDATE_SEARCHED_MOVIES,
   UPDATE_MOVIES_BY_GENRE,
+  UPDATE_SIMILAR_MOVIES,
   RESET_MOVIE,
   RESET_SEARCHED_MOVIES,
   RESET_MOVIES_BY_GENRE,
+  RESET_SIMILAR_MOVIES,
   RESET_POSTS,
   IS_SEARCHING,
   GENRES_LOADING,
   POPULAR_MOVIES_LOADING,
   MOVIE_LOADING,
   MOVIES_BY_GENRE_LOADING,
+  SIMILAR_MOVIES_LOADING,
 } from "../constants";
 
 export const getGenres = () => async (dispatch: Function) => {
@@ -75,7 +79,7 @@ export const searchMovie = (query: string, page: number) => async (
   updateLoginState(dispatch, IS_SEARCHING, false);
 };
 
-export const getMovieByGenre = (genre: Number, page: number) => async (
+export const getMovieByGenre = (genre: number, page: number) => async (
   dispatch: Function
 ) => {
   updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, true);
@@ -87,6 +91,20 @@ export const getMovieByGenre = (genre: Number, page: number) => async (
     });
   } else showCommonError();
   updateLoginState(dispatch, MOVIES_BY_GENRE_LOADING, false);
+};
+
+export const getSimilarMovies = (id: number, page: number) => async (
+  dispatch: Function
+) => {
+  updateLoginState(dispatch, SIMILAR_MOVIES_LOADING, true);
+  const data = await similarMoviesService(id, page);
+  if (data?.results) {
+    dispatch({
+      type: UPDATE_SIMILAR_MOVIES,
+      payload: { similarMovies: data.results },
+    });
+  } else showCommonError();
+  updateLoginState(dispatch, SIMILAR_MOVIES_LOADING, false);
 };
 
 export const resetMovie = () => (dispatch: Function) => {
@@ -104,6 +122,12 @@ export const resetSearchedMovies = () => (dispatch: Function) => {
 export const resetMoviesByGenre = () => (dispatch: Function) => {
   dispatch({
     type: RESET_MOVIES_BY_GENRE,
+  });
+};
+
+export const resetSimilarMovies = () => (dispatch: Function) => {
+  dispatch({
+    type: RESET_SIMILAR_MOVIES,
   });
 };
 
