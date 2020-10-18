@@ -47,6 +47,7 @@ export default StyleSheet.create({
     marginTop: -5,
   },
   similarMovies: {
+    marginTop: 10,
     marginBottom: 50,
   },
 });

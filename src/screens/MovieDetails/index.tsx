@@ -1,18 +1,17 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useFocusEffect } from "@react-navigation/native";
 
 import {
   getMovieDetails,
   getSimilarMovies,
   resetMovie,
+  resetSimilarMovies,
 } from "store/actions/posts";
 import { toggleFavorite } from "store/actions/user";
 import { openLink } from "utils/general";
 import { IMDB_URL } from "app_constants/api";
 import { Movie, Store } from "types";
 import MovieDetailsView from "./view";
-import { resetSimilarMovies } from "../../store/actions/posts";
 
 const MovieDetails = ({ navigation, route }: MovieDetailsProps) => {
   const dispatch = useDispatch();
