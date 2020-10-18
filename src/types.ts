@@ -1,6 +1,7 @@
 // Routing
 
 export type RootStackParamList = {
+  Welcome: undefined;
   Root: undefined;
   NotFound: undefined;
 };
@@ -8,6 +9,7 @@ export type RootStackParamList = {
 export type BottomTabParamList = {
   Tab1: undefined;
   Tab2: undefined;
+  Tab3: undefined;
 };
 
 export type Tab1ParamList = {
