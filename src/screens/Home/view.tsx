@@ -91,6 +91,8 @@ const HomeView = ({
                 }}
                 height={40}
                 titleStyle={{ ...styles.genreTitle, color: colors.white }}
+                // @ts-ignore
+                titleNumberOfLines={1}
                 activeOpacity={0.8}
                 onPress={() =>
                   navigation.navigate(Routes.CATEGORY, {

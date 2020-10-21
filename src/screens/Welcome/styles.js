@@ -37,6 +37,6 @@ export default StyleSheet.create({
     marginRight: 5,
   },
   save: {
-    marginBottom: 20,
+    marginBottom: 30,
   },
 });
