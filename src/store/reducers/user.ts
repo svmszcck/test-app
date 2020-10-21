@@ -21,7 +21,9 @@ const userReducer = (state = initialState, { type, payload }: Action) => {
       const { id } = payload;
       let result;
       const { favorites } = state;
-      const isFavorite = favorites.includes(id);
+      const isFavorite = favorites.find(
+        (favorite: FavoriteMovie) => favorite?.id === id
+      );
       if (isFavorite)
         result = favorites.filter(
           (favorite: FavoriteMovie) => favorite?.id !== id
