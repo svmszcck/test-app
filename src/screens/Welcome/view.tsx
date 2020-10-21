@@ -91,7 +91,7 @@ const WelcomeView = ({
             icon={{ name: "check-circle", color: "#fff" }}
             title="Save Profile Info"
             onPress={saveUser}
-            buttonStyle={{ backgroundColor: colors.secondary }}
+            buttonStyle={{ ...styles.save, backgroundColor: colors.secondary }}
             titleStyle={styles.buttonText}
           />
         </View>

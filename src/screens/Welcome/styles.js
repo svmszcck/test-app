@@ -8,7 +8,7 @@ export default StyleSheet.create({
   info: {
     marginLeft: "auto",
     marginRight: "auto",
-    marginBottom: 60,
+    marginBottom: 50,
     marginTop: 50,
   },
   content: {
@@ -35,5 +35,8 @@ export default StyleSheet.create({
   },
   buttonText: {
     marginRight: 5,
+  },
+  save: {
+    marginBottom: 20,
   },
 });

@@ -16,6 +16,8 @@ export default StyleSheet.create({
   tada: { width: 25, height: 25, marginRight: 12 },
   user: {
     fontWeight: "bold",
+    flex: 1,
+    flexWrap: "wrap",
   },
   favorite: {
     marginLeft: "auto",

@@ -76,7 +76,7 @@ const HomeView = ({
         </Section>
         <Section text="Movie Categories">
           <FlatGrid
-            itemDimension={140}
+            itemDimension={110}
             data={genres}
             spacing={15}
             scrollEnabled={false}
