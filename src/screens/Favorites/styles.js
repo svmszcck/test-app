@@ -14,7 +14,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
   },
   sadVector: {
-    marginTop: 100,
+    marginTop: 50,
     width: 260,
     height: 220,
     resizeMode: "contain",
