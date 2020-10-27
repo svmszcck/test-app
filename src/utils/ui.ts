@@ -1,7 +1,4 @@
-import { Alert, BackHandler } from "react-native";
-
 import { SET_LOADING_STATE } from "store/constants";
-import { DEFAULT_ERROR_TITLE } from "app_constants/errors";
 
 export const updateLoginState = (
   dispatch: Function,
