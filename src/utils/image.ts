@@ -2,7 +2,7 @@ import * as ImagePicker from "expo-image-picker";
 
 import { PERMISSION_GRANTED } from "app_constants/device";
 import { IMAGE_ASPECT_RATIO, IMAGE_QUALITY } from "app_constants/ui";
-import { showCommonError } from "utils/ui";
+import { showCommonError } from "utils/popups";
 
 export const checkPermission = async () => {
   const { status } = await ImagePicker.requestCameraRollPermissionsAsync();

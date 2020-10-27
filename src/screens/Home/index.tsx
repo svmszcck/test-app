@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useBackHandler from "hooks/useBackHandler";
 import { getGenres, getPopularMovies, resetPosts } from "store/actions/posts";
-import { handleBackButton, showSurprise } from "utils/ui";
+import { handleBackButton, showSurprise } from "utils/popups";
 import { Store } from "types";
 import HomeView from "./view";
 

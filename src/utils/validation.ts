@@ -16,7 +16,8 @@ export const validateName = (text: string | undefined) => {
   if (text.length >= 20) {
     Alert.alert(DEFAULT_ERROR_TITLE, NAME_LENGTH_ERROR);
     return false;
-  } else if (!NAME_REGEX.test(text)) {
+  }
+  if (!NAME_REGEX.test(text)) {
     Alert.alert(DEFAULT_ERROR_TITLE, NAME_TYPE_ERROR);
     return false;
   }

@@ -6,7 +6,8 @@ import {
   moviesByGenreService,
   similarMoviesService,
 } from "services/post";
-import { updateLoginState, showCommonError } from "utils/ui";
+import { updateLoginState } from "utils/ui";
+import { showCommonError } from "utils/popups";
 import {
   UPDATE_GENRES,
   UPDATE_POPULAR_MOVIES,
