@@ -155,6 +155,7 @@ Right now there are **26 tests** and all of them are passing ;) If I had more ti
 - There was an issue about tab navigation. When I log out from the Profile page and login again(or click on the skip button in Welcome page), Profile page was loading instead of the Home page. Because I had to reset the Tab navigation stack. Therefore I have implemented a util function which is "resetNavigationState" in utils/general.ts file. That was something challenging. I have learned that by reading the official doc: https://reactnavigation.org/docs/navigation-actions/#reset
 - Added similar movies feature
 - Fixed some UI issues on small devices like iPhone 5s
+- Added try catch blocks for async calls.
 
 # Pros & Cons
 
