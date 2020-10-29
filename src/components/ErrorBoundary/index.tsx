@@ -1,6 +1,6 @@
 import React, { Component, ErrorInfo } from "react";
 
-import { NotFound } from "screens";
+import NotFound from "screens/NotFound";
 
 class ErrorBoundary extends Component {
   state = {

@@ -37,8 +37,8 @@ export default function App() {
                   backgroundColor: colors.primaryDark,
                 }}
               />
-              <Navigation colorScheme={colorScheme} />
               <StatusBar />
+              <Navigation colorScheme={colorScheme} />
             </PersistGate>
           </Provider>
         </ErrorBoundary>
