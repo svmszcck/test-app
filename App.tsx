@@ -6,12 +6,12 @@ import { PersistGate } from "redux-persist/integration/react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 
-import { useCachedResources } from "hooks";
+import { ErrorBoundary } from "components";
+import { useCachedResources, useColor } from "hooks";
 import Navigation from "router";
 import setupRedux from "store";
 import { STATUS_BAR_HEIGHT } from "app_constants/ui";
 import { VIRTUALIZED_LIST_ERROR } from "app_constants/general";
-import { useColor } from "hooks";
 
 LogBox.ignoreAllLogs();
 LogBox.ignoreLogs([VIRTUALIZED_LIST_ERROR]);
@@ -28,18 +28,20 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Provider store={store}>
-          <PersistGate loading={<View />} persistor={persistor}>
-            <View
-              style={{
-                height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
-                backgroundColor: colors.primaryDark,
-              }}
-            />
-            <Navigation colorScheme={colorScheme} />
-            <StatusBar />
-          </PersistGate>
-        </Provider>
+        <ErrorBoundary>
+          <Provider store={store}>
+            <PersistGate loading={<View />} persistor={persistor}>
+              <View
+                style={{
+                  height: getStatusBarHeight() || STATUS_BAR_HEIGHT,
+                  backgroundColor: colors.primaryDark,
+                }}
+              />
+              <Navigation colorScheme={colorScheme} />
+              <StatusBar />
+            </PersistGate>
+          </Provider>
+        </ErrorBoundary>
       </SafeAreaProvider>
     );
   }

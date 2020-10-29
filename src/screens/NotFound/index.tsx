@@ -12,7 +12,7 @@ const NotFound = ({
   const colors = useColor();
   return (
     <View style={[styles.container, { backgroundColor: colors.white }]}>
-      <Text style={styles.title}>This screen doesn't exist.</Text>
+      <Text style={styles.title}>Something went wrong :(</Text>
       <TouchableOpacity
         onPress={() => navigation.replace(Routes.ROOT)}
         style={styles.link}
