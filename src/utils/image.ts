@@ -14,16 +14,21 @@ export const checkPermission = async () => {
 };
 
 export const pickImage = async () => {
-  let result = await ImagePicker.launchImageLibraryAsync({
-    mediaTypes: ImagePicker.MediaTypeOptions.All,
-    allowsEditing: true,
-    aspect: IMAGE_ASPECT_RATIO,
-    quality: IMAGE_QUALITY,
-  });
+  try {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: IMAGE_ASPECT_RATIO,
+      quality: IMAGE_QUALITY,
+    });
 
-  if (!result || result.cancelled) {
+    if (!result || result.cancelled) {
+      showCommonError();
+      return;
+    }
+    return result.uri;
+  } catch (err) {
+    console.log("Image Picker Error: ", err);
     showCommonError();
-    return;
   }
-  return result?.uri;
 };
