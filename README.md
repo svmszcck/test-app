@@ -75,7 +75,7 @@ src
 ├── assets
 │   └── fonts
 │   └── images
-├── components => shared components
+├── components => shared(reusable) components
 │   └── Carousel
 │   └── Layout
 │   └── List
