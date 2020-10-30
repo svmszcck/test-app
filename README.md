@@ -157,7 +157,7 @@ Right now there are **26 tests** and all of them are passing ;) If I had more ti
 - Added similar movies feature
 - Fixed some UI issues on small devices like iPhone 5s
 - Added try catch blocks for async calls.
-- Added an Error Boundary with proper error handling
+- Added a global Error Boundary with proper error handling
 
 # Pros & Cons
 
