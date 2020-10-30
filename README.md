@@ -25,7 +25,7 @@ https://appetize.io/app/6kf045zjy2xyhffwzxbrn4kgd4
 
 You can see the app's screen record here:
 
-https://streamable.com/qrvxdz
+https://streamable.com/5mgndg
 
 <br>
 
